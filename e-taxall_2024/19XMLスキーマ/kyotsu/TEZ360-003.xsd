@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：石油石炭税更正請求書
+version：3.1
+Date：2023年01月17日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+<xsd:include schemaLocation="../general/TEK000-002.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="TEZ360-3-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/><xsd:enumeration value="3.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="TEZ360-3-1group">
+<xsd:sequence>
+<xsd:element name="TEZ360">
+<xsd:complexType>
+<xsd:complexContent>
+<xsd:extension base="TEK000-2-0type">
+<xsd:attribute name="VR"
+type="TEZ360-3-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+
+</xsd:schema>

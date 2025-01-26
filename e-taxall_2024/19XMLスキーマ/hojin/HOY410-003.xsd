@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：認定NPO法人が助成金の支給を行った場合の実績の届出書
+version：3.0
+Date：2005年11月04日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOY410-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOY410-3-0group">
+<xsd:sequence>
+<xsd:element name="HOY410">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FYA00000" type="FYA00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYB00000" type="FYB00000-3-0type" minOccurs="0" maxOccurs="8">
+<xsd:annotation>
+<xsd:appinfo>"助成金の支給内容　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOY410-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FYA00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="FYA00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYA00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYA00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"主たる事務所の所在地又は納税地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FYA00040" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYA00050" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYA00060" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FYA00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FYA00080" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYA00090" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FYA00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)代表者の氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FYA00110" type="gen:DAIHYO_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYA00120" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FYA00130" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"認定年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYA00140" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"認定の有効期間の始期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYA00150" type="gen:DAIRI_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士署名押印"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FYB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="FYB00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYB00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給対象者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FYB00040" type="FYB00040-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"助成対象の事業等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="FYB00040-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

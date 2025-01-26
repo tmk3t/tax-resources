@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：認定要件チェック表(第1表小規模法人用)
+version：1.0
+Date：2006年06月20日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOY451-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOY451-1-0group">
+<xsd:sequence>
+<xsd:element name="HOY451">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IIA00000" type="IIA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="IIB00000" type="IIB00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"実績判定期間(注意事項参照)における下欄3の(キ)欄の金額に占める(ス)欄の金額の割合((セ)欄)が、3分の1以上であることの区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="IIC00000" type="IIC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小規模法人の判定"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOY451-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="IIA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="IIA00010" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"実績判定期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IIA00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="IIC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="IIC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"1欄"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IIC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"実績判定期間の総収入金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00030" type="IIC00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"実績判定期間の月数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(A)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00050" type="IIC00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(A)欄が800万円未満である"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IIC00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"2欄"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IIC00070" type="IIC00070-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"実績判定期間において受け入れた寄附金の合計額が3千円以上の寄附者(役員、社員を除く)の数が50人以上である"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IIC00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"3 小規模法人の特例計算を適用する場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IIC00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総収入金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IIC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国の補助金等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"委託の対価としての収入で国等から支払われるものの金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法律等の規定に基づく事業で、その対価を国等が負担することとされている場合の負担金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資産の売却収入で臨時的なものの金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"遺贈により受け入れた寄附金等のうち基準限度超過額に相当する金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IIC00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受入寄附金総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一者当たり基準限度超過額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"会費収入"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国の補助金等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIC00230" type="IIC00230-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"基準となる割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="IIB00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IIC00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="IIC00050-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="IIC00070-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="IIC00230-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="IIC00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="IIC00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="IIC00230-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="IIC00230-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

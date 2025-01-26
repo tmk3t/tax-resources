@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：平成__年分　非居住者等に支払われる組合契約に基づく利益の支払調書合計表
+version：1.0
+Date：2005年12月19日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HSZ750-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HSZ750-1-0group">
+<xsd:sequence>
+<xsd:element name="HSZ750">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="ABA00000" type="ABA00000-1-0Rtype">
+<xsd:annotation>
+<xsd:appinfo>"提出区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="ABB00000" type="ABB00000750-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前回提出"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="ABC00000" type="gen:NENBUNref">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00000" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ABE00000" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="GCF00000" type="GCF00000-1-0type">
+<xsd:annotation>
+<xsd:appinfo>"提出者(組合)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCG00000" type="GCG00000-1-0type">
+<xsd:annotation>
+<xsd:appinfo>"提出者(支払者)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="GCH00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払確定年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="GCI00000" type="GCI00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計算期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCJ00000" type="GCJ00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この調書について応答できる方"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCK00000" type="GCK00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払調書合計表"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HSZ750-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="ABB00000750-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ABB00010" type="ABB00010-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受付番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ABB00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受付年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GCF00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GCF00010" type="gen:address">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCF00020">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCF00030" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCF00040" type="gen:name">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GCG00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GCG00010" type="gen:NOZEISHA_ADRref">
+<xsd:annotation>
+<xsd:appinfo>"住所(居所)又は所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCG00020">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCG00030" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCG00040" type="gen:NOZEISHA_NMref">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCG00050" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GCI00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GCI00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCI00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GCJ00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GCJ00010" type="GCJ00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所属"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCJ00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GCK00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GCK00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCK00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払総額(支払調書提出省略分を含む。)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCK00030" type="GCK00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払件数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCK00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCK00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"源泉徴収税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCK00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち、支払調書を提出するものの合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCK00070" type="GCK00070-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払件数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCK00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCK00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"源泉徴収税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCK00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非課税分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCK00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払総額(支払調書提出省略分を含む。)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCK00120" type="GCK00120-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払件数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCK00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCK00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち、支払調書を提出するものの合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCK00150" type="GCK00150-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払件数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCK00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCK00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCK00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払総額(支払調書提出省略分を含む。)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCK00190" type="GCK00190-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払件数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCK00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCK00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"源泉徴収税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCK00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち、支払調書を提出するものの合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCK00230" type="GCK00230-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払件数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCK00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCK00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"源泉徴収税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCK00260" type="GCK00260-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（摘要）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="ABA00000-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="ABB00010-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCJ00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="18"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCK00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCK00070-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCK00120-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCK00150-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCK00190-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCK00230-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCK00260-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="ABB00010-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="ABB00010-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCK00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCK00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCK00070-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCK00070-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCK00120-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCK00120-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCK00150-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCK00150-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCK00190-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCK00190-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCK00230-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCK00230-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

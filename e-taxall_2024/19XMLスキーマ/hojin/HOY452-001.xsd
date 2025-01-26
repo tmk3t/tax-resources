@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：受け入れた寄附金の明細表第1表付表1(小規模法人用)
+version：1.0
+Date：2006年06月20日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOY452-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOY452-1-0group">
+<xsd:sequence>
+<xsd:element name="HOY452">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJA00000" type="IJA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJB00000" type="IJB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"1 基準限度額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00000" type="IJC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"2 受入寄附金総額の内訳"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOY452-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="IJA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="IJA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"実績判定期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJA00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJA00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="IJB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="IJB00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受入寄附金総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"基準限度額(受入寄附金総額の5％相当額((A)*5％))"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"基準限度額(受入寄附金総額の50％相当額((A)*50％))"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="IJC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="IJC00010" minOccurs="0" maxOccurs="10">
+<xsd:annotation>
+<xsd:appinfo>"明細  繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00030" type="IJC00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役員・社員の別、役員・社員との親族関係"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)(1)欄と(B)(特定公益増進法人、認定NPO法人にあっては(C))欄のいずれか少ない金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)(1)のうち基準限度超過額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役員、社員等の同一の者からの寄附金の額が20万円以上のものの合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)(1)欄と(B)(特定公益増進法人、認定NPO法人にあっては(C))欄のいずれか少ない金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)(1)のうち基準限度超過額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00230" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(D)欄以外の同一の者からの寄附金の額の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益増進法人、認定NPO法人"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)(1)欄と(B)(特定公益増進法人、認定NPO法人にあっては(C))欄のいずれか少ない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)(1)のうち基準限度超過額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00280" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(E)欄以外の者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00320" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)(1)欄と(B)(特定公益増進法人、認定NPO法人にあっては(C))欄のいずれか少ない金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00350" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)(1)のうち基準限度超過額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00380" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00390" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00400" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00410" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00420" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)(1)欄と(B)(特定公益増進法人、認定NPO法人にあっては(C))欄のいずれか少ない金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00430" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IJC00450" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)(1)のうち基準限度超過額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IJC00460" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IJC00470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="IJC00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

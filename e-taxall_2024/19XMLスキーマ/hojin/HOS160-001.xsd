@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：連結法人の災害損失欠損金額に関する明細書
+version：1.0
+Date：2017年11月27日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOS160-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOS160-1-0group">
+<xsd:sequence>
+<xsd:element name="HOS160">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KFA00000" type="KFA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFB00000" type="KFB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害損失欠損金額及び還付所得連結事業年度に繰り戻す金額の明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFC00000" type="KFC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害損失欠損金額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="KFD00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="KFE00000" type="KFE00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各連結法人の個別災害損失金額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOS160-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="KFA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="KFA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KFA00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFA00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="KFA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="KFB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="KFB00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害損失欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)のうち前２年以内に開始する還付所得連結事業年度に繰り戻す金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFB00030" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"(2)の内訳　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KFB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"繰り戻す還付所得連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KFB00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFB00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="KFB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"繰り戻す災害損失欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="KFC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="KFC00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各連結法人の差引災害により生じた損失の額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"仮決算の連結中間申告による還付を受けるべき金額の計算の基礎となった災害損失欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)－(6)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)と(7)のいずれか少ない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="KFE00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="KFE00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害により生じた損失の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KFE00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資産の滅失等により生じた損失の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KFE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"棚卸資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"固定資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="KFE00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被害資産の原状回復のための費用等に係る損失の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KFE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"棚卸資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"固定資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="KFE00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被害の拡大又は発生の防止のための費用に係る損失の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KFE00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"棚卸資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"固定資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="KFE00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KFE00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"棚卸資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"固定資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="KFE00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保険金又は損害賠償金等の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KFE00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"棚卸資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"固定資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="KFE00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引災害により生じた損失の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KFE00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"棚卸資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"固定資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KFE00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+
+
+</xsd:schema>

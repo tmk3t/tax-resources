@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十三(六)　特定の交換分合により取得した土地等の圧縮額の損金算入に関する明細書
+version：1.0
+Date：2004年12月22日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOD460-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOD460-1-0group">
+<xsd:sequence>
+<xsd:element name="HOD460">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="DWA00000" type="DWA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="DWB00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交換分合計画が公告された日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="DWC00000" type="DWC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交換譲渡資産の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWD00000" type="DWD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交換取得資産の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWE00000" type="DWE00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得資産のみを取得した場合又は取得資産と清算金を取得した場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWF00000" type="DWF00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡資産の譲渡とともに清算金を支出して取得資産を取得した場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOD460-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="DWA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="DWA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度又は連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="DWA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DWA00035" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="DWA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWA00045" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名（連結子法人）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="DWC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="DWC00010" type="DWC00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡した資産の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWC00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の資産の取得年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWC00030" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡した資産の所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWC00040" type="DWC00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡した土地等の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWC00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡直前の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="DWC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡に要した経費の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="DWD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="DWD00010" type="DWD00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得した資産の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWD00020" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得した資産の所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWD00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得資産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWD00040" type="DWD00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得した土地等の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="DWE00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="DWE00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資産の帳簿価額を減額した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWE00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"圧縮限度額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="DWE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡直前の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得資産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWE00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得資産とともに取得した清算金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWE00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得資産の価額に対応する帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"圧縮限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DWE00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"圧縮限度超過額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="DWF00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="DWF00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資産の帳簿価額を減額した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWF00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"圧縮限度額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="DWF00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得資産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWF00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡資産の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="DWF00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡直前の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWF00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡資産の譲渡とともに支出した清算金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DWF00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DWF00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"圧縮限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DWF00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"圧縮限度超過額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="DWC00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="32"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="DWC00040-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="DWD00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="32"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="DWD00040-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="DWC00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="DWC00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="DWD00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="DWD00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

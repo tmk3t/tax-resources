@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：特定震災指定寄附金特別控除額の計算明細書
+version：1.0
+Date：2011年08月26日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KOB910-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KOB910-1-0group">
+<xsd:sequence>
+<xsd:element name="KOB910">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="IOA00000" type="gen:NENBUNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分1"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOB00000" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOC00000" type="gen:NENBUNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分2"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="IOD00000" type="IOD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"1 寄附金の区分等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOE00000" type="IOE00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"2 特定震災指定寄附金特別控除額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KOB910-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="IOD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="IOD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金の区分等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IOD00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定震災指定寄附金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOD00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)以外の震災関連寄附金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOD00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)及び(2)以外の寄附金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="IOD00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得金額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOD00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)*40%"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOD00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)と(5)のいずれか少ない方の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOD00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)*80%"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOD00090" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"特定震災指定寄附金の内訳　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IOD00100" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附先の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOD00110" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOD00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="IOE00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="IOE00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)-(6)-(2)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)と(8)のいずれか少ない方の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"2千円-(2)-(3)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"((9)-(10))*40%"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOE00050" type="gen:NENBUNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分3"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOE00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本年分の所得税の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(12)*25%"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOE00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(13)-(公益社団法人等寄附金特別控除額+認定NPO法人寄附金特別控除額)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IOE00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定震災指定寄附金特別控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+
+
+</xsd:schema>

@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：延払条件付譲渡に係る所得税額の延納条件の変更申請書
+version：1.0
+Date：2004年12月16日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KOZ020-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KOZ020-1-0group">
+<xsd:sequence>
+<xsd:element name="KOZ020">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KOZ020-1" type="KOZ020-1-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更申請書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KOZ020-2" type="KOZ020-2-1-0type" minOccurs="0" maxOccurs="unbounded">
+<xsd:annotation>
+<xsd:appinfo>"（別紙）延払条件付譲渡に係る所得税額の計算に関する明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KOZ020-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="KOZ020-1-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FBA00000" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBB00000" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBC00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBC00020" type="FBC00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBC00025" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBC00030" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBC00040" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBC00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上記以外の住所地・事業所等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBC00055" type="gen:zipcode" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBC00060" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBC00070" type="gen:tel-number" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBC00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（フリガナ）氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBC00090" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBC00100" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBC00110" type="gen:BIRTHDAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"生年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBC00120" type="gen:SHOKUGYOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"職業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBC00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（フリガナ）屋号"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBC00140" type="gen:NOZEISHA_YAGO_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBC00150" type="gen:NOZEISHA_YAGOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"屋号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBD00000" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBE00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１．所得税の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBE00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延払条件付譲渡をした日の属する年の所得税の確定申告書の提出日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（１）の第３期分の税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（２）の２分の１の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延払条件付譲渡に係る税額（別紙）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBF00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２．延納の期間及びその額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第１回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更前"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBF00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBF00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更後"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBF00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBF00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第２回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更前"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00100" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBF00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBF00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更後"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00130" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBF00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBF00150" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第３回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更前"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00170" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBF00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBF00190" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更後"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00200" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBF00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBF00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第４回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00230" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更前"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00240" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBF00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBF00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更後"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00270" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBF00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBF00290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第５回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00300" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更前"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00310" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBF00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBF00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更後"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBF00340" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBF00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBG00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"３．延払条件付譲渡に係る契約内容等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBG00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"賦払い方法及び支払回数"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBG00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"賦払い方法"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBG00030" type="FBG00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBG00040" type="FBG00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBG00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBG00060" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBG00070" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBG00080" type="FBG00080-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払回数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBG00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本件譲渡の対価の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBG00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本契約に定められている譲渡の目的物の引渡しの期日までに支払期日の到来する賦払金の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBH00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"４．担保"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBH00010" type="FBH00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"担保の種類・提供する財産の内容・数量・価額及びその所在場所（担保が保証人の保証である場合は、その保証人の氏名・名称及び住所等）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBI00000" type="FBI00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"５．その他参考となるべき事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="KOZ020-2-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FBJ00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１．翌年以降に到来する賦払金に相当する所得を控除した場合の課税される所得金額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBJ00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告書に記載した課税総所得金額、課税譲渡所得金額、課税山林所得金額の計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBJ00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（1）の金額の計算の基礎となった譲渡所得の金額又は山林所得の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBJ00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税総所得金額又は課税山林所得金額の計算の基礎となった譲渡所得又は山林所得に係る収入"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBJ00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"翌年以降に到来する延払条件付譲渡に係る賦払金額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBJ00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税所得金額の計算（１）－（（２）*（４）／（３））"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBK00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２．延払条件付譲渡に係る税額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBK00005" type="FBK00005-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"追加所得種類１"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00010" type="FBK00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"追加所得種類２"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00580" type="FBK00580-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害減免額区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00590" type="FBK00590-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国税額控除区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告した額A"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBK00025" type="FBK00025-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業（営業等・農業）特例表示"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業（営業等・農業）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00035" type="FBK00035-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産特例表示"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利子・配当"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"給与"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00065" type="FBK00065-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"雑特例表示"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"雑"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総合譲渡・一時"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00095" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"追加所得金額１"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"追加所得金額２"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得から差し引かれる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税される所得金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBK00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（７）に対する金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（８）に対する金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（９）に対する金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBK00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBK00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（11）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（12）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（13）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBK00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額から差し引かれる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00215" type="FBK00215-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引所得税額（（17）－（１８））（免）表示"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引所得税額（（17）－（１８））"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害減免額・外国税額控除"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"再差引所得税額（（１９）－（２０））"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"定率減税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告納税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"予定納税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第３期分の税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBK00290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"翌年以降に到来する賦払金に相当する所得を控除して計算した額B"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBK00295" type="FBK00295-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業（営業等・農業）特例表示"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業（営業等・農業）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00305" type="FBK00305-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産特例表示"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利子・配当"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"給与"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00335" type="FBK00335-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"雑特例表示"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"雑"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総合譲渡・一時"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00365" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"追加所得金額１"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"追加所得金額２"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得から差し引かれる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00390" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税される所得金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBK00400" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（７）に対する金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00410" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（８）に対する金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00420" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（９）に対する金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBK00430" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBK00440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（11）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（12）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00460" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（13）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBK00480" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額から差し引かれる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00485" type="FBK00485-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引所得税額（（17）－（１８））（免）表示"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引所得税額（（17）－（１８））"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害減免額・外国税額控除"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00510" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"再差引所得税額（（１９）－（２０））"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00520" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"定率減税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00530" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告納税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00540" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"予定納税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FBK00550" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第３期分の税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FBK00560" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延払条件付譲渡に係る税額（A－B）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FBK00570" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第３期分の税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+<xsd:complexType name="FBC00020-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="5"/><xsd:enumeration value="6"/><xsd:enumeration value="7"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="FBG00030-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FBG00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBG00080-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBH00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBI00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBK00005-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBK00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="FBK00580-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="FBK00590-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FBK00025-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBK00035-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBK00065-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBK00215-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBK00295-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBK00305-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBK00335-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FBK00485-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="FBG00080-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="FBG00080-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

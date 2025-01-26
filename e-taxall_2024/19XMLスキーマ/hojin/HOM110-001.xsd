@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：震災により生じた損失の額に関する明細書
+version：1.1
+Date：2011年08月02日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOM110-1-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/><xsd:enumeration value="1.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOM110-1-1group">
+<xsd:sequence>
+<xsd:element name="HOM110">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MXA00000" type="MXA00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MXB00000" type="MXB00000-1-1type" minOccurs="0" maxOccurs="12">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="MXC00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害損失特別勘定　計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="MXD00000" type="MXD00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOM110-1-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="MXA00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="MXA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度又は連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MXA00020" type="MXA00020-1-1IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MXA00030" type="MXA00030-1-1IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MXA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MXA00050" type="MXA00050-1-1IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MXA00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名(連結子法人)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="MXB00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="MXB00010" type="MXB00010-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資産の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MXB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害前の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MXB00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"震災により生じた損失の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MXB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"滅失等による損失"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MXB00045" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"原状回復の費用　外書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MXB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"原状回復の費用　本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MXB00055" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計　外書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MXB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計　本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="MXD00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="MXD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"震災により生じた損失の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MXD00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"滅失等による損失"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MXD00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"原状回復の費用"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MXD00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="MXB00010-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="MXA00020-1-1Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="MXA00020-1-1IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="MXA00020-1-1Rtype">
+            <xsd:attribute name="IDREF" type="MXA00020-1-1-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="MXA00020-1-1-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_FROM"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_FROM"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="MXA00030-1-1Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="MXA00030-1-1IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="MXA00030-1-1Rtype">
+            <xsd:attribute name="IDREF" type="MXA00030-1-1-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="MXA00030-1-1-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_TO"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_TO"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="MXA00050-1-1IDREFtype">
+    <xsd:attribute name="IDREF" use="required">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:IDREF">
+                <xsd:enumeration value="NOZEISHA_NM"/>
+                <xsd:enumeration value="OYA_HOJIN_NM"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+</xsd:complexType>
+
+</xsd:schema>

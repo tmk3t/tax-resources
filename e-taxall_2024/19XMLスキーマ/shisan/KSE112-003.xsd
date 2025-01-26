@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：小規模宅地等についての課税価格の計算明細書(第11･11の2表の付表1)(令和6年1月分以降用)
+version：3.0
+Date：2024年06月11日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE112-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE112-3-0group">
+<xsd:sequence>
+<xsd:element name="KSE112">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="FJA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="FJB00000" type="FJB00000-3-0type" minOccurs="0" maxOccurs="6">
+<xsd:annotation>
+<xsd:appinfo>"１　特例の適用にあたっての同意　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJC00000" type="FJC00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２　小規模宅地等の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJD00000" type="FJD00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"「限度面積要件」の判定"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE112-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FJB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="FJB00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FJC00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="FJC00010" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"選択した小規模宅地等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FJC00020" type="FJC00020-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小規模宅地等の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJC00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1) 特例の適用を受ける取得者の氏名（事業内容）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FJC00040" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJC00050" type="FJC00050-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FJC00060" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2) 所在地番"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJC00070" type="FJC00070-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3) 取得者の持分に応ずる宅地等の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4) 取得者の持分に応ずる宅地等の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJC00090" type="FJC00090-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5) (3)のうち小規模宅地等(「限度面積要件」を満たす宅地等)の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6) (4)のうち小規模宅地等（(4)*(5)/(3)）の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7) 課税価格の計算に当たって減額される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(8) 課税価格に算入する価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FJD00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="FJD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(10) (5)の小規模宅地等の面積の合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FJD00020" type="FJD00020-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[1]特定居住用宅地等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJD00030" type="FJD00030-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[2]特定事業用宅地等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJD00040" type="FJD00040-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[3]特定同族会社事業用宅地等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJD00050" type="FJD00050-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[4]貸付事業用宅地等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FJD00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(11) 限度面積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FJD00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小規模宅地等のうちに[4]貸付事業用宅地等がない場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FJD00080" type="FJD00080-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[1]の(10)の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJD00090" type="FJD00090-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[2]の(10)及び[3]の(10)の面積の合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FJD00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小規模宅地等のうちに[4]貸付事業用宅地等がある場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FJD00110" type="FJD00110-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[1]の(10)の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJD00120" type="FJD00120-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[2]の(10)及び[3]の(10)の面積の合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FJD00130" type="FJD00130-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[4]の(10)の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="FJC00020-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="4"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FJC00050-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FJC00070-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FJC00090-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FJD00020-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FJD00030-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FJD00040-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FJD00050-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FJD00080-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="330"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FJD00090-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="400"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FJD00110-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="330"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FJD00120-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="400"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FJD00130-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="200"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="FJC00070-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FJC00070-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FJC00090-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FJC00090-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FJD00020-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FJD00020-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FJD00030-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FJD00030-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FJD00040-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FJD00040-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FJD00050-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FJD00050-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FJD00080-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FJD00080-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FJD00090-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FJD00090-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FJD00110-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FJD00110-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FJD00120-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FJD00120-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FJD00130-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FJD00130-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

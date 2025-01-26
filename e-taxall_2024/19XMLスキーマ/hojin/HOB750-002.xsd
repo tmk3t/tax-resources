@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表七の二　通算対象欠損金額又は通算対象所得金額の計算及び通算対象外欠損金額の計算に関する明細書
+version：2.0
+Date：2023年04月11日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOB750-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOB750-2-0group">
+<xsd:sequence>
+<xsd:element name="HOB750">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GRA00000" type="GRA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRB00000" type="GRB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通算対象欠損金額又は通算対象所得金額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRC00000" type="GRC00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通算前欠損金額の調整計算の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRD00000" type="GRD00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用期間において生ずる特定資産譲渡等損失額の計算の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRE00000" type="GRE00000-2-0type" minOccurs="0" maxOccurs="10">
+<xsd:annotation>
+<xsd:appinfo>"支配関係事業年度開始日における時価が帳簿価額を下回っていない資産の明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="GRF00000" type="GRF00000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOB750-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="GRA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="GRA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GRA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GRA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GRB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="GRB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得事業年度である場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GRB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通算前所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"他の通算法人の通算前所得金額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"他の通算法人の調整通算前欠損金額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通算対象欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GRB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"欠損事業年度である場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GRB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通算前欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整通算前欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"他の通算法人の調整通算前欠損金額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"他の通算法人の通算前所得金額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通算対象所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GRC00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="GRC00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"多額の償却費が生ずる事業年度である場合の通算対象外欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"制限対象額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資産譲渡等損失額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通算対象外欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整通算前欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GRD00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="GRD00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支配関係発生日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRD00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通算承認の効力が生じた日以後３年を経過する日と支配関係発生日以後５年を経過する日とのうちいずれか早い日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRD00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の適用期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GRD00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRD00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GRD00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の適用期間における特定資産の譲渡等による損失の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRD00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の適用期間における特定資産の譲渡等による利益の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRD00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資産譲渡等損失額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GRE00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="GRE00010" type="GRE00010-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"時価"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GRE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="GRE00010-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GRF00000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

@@ -1,0 +1,1328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：更正の請求書(外国法人用)(平成31年4月1日前終了事業年度分)
+version：3.0
+Date：2023年01月17日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="TEZ041-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="TEZ041-3-0group">
+<xsd:sequence>
+<xsd:element name="TEZ041">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTA00000" type="UTA00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00000" type="UTB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="UTC00000" type="UTC00000-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知希望区分(更正通知書等)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTD00000" type="UTD00000-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知希望区分(還付金振込)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="TEZ041-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="UTA00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="UTA00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTA00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTA00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTA00040" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTA00050" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTA00060" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTA00070" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTA00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（フリガナ）法人名等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTA00090" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTA00100" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTA00110" type="gen:NOZEISHA_BANGOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTA00120" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTA00130" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国内源泉所得に係る事業等の責任者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTA00140" type="gen:JIGYO_NAIYOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業種目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTA00150" type="gen:KANPU_KINYUKIKANref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付を受けようとする金融機関等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTA00160" type="gen:DAIRI_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士署名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="UTB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="UTB00010" type="UTB00010-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧国税通則法第23条"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00020" type="UTB00020-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧法人税法第145条"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00030" type="UTB00030-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧地方法人税法第24条"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00040" type="UTB00040-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧租税特別措置法第66条の４"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00070" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得金額又は欠損金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の内訳"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"軽減税率適用所得金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00190" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00250" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00320" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00360" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00390" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人税額の特別控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00400" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00410" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00420" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00430" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00460" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00470" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00480" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00500" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00510" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00520" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00530" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"リース特別控除取戻税額等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00540" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00550" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00560" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00570" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00580" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00590" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00600" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"使途秘匿金に対する税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00610" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00620" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00630" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00640" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00650" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00660" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00670" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人税額計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00680" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00690" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00700" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00710" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00720" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00730" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00740" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00750" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00760" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00770" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00780" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00790" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00800" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00810" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引所得に対する法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00820" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00830" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00840" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00850" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00860" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00870" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00880" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除しきれなかった金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00890" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00900" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00910" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00920" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00930" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00940" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00950" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"翌期へ繰り越す欠損金又は災害損失金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00960" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)恒久的施設帰属所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB00970" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB00980" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB00990" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)その他の国内源泉所得に係る所得の金額に係る法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"12(1)のうち"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の国内源泉所得法人税額から控除できる金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除しきれなかった金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"12(2)のうち"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"恒久的施設帰属所得に係る法人税額から控除できる金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除しきれなかった金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01190" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中間申告分の法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01230" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"地方法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01300" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税標準法人税額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得地方法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01360" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国税額の控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01390" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引地方法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01400" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01410" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01420" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中間申告分の地方法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01430" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01450" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01460" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき地方法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01480" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01490" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UTB01500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この請求前の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01510" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UTB01520" type="UTB01520-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(更正の請求をする理由等)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01530" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告書提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01540" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正決定通知書受理年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UTB01550" type="UTB01550-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"添付書類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="UTB00010-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="UTB00020-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="UTB00030-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="UTB00040-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="UTB01520-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="150"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UTB01550-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="60"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="UTC00000-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="UTD00000-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+
+
+</xsd:schema>

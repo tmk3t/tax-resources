@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：適格分割等による特定の資産の買換えの場合における買換資産の帳簿価額の減額又は特定の資産の譲渡に伴い設定をした期中特別勘定に関する届出書(震災特例法19、20)
+version：3.0
+Date：2021年11月15日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOZ850-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOZ850-3-0group">
+<xsd:sequence>
+<xsd:element name="HOZ850">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MSA00000" type="MSA00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSB00000" type="MSB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結子法人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSE00000" type="MSE00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格分割等に係る分割承継法人等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="MSF00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格分割等の日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="MSG00000" type="MSG00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSH00000" type="MSH00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"買換資産又は取得見込資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="MSI00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減額した金額又は期中特別勘定の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSJ00000" type="MSJ00000-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"添付明細(別表等)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSK00000" type="MSK00000-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他参考となるべき事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOZ850-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="MSA00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="MSA00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSA00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)法人名等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MSA00050" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSA00060" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MSA00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MSA00080" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSA00090" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSA00100" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MSA00105" type="gen:NOZEISHA_BANGOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSA00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MSA00120" type="gen:DAIHYO_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSA00130" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MSA00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者住所"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MSA00150" type="gen:DAIHYO_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSA00160" type="gen:DAIHYO_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MSA00170" type="gen:JIGYO_NAIYOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業種目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSA00180" type="gen:DAIRI_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士署名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="MSB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="MSB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)法人名等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MSB00020" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSB00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MSB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MSB00050" type="gen:zipcode" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSB00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"＿局＿署"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MSB00070" type="MSB00070-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"＿局"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSB00080" type="MSB00080-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"＿署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MSB00090" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSB00100" type="gen:tel-number" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MSB00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MSB00120" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSB00130" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MSB00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者住所"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MSB00150" type="gen:zipcode" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSB00160" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MSB00170" type="gen:shokugyo" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業種目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="MSE00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="MSE00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSE00020" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSE00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="MSG00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="MSG00010" type="MSG00010-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSG00020" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSG00030" type="MSG00030-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"規模(土地等の場合は面積)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSG00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="MSH00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="MSH00010" type="MSH00010-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSH00020" type="MSH00020-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構造"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSH00030" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSH00040" type="MSH00040-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"規模(土地等の場合は面積)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSH00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得(予定)年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MSH00060" type="MSH00060-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"表の各号の該当区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="MSB00070-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="7"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MSB00080-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="7"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MSG00010-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MSG00030-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MSH00010-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MSH00020-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MSH00040-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MSH00060-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MSJ00000-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MSK00000-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

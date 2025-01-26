@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：未成年者控除額・障害者控除額の計算書(第6表)(令和5年1月分以降用)
+version：3.0
+Date：2023年05月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE060-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE060-3-0group">
+<xsd:sequence>
+<xsd:element name="KSE060">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="FQA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="FQB00000" type="FQB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１　未成年者控除"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00000" type="FQC00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２　障害者控除"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE060-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FQB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="FQB00010" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FQB00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未成年者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00030" type="FQB00030-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年齢"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未成年者控除額(2)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FQB00050" type="FQB00050-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年齢"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00070" type="FQB00070-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他計算式等区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00080" type="FQB00080-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他計算式等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FQB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未成年者の第１表の((9)＋(11)－(12)－(13))又は((10)＋(11)－(12)－(13))の相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除しきれない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00110" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"扶養義務者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"扶養義務者の第１表の((9)＋(11)－(12)－(13))又は((10)＋(11)－(12)－(13))の相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未成年者控除額(6)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FQB00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FQB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未成年者控除額(2)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00160" type="FQB00160-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他計算式等区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00170" type="FQB00170-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他計算式等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未成年者の第１表の((9)＋(11)－(12)－(13))又は((10)＋(11)－(12)－(13))の相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除しきれない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"扶養義務者の第１表の((9)＋(11)－(12)－(13))又は((10)＋(11)－(12)－(13))の相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未成年者控除額(6)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FQC00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="FQC00010" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"一般障害者　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FQC00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00030" type="FQC00030-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年齢"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者控除額(2)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FQC00050" type="FQC00050-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年齢"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00070" type="FQC00070-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他計算式等区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00080" type="FQC00080-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他計算式等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FQC00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者の第１表の((9)＋(11)－(12)－(13))－第８の８表１の(1)又は第１表の((10)＋(11)－(12)－(13))－第８の８表１の(1)の相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除しきれない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00110" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"扶養義務者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"扶養義務者の第１表の((9)＋(11)－(12)－(13))－第８の８表１の(1)又は第１表の((10)＋(11)－(12)－(13))－第８の８表１の(1)の相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者控除額(6)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FQC00140" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"特別障害者　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FQC00150" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00160" type="FQC00160-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年齢"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者控除額(2)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FQC00180" type="FQC00180-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年齢"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00200" type="FQC00200-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他計算式等区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00210" type="FQC00210-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他計算式等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FQC00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者の第１表の((9)＋(11)－(12)－(13))－第８の８表１の(1)又は第１表の((10)＋(11)－(12)－(13))－第８の８表１の(1)の相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除しきれない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00240" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"扶養義務者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"扶養義務者の第１表の((9)＋(11)－(12)－(13))－第８の８表１の(1)又は第１表の((10)＋(11)－(12)－(13))－第８の８表１の(1)の相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者控除額(6)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FQC00270" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FQC00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者控除額(2)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00290" type="FQC00290-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他計算式等区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00300" type="FQC00300-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他計算式等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者の第１表の((9)＋(11)－(12)－(13))－第８の８表１の(1)又は第１表の((10)＋(11)－(12)－(13))－第８の８表１の(1)の相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除しきれない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"扶養義務者の第１表の((9)＋(11)－(12)－(13))－第８の８表１の(1)又は第１表の((10)＋(11)－(12)－(13))－第８の８表１の(1)の相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FQC00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者控除額(6)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="FQB00030-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="17"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FQB00050-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="17"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="FQB00070-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FQB00080-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="FQB00160-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FQB00170-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FQC00030-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="84"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FQC00050-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="84"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="FQC00070-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FQC00080-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FQC00160-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="84"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FQC00180-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="84"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="FQC00200-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FQC00210-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="FQC00290-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FQC00300-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="FQB00030-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FQB00030-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FQB00050-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FQB00050-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FQC00030-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FQC00030-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FQC00050-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FQC00050-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FQC00160-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FQC00160-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FQC00180-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FQC00180-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

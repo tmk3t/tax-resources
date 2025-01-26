@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：消費税及び地方消費税の申告書別表(特定課税仕入れがある場合の課税標準額等の内訳書)
+version：1.0
+Date：2015年07月07日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SHA015-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SHA015-1-0group">
+<xsd:sequence>
+<xsd:element name="SHA015">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXA00000" type="AXA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXB00000" type="AXB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税標準額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXC00000" type="AXC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXD00000" type="AXD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)及び(3)の内訳"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SHA015-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="AXA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AXA00010" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00020" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称又は屋号（フリガナ）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXA00040" type="AXA00040-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00050" type="AXA00050-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称又は屋号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AXA00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名又は氏名（フリガナ）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXA00070" type="AXA00070-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00080" type="AXA00080-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名又は氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AXA00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXA00100" type="gen:KAZEI_KIKAN_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00110" type="gen:KAZEI_KIKAN_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AXA00120" type="gen:SHINKOKU_KBNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中間申告の場合の対象期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXA00140" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00150" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AXB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AXB00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税標準額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税標準額の内訳"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税資産の譲渡等の対価の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定課税仕入れに係る支払対価の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AXC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AXC00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"返還等対価に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXC00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"返還等対価に係る税額の内訳"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上げの返還等対価に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定課税仕入れの返還等対価に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AXD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AXD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"３％分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXD00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税資産の譲渡等の対価の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXD00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AXD00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"４％分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXD00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税資産の譲渡等の対価の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXD00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AXD00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"6.3％分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXD00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税資産の譲渡等の対価の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定課税仕入れに係る支払対価の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXD00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="AXA00040-1-0IDREFtype">
+    <xsd:attribute name="IDREF" use="required">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:IDREF">
+                <xsd:enumeration value="NOZEISHA_NM_KN"/>
+                <xsd:enumeration value="NOZEISHA_YAGO_KN"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+</xsd:complexType>
+<xsd:complexType name="AXA00050-1-0IDREFtype">
+    <xsd:attribute name="IDREF" use="required">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:IDREF">
+                <xsd:enumeration value="NOZEISHA_NM"/>
+                <xsd:enumeration value="NOZEISHA_YAGO"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+</xsd:complexType>
+<xsd:complexType name="AXA00070-1-0IDREFtype">
+    <xsd:attribute name="IDREF" use="required">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:IDREF">
+                <xsd:enumeration value="DAIHYO_NM_KN"/>
+                <xsd:enumeration value="NOZEISHA_NM_KN"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+</xsd:complexType>
+<xsd:complexType name="AXA00080-1-0IDREFtype">
+    <xsd:attribute name="IDREF" use="required">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:IDREF">
+                <xsd:enumeration value="DAIHYO_NM"/>
+                <xsd:enumeration value="NOZEISHA_NM"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+</xsd:complexType>
+
+
+
+</xsd:schema>

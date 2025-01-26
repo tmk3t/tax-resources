@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：地代家賃等の内訳書/工業所有権等の使用料の内訳書
+version：2.0
+Date：2018年11月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOI150-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOI150-2-0group">
+<xsd:sequence>
+<xsd:element name="HOI150">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HOB00000" type="HOB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"地代家賃等の内訳書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOC00000" type="HOC00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"工業所有権等の使用料の内訳書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOI150-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+<xsd:attribute name="csvFileNM" type="gen:str"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="HOB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="HOB10000" minOccurs="0" maxOccurs="8">
+<xsd:annotation>
+<xsd:appinfo>"地代家賃の内訳　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HOB11000" type="HOB11000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"地代・家賃の区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB12000" type="HOB12000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"借地（借家）物件の用途"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB13000" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB14000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸主の名称（氏名）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB15000" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸主の所在地（住所）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB16000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払対象期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HOB16100" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"開始"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB16200" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"終了"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HOB17000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払賃借料"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB18000" type="HOB18000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HOB20000" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"権利金等の期中支払の内訳　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HOB21000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払先の名称（氏名）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB22000" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払先の所在地（住所）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB23000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB24000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB25000" type="HOB25000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"権利金等の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOB26000" type="HOB26000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="HOC00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="HOC10000" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"工業所有権等の使用料　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HOC11000" type="HOC11000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOC12000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払先の名称（氏名）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOC13000" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払先の所在地（住所）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOC14000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"契約期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HOC14100" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOC14200" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HOC15000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"使用料等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HOC15100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払対象期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HOC15110" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HOC15120" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HOC15200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HOC16000" type="HOC16000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="HOB11000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HOB12000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HOB18000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HOB25000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HOB26000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HOC11000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HOC16000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

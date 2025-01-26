@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/gensen"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/gensen"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：源泉所得税の誤納額還付請求書
+version：1.0
+Date：2004年12月16日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="GEZ010-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="GEZ010-1-0group">
+<xsd:sequence>
+<xsd:element name="GEZ010">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BEA00000" type="BEA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEB00000" type="BEB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00000" type="BEC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"誤納額の計算内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="GEZ010-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BEA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BEA00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEA00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税務署名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEA00030" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEA00050" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEA00060" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEA00070" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEA00080" type="gen:DAIHYO_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEA00090" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEA00100" type="gen:DAIRI_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士署名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BEB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BEB00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付を受けようとする金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEB00020" type="BEB00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"誤納を生じた理由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEB00030" type="gen:KANPU_KINYUKIKANref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取金融機関"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BEC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BEC00010" type="BEC00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00020" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額の計算内容"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BEC00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"徴収高計算書に記載したもの"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BEC00050" type="BEC00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BEC00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"正当計算によるもの"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BEC00090" type="BEC00090-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BEC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引誤納額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00130" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00140" type="BEC00140-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付先税務署名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00150" type="BEC00150-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"添付書類"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BEC00170" type="BEC00170-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"徴収高計算書の写し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00180" type="BEC00180-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"帳簿書類の写し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BEC00190" type="BEC00190-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"添付書類の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BEB00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BEC00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BEC00050-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BEC00090-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BEC00140-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="6"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BEC00150-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="BEC00170-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="BEC00180-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="BEC00190-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="24"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="BEC00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BEC00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BEC00090-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BEC00090-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：平成__年分　生命保険契約等の一時金の支払調書合計表
+version：1.0
+Date：2004年11月17日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HSZ360-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HSZ360-1-0group">
+<xsd:sequence>
+<xsd:element name="HSZ360">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="ABA00000" type="ABA00000-1-0Rtype">
+<xsd:annotation>
+<xsd:appinfo>"提出区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="ABB00000" type="ABB00000360-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前回提出"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="ABC00000" type="gen:NENBUNref">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CFD00000" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ABE00000" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="ABF00000" type="ABF00000360-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ABG00000" type="ABG00000360-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この調書について応答できる者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CFH00000" type="CFH00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払調書合計表"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HSZ360-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="ABB00000360-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ABB00010" type="ABB00010-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受付番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ABB00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受付年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ABF00000360-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ABF00010" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ABF00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（フリガナ）名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ABF00030" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ABF00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ABF00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（フリガナ）代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ABF00060" type="gen:DAIHYO_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ABF00070" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ABF00090" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ABG00000360-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ABG00010" type="ABG00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所属"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ABG00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CFH00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CFH00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払調書提出分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CFH00020" type="CFH00020-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CFH00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保険金額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CFH00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払調書提出省略分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CFH00050" type="CFH00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CFH00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保険金額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CFH00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CFH00080" type="CFH00080-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CFH00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保険金額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CFH00100" type="CFH00100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="ABA00000-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="ABB00010-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ABG00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="18"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CFH00020-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CFH00050-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CFH00080-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CFH00100-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="ABB00010-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="ABB00010-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CFH00020-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="CFH00020-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CFH00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="CFH00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CFH00080-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="CFH00080-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

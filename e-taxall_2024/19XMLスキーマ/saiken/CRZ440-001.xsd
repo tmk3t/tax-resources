@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/saiken"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/saiken"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：源泉徴収税額の納付届出書
+version：1.0
+Date：2004年02月06日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="CRZ440-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="CRZ440-1-0group">
+<xsd:sequence>
+<xsd:element name="CRZ440">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BRA00000" type="BRA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRB00000" type="BRB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="CRZ440-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BRA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BRA00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRA00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRA00030" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所(又は居所)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BRA00050" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRA00060" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRA00070" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BRB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BRB00010" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"徴収年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"源泉徴収されていなかった所得税の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRB00030" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"源泉徴収された所得税の額　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BRB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRB00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"給与等が支給された日　上段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRB00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"給与等が支給された日　下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRB00070" type="BRB00070-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給者の住所(又は所在地)及び氏名(又は名称)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BRB00075" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"次葉合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BRB00090" type="gen:KANPU_KINYUKIKANref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付先金融機関"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BRB00070-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

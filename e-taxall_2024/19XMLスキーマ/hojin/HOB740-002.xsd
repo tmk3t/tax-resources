@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表七(五)　通算法人の災害損失欠損金額の益金算入額の計算に関する明細書
+version：2.0
+Date：2023年06月26日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOB740-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOB740-2-0group">
+<xsd:sequence>
+<xsd:element name="HOB740">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GQA00000" type="GQA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GQB00000" type="GQB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="GQC00000" type="GQC00000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOB740-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="GQA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="GQA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GQA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GQA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GQA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GQB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="GQB00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中間申告における災害損失欠損金の繰戻し額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GQB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中間申告における発生災害損失欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GQB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害損失欠損金繰戻し超過額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GQB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中間申告における通算対象外欠損金額による繰戻し額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GQB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中間申告における発生災害損失欠損金額のうち通算対象外欠損金額以外の部分の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GQB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"他の通算法人の中間申告における発生災害損失欠損金額のうち通算対象外欠損金額以外の部分の金額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GQB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通算対象外欠損金額以外の部分に係る繰戻し額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GQB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"他の通算法人の通算対象外欠損金額以外の部分に係る繰戻し額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GQB00070" type="GQB00070-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"繰戻割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GQB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中間申告における繰戻しによる災害損失欠損金額の益金算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="GQB00070-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GQC00000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="GQB00070-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="GQB00070-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

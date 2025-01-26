@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表三の二付表三　連結特定同族会社の留保金個別帰属額から控除する留保控除個別帰属額の計算に関する明細書
+version：4.0
+Date：2021年06月24日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOR329-4-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="4.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOR329-4-0group">
+<xsd:sequence>
+<xsd:element name="HOR329">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SIA00000" type="SIA00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00000" type="SIB00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="SIC00000" type="SIC00000-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOR329-4-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="SIA00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="SIA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SIA00020" type="SIA00020-4-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIA00030" type="SIA00030-4-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="SIA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SIA00050" type="gen:OYA_HOJIN_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIA00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名(連結子法人)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="SIB00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="SIB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"積立金基準額を連結留保控除額とする場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SIB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結親法人の期末資本金の額又は出資金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の25％相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首連結個別利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期中増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SIB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格合併等により増加した連結個別利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格分割型分割等により減少した連結個別利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="SIB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末連結個別利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別帰属利益積立金差額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"留保金個別帰属額がある連結法人の個別帰属利益積立金差額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税連結留保金額の計算における積立金基準額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別積立金基準額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="SIB00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得基準額を連結留保控除額とする場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SIB00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結所得等個別帰属額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SIB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非適格合併による移転資産等の譲渡利益額又は譲渡損失額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国子会社等から受ける剰余金の配当等の益金不算入額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受贈益の益金不算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格現物分配に係る益金不算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の益金不算入額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人税額の還付金等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結欠損金等の当期控除額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等の最終の事業年度の欠損金の損金算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結中間申告における繰戻しによる還付に係る災害損失欠損金額の益金算入額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00390" type="SIB00390-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"他の法人の株式又は出資の基準時の直前における帳簿価額から減算される金額　内書き文字(内)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00400" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"他の法人の株式又は出資の基準時の直前における帳簿価額から減算される金額　内書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00245" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"他の法人の株式又は出資の基準時の直前における帳簿価額から減算される金額　本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"新鉱床探鉱費又は海外新鉱床探鉱費の特別控除額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対外船舶運航事業者の日本船舶による収入金額に係る連結所得の金額の損金算入額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対外船舶運航事業者の日本船舶による収入金額に係る連結所得の金額の益金算入額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"沖縄の認定法人の連結所得の特別控除額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国家戦略特別区域における指定法人の連結所得の特別控除額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"収用等の場合等の連結所得の特別控除額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00304" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別新事業開拓事業者に対し特定事業活動として出資をした場合の特別勘定繰入額の損金算入額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00308" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別新事業開拓事業者に対し特定事業活動として出資をした場合の特別勘定取崩額の益金算入額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"肉用牛の売却に係る連結所得の特別控除額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結超過利子額の損金算入額の個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別課税対象金額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結所得等個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="SIB00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"留保金個別帰属額がある連結法人の連結所得等個別帰属額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税連結留保金額の計算における連結所得等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税連結留保金額の計算における所得基準額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SIB00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別所得基準額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="SIB00390-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="1"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="SIC00000-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="SIA00020-4-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SIA00020-4-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="SIA00020-4-0Rtype">
+            <xsd:attribute name="IDREF" type="SIA00020-4-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="SIA00020-4-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_FROM"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="SIA00030-4-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="SIA00030-4-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="SIA00030-4-0Rtype">
+            <xsd:attribute name="IDREF" type="SIA00030-4-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="SIA00030-4-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_TO"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

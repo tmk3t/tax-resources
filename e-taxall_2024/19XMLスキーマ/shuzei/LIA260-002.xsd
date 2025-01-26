@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：輸出免税明細書
+version：2.0
+Date：2006年06月20日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="LIA260-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="LIA260-2-0group">
+<xsd:sequence>
+<xsd:element name="LIA260">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EOA00000" type="EOA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOB00000" type="EOB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"頁数及び総頁数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOC00000" type="EOC00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOD00000" type="EOD00000-2-0type" minOccurs="0" maxOccurs="9">
+<xsd:annotation>
+<xsd:appinfo>"明細  繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="EOE00000" type="EOE00000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="LIA260-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="EOA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="EOA00010" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税年月"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOA00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EOB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="EOB00010" type="EOB00010-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"頁数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOB00020" type="EOB00020-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総頁数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EOC00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="EOC00010" type="gen:SEIZOJO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造場名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EOD00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="EOD00010" type="EOD00010-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOD00020" type="EOD00020-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"酒類コード"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOD00030" type="EOD00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"酒類の品目別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOD00040" type="EOD00040-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"アルコール分別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOD00080" type="EOD00080-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOD00090" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"輸出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOD00100" type="EOD00100-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"仕向地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOD00110" type="EOD00110-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"輸出港の所轄税関"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOD00120" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"輸出者の住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EOD00130" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"輸出者の氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="EOB00010-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="999"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EOB00020-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="999"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="EOD00010-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="0"/><xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="EOD00020-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EOD00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EOD00040-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:pattern value="[-]?\d?\d?"/><xsd:pattern value="[-]?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EOD00080-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EOD00100-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="14"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EOD00110-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="14"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EOE00000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="620"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="EOB00010-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="EOB00010-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EOB00020-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="EOB00020-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EOD00040-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="EOD00040-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EOD00080-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="EOD00080-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

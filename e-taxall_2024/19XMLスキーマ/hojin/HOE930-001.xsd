@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表二十一(三)　清算所得の金額の計算に関する明細書
+version：1.0
+Date：2003年10月28日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOE930-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOE930-1-0group">
+<xsd:sequence>
+<xsd:element name="HOE930">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDA00000" type="FDA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00000" type="FDB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"1残余財産の一部分配の場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00000" type="FDC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"2解散の場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOE930-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FDA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FDA00010" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FDB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FDB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"残余財産分配額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この申告に係る分配額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上のうち防災建築街区造成組合の残余財産価額不算入の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"解散時の資本等の金額及び分配時までの利益積立金額等の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"解散時の資本の金額又は出資金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"解散時の資本積立金額又は連結個別資本積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"解散時の利益積立金額又は連結個別利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（）書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"解散時から分配時までに生じた利益積立金額の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（）書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（）書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"既に分配した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上のうち防災建築街区造成組合の残余財産価額不算入の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"解散時の資本等の金額及び解散時から分配時までの利益積立金額等の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（）書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00230" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"清算所得金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（）書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FDC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FDC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"残余財産の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"残余財産確定の日における財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"加算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDC00040" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDC00050" type="FDC00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"加算　余白"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDC00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDC00090" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDC00100" type="FDC00100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減算　余白"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDC00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"既に分配した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"清算中の所得又は一部分配により納付すべき法人税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(27)に係る道府県民税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(27)に係る市町村民税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"清算中の所得又は一部分配により納付すべき事業税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"清算中に納付した再評価税額、会社臨時特別税額、法人臨時特別税額及び法人特別税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"清算中に支出した寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上のうち残余財産の価額に算入しない寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"みなし配当金額の25%控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"清算中に納付した所得税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"防災建築街区造成組合の残余財産価額不算入の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDC00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"解散時の資本等の金額及び利益積立金額等の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDC00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資本の金額又は出資金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資本積立金額又は連結個別資本積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利益積立金額等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDC00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利益積立金額又は連結個別利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"清算中に還付等を受けた金額（法第2条第18号に規定する法人税、会社臨時特別税、法人臨時特別税、法人特別税、道府県民税及び市町村民税に係る部分を除く。）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDC00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDC00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"清算所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="FDC00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FDC00100-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

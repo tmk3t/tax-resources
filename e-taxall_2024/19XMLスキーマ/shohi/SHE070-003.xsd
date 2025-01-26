@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：課税仕入高計算表
+version：3.0
+Date：2014年01月30日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SHE070-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SHE070-3-0group">
+<xsd:sequence>
+<xsd:element name="SHE070">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ARA00000" type="ARA00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARB00000" type="ARB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業所得に係る課税仕入高  営業等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARH00000" type="ARH00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業所得に係る課税仕入高  農業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARC00000" type="ARC00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産所得に係る課税仕入高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARD00000" type="ARD00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"＿所得に係る課税仕入高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARE00000" type="ARE00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"業務用資産の取得に係る課税仕入高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="ARF00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税仕入高の合計額（（３）+（６）+（９）+（12）+（15））"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="ARG00000" type="ARG00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税仕入れに係る消費税額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SHE070-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="ARA00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ARA00010" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ARB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ARB00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損益計算書の仕入金額と経費の金額の合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（１）のうち、課税仕入れにならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引課税仕入高（（１）-（２））"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ARH00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ARH00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損益計算書の経費の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARH00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（４）のうち、課税仕入れにならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARH00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引課税仕入高（（４）-（５））"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ARC00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ARC00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損益計算書の必要経費の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（７）のうち、課税仕入れにならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引課税仕入高（（７）-（８））"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ARD00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ARD00010" type="ARD00010-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"＿所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARD00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損益計算書の仕入金額と経費の金額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARD00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（10）のうち、課税仕入れにならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARD00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引課税仕入高（（10）-（11））"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ARE00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ARE00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"業務用固定資産等の取得費"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（13）のうち、課税仕入れにならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引課税仕入高（（13）-（14））"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ARG00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ARG00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"((16)欄の金額)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARG00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="ARD00010-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="8"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

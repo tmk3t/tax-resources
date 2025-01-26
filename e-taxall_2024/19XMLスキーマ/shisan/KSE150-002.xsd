@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：相続財産の種類別価額表(第15表)(令和2年4月分以降用)
+version：2.0
+Date：2020年07月01日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE150-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE150-2-0group">
+<xsd:sequence>
+<xsd:element name="KSE150">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="FOA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="FOB00000" type="FOB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE150-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FOB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="FOB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"土地（土地の上に存する権利を含みます。）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"田"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"畑"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"宅地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"山林"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の土地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00085" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)のうち配偶者居住権に基づく敷地利用権"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)のうち特例農地等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通常価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業投資価格による価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"家屋等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00125" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(10)のうち配偶者居住権"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業（農業）用財産"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"機械、器具、農耕具、その他の減価償却資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"商品、製品、半製品、原材料、農産物等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売掛金"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の財産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00190" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"有価証券"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定同族会社の株式及び出資"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配当還元方式によったもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の方式によったもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)及び(18)以外の株式及び出資"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公債及び社債"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"証券投資信託、貸付信託の受益証券"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"現金、預貯金等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"家庭用財産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の財産"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"生命保険金等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"退職手当金等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"立木"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続時精算課税適用財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00390" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00440" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債務等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債務"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00460" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"葬式費用"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00480" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引純資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額に加算される暦年課税分の贈与財産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00510" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産を取得した人　氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00520" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産を取得した人"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00530" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"土地（土地の上に存する権利を含みます。）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00540" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"田"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00550" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"畑"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00560" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"宅地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00570" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"山林"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00580" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の土地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00590" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00595" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)のうち配偶者居住権に基づく敷地利用権"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00600" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)のうち特例農地等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00610" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通常価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00620" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業投資価格による価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00630" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"家屋等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00635" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(10)のうち配偶者居住権"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00640" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業（農業）用財産"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00650" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"機械、器具、農耕具、その他の減価償却資産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00660" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"商品、製品、半製品、原材料、農産物等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00670" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売掛金"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00680" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の財産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00690" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00700" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"有価証券"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00710" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定同族会社の株式及び出資"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00720" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配当還元方式によったもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00730" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の方式によったもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00740" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)及び(18)以外の株式及び出資"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00750" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公債及び社債"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00760" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"証券投資信託、貸付信託の受益証券"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00770" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00780" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"現金、預貯金等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00790" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"家庭用財産"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00800" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の財産"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00810" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"生命保険金等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00820" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"退職手当金等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00830" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"立木"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00840" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00850" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00860" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00870" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00880" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00890" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続時精算課税適用財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00900" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00950" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債務等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOB00960" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債務"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00970" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"葬式費用"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00980" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOB00990" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引純資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB01000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額に加算される暦年課税分の贈与財産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB01010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+
+
+</xsd:schema>

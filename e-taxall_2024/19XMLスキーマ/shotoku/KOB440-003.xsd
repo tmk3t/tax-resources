@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：特定災害防止準備金に関する明細書
+version：3.0
+Date：2009年08月27日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KOB440-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KOB440-3-0group">
+<xsd:sequence>
+<xsd:element name="KOB440">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="CVA00000" type="gen:NENBUNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVB00000" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVC00000" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"岩石採取場又は露天石炭採掘場の所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="CVD00000" type="CVD00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"採取又は採掘の期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVE00000" type="CVE00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"積立限度額基準"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVF00000" type="CVF00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"累積限度額基準"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="CVG00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本年分特定災害防止準備金積立限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVH00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本年必要経費に算入する特定災害防止準備金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="CVI00000" type="CVI00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"翌年への繰越額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KOB440-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CVD00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="CVD00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVD00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CVE00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="CVE00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"採石災害防止費用、最終処分災害防止費用又は露天石炭採掘災害防止費用の見積額のうち本年に係る額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CVE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"採石災害防止費用、最終処分災害防止費用又は露天石炭採掘災害防止費用の見積額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVE00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（３）のうち本年に係る額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CVE00040" type="CVE00040-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（／採取又は採掘の期間の月数）の分子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVE00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本年に係る額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CVE00060" type="CVE00060-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本年の採取数量又は採掘数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVE00080" type="CVE00080-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"採取予定数量又は採掘予定数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVE00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（３）のうち本年に係る額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CVE00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"信託財産の本年増加額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CVE00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本年末の岩石採取場又は露天石炭採掘場に係る信託財産の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVE00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前年末の岩石採取場又は露天石炭採掘場に係る信託財産の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVE00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CVE00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"積立限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CVF00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="CVF00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"累積限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVF00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本年末における前年から繰り越された特定災害防止準備金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVF00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CVI00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="CVI00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年初の特定災害防止準備金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVI00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本年総収入金額算入額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CVI00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"採石災害防止費用又は露天石炭採掘災害防止費用を支出した場合の当該支出額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVI00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(18)以外の場合による総収入金額算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CVI00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計(18)＋(19)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CVI00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年末の特定災害防止準備金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="CVE00040-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CVE00060-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="16"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CVE00080-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="16"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="CVE00040-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="CVE00040-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general"
+elementFormDefault="qualified" attributeFormDefault="unqualified"
+version="1.0" > 
+
+<xsd:annotation>
+<xsd:documentation>
+XBRL2_1
+version:1.0/2.0
+Date:2012年12月06日
+</xsd:documentation>
+</xsd:annotation>
+
+<!-- Import -->
+	<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="XBRL2_1VRtype">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value="1.0"/><xsd:enumeration value="2.0"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<!-- XBRL2_1 Element Definition -->
+<xsd:complexType name="XBRL2_1type">
+	<xsd:sequence>
+		<xsd:element name="XBRL2_1_INSTANCE" type="XBRL2_1_INSTANCEtype">
+			<xsd:annotation>
+				<xsd:appinfo>"インスタンス文書"</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+		<xsd:element name="XBRL2_1_TAXONOMY" type="XBRL2_1_TAXONOMYtype">
+			<xsd:annotation>
+				<xsd:appinfo>"タクソノミー"</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+		<xsd:element name="XBRL2_1_LINKBASE" type="XBRL2_1_LINKBASEtype" minOccurs="0" maxOccurs="unbounded">
+			<xsd:annotation>
+				<xsd:appinfo>"リンクベース"</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+	</xsd:sequence>
+</xsd:complexType>
+
+<!-- XBRL2_1_INSTANCE -->
+<xsd:complexType name="XBRL2_1_INSTANCEtype">
+<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+<xsd:any namespace="http://www.xbrl.org/2003/instance" processContents="lax"/>
+</xsd:sequence>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+<xsd:attribute name="VR" type="XBRL2_1VRtype" use="required"/>
+</xsd:complexType>
+
+<!-- XBRL2_1_TAXONOMY -->
+<xsd:complexType name="XBRL2_1_TAXONOMYtype">
+<xsd:sequence maxOccurs="unbounded">
+<xsd:any processContents="lax"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID" use="required"/>
+</xsd:complexType>
+
+<!-- XBRL2_1_LINKBASE -->
+<xsd:complexType name="XBRL2_1_LINKBASEtype">
+<xsd:sequence maxOccurs="unbounded">
+<xsd:any processContents="lax"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID" use="required"/>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表七(一)付表一　適格合併等を行った場合の調整後の控除未済欠損金額の計算に関する明細書
+version：3.0
+Date：2005年07月05日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOB701-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOB701-3-0group">
+<xsd:sequence>
+<xsd:element name="HOB701">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZA00000" type="BZA00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZB00000" type="BZB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格合併等を行った場合の調整後の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZC00000" type="BZC00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格合併等を行った場合の調整後の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00000" type="BZD00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資本関係を有する法人と適格合併等を行った場合の未処理欠損金額又は控除未済欠損金額の調整計算の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZE00000" type="BZE00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資本関係事業年度以後の欠損金額のうち特定資産譲渡等損失相当額の計算の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="BZF00000" type="BZF00000-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOB701-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BZA00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="BZA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BZA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BZB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="BZB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等から引継ぎを受ける未処理欠損金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZB00020" type="BZB00020-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格合併等の別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZB00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格合併等の日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZB00040" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BZC00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="BZC00010" minOccurs="0" maxOccurs="7">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZC00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZC00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZC00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BZC00050" type="BZC00050-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"欠損金の区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除未済欠損金額又は調整後の当該法人分の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZC00065" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等から引継ぎを受ける未処理欠損金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZC00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等の事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZC00080" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZC00090" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BZC00100" type="BZC00100-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"欠損金の区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等の未処理欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BZC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整後の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BZC00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZC00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除未済欠損金額又は調整後の当該法人分の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等の未処理欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZC00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整後の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BZD00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="BZD00010" type="BZD00010-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格合併等の別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格合併等の日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対象法人の別"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZD00040" type="BZD00040-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00050" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等（名称）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BZD00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資本関係発生日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00070" minOccurs="0" maxOccurs="7">
+<xsd:annotation>
+<xsd:appinfo>"明細の繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZD00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対象法人の事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZD00090" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00100" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BZD00110" type="BZD00110-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"欠損金の区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"共同事業を営むための適格合併等に該当する場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZD00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等の未処理欠損金額又は当該法人の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BZD00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"共同事業を営むための適格合併等に該当しない場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZD00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等の未処理欠損金額又は当該法人の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資本関係事業年度前の事業年度の未処理欠損金額又は控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資本関係事業年度以後の事業年度の欠損金額のうち特定資産譲渡等損失相当額以外の部分から成る欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"引継ぎを受ける未処理欠損金額又は調整後の当該法人分の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BZD00190" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZD00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等の未処理欠損金額又は当該法人の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等の未処理欠損金額又は当該法人の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資本関係事業年度前の事業年度の未処理欠損金額又は控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資本関係事業年度以後の事業年度の欠損金額のうち特定資産譲渡等損失相当額以外の部分から成る欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZD00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"引継ぎを受ける未処理欠損金額又は調整後の当該法人分の控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BZE00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="BZE00010" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZE00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対象法人の特定資本関係事業年度以後の事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZE00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZE00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BZE00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資本関係事業年度以後の事業年度の欠損金発生額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZE00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"欠損金額のうち特定資産譲渡等損失相当額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定引継資産又は特定保有資産の譲渡等特定事由による損失の額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZE00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定引継資産又は特定保有資産の譲渡又は評価換えによる利益の額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZE00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資産譲渡等損失額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZE00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"欠損金額のうち特定資産譲渡等損失相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BZE00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BZE00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資本関係事業年度以後の事業年度の欠損金発生額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZE00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定引継資産又は特定保有資産の譲渡等特定事由による損失の額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZE00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定引継資産又は特定保有資産の譲渡又は評価換えによる利益の額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZE00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資産譲渡等損失額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BZE00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"欠損金額のうち特定資産譲渡等損失相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="BZB00020-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="BZC00050-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BZC00100-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="BZD00010-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="BZD00040-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="BZD00110-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BZF00000-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

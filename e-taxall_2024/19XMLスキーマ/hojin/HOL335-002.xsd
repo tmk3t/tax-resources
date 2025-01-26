@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：特別償却の付表　特別償却等の償却限度額の計算に関する付表
+version：2.0
+Date：2023年06月26日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOL335-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOL335-2-0group">
+<xsd:sequence>
+<xsd:element name="HOL335">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOA00000" type="UOA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00000" type="UOB00000-2-0type" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOC00000" type="UOC00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中小企業者又は中小連結法人の判定"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="UOD00000" type="UOD00000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOL335-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+<xsd:attribute name="csvFileNM" type="gen:str"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="UOA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="UOA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UOA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOA00050" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="UOB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="UOB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(特別償却又は割増償却の名称)該当条項"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOB00020" type="UOB00020-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(特別償却又は割増償却の名称)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(＿)措置法・震災特例法"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOB00040" type="UOB00040-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(＿)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00050" type="UOB00050-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"措置法・震災特例法"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UOB00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(＿)条(の＿)第(＿)項(＿)号(＿)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOB00070" type="UOB00070-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(＿)条"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00080" type="UOB00080-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"条(の＿)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00090" type="UOB00090-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第(＿)項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00100" type="UOB00100-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(＿)号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00110" type="UOB00110-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"号(＿)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UOB00120" type="UOB00120-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(機械・装置の耐用年数表等の番号)資産の種類"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOB00140" type="UOB00140-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(機械・装置の耐用年数表等の番号)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00150" type="UOB00150-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資産の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UOB00160" type="UOB00160-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構造、用途、設備の種類又は区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00170" type="UOB00170-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"細目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00180" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得等年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00190" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業の用に供した年月日又は支出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得価額又は支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対象となる取得価額又は支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"普通償却限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00230" type="UOB00230-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別償却率又は割増償却率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別償却限度額又は割増償却限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00250" type="UOB00250-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"償却・準備金方式の区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用要件等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOB00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資産の取得価額等の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00280" type="UOB00280-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区域の名称等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00290" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"認定等年月日　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOB00300" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"認定等年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOB00310" type="UOB00310-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(＿)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UOB00320" type="UOB00320-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他参考となる事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="UOC00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="UOC00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発行済株式又は出資の総数又は総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(18)のうちその有する自己の株式又は出資の総数又は総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOC00040" type="UOC00040-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"常時使用する従業員の数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOC00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"大規模法人の株式数等の保有割合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第１順位の株式数又は出資金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOC00070" type="UOC00070-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保有割合(22)／(20)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"大規模法人の保有する株式数等の計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOC00090" type="UOC00090-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保有割合(24)／(20)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UOC00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"大規模法人の保有する株式数等の明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOC00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"順位１"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOC00120" type="UOC00120-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"大規模法人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOC00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"株式数又は出資金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UOC00140" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UOC00150" type="UOC00150-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"順位"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOC00160" type="UOC00160-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"大規模法人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UOC00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"株式数又は出資金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UOC00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="UOB00020-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00040-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="UOB00050-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="UOB00070-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="4"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00080-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="8"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00090-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="2"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00100-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="2"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00110-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="2"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00120-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00140-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="6"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00150-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00160-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00170-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00230-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="UOB00250-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="UOB00280-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00310-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="5"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOB00320-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOC00040-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOC00070-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOC00090-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOC00120-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOC00150-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOC00160-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UOD00000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="UOB00230-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="UOB00230-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="UOC00040-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="UOC00040-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="UOC00070-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="UOC00070-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="UOC00090-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="UOC00090-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="UOC00150-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="UOC00150-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

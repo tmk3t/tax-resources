@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表五(一)　利益積立金額及び資本金等の額の計算に関する明細書
+version：3.0
+Date：2008年04月28日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOA511-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOA511-3-0group">
+<xsd:sequence>
+<xsd:element name="HOA511">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICA00000" type="ICA00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00000" type="ICB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"1利益積立金額の計算に関する明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICC00000" type="ICC00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"2資本金等の額の計算に関する明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="ICD00000" type="ICD00000-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOA511-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="ICA00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ICA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ICB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ICB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利益準備金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"ＸＸ積立金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00080" type="ICB00080-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00140" minOccurs="0" maxOccurs="20">
+<xsd:annotation>
+<xsd:appinfo>"空白部　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00150" type="ICB00150-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減　外書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減　本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未収還付法人税"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00280" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未収還付道府県民税"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00300" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00340" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未収還付市町村民税"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00360" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00390" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00400" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"繰越損益金（損は赤）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00410" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00420" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00430" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00433" type="ICB00433-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増　内書文字（内）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00436" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増　内書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増　本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00443" type="ICB00443-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額　内書文字（内）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00446" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額　内書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額　本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00460" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税充当金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00480" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00510" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00520" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納法人税等（退職年金等積立金に対するものを除く。）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00530" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納法人税（附帯税を除く。）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00540" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00550" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00560" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00570" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00580" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00590" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"確定"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00610" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00620" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納道府県民税（均等割額及び利子割額を含む。）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00630" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00640" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00650" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00660" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00670" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00680" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"確定"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00700" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00710" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納市町村民税（均等割額を含む。）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00720" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00730" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00740" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00750" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00760" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"中間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00770" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"確定"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00790" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00800" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00810" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00820" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICB00830" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICB00840" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICB00850" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ICC00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ICC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資本金又は出資金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在資本金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICC00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在資本金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICC00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資本準備金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在資本金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICC00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在資本金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICC00130" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"空白部　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICC00140" type="ICC00140-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在資本金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICC00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICC00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICC00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICC00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在資本金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICC00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICC00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在資本金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICC00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ICC00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ICC00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ICC00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在資本金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="ICB00080-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="5"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ICB00150-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ICB00433-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="1"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ICB00443-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="1"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ICC00140-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ICD00000-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

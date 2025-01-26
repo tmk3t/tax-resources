@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十七(二の五)付表　対象支払利子等合計額の計算に関する明細書
+version：1.0
+Date：2020年08月31日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOE460-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOE460-1-0group">
+<xsd:sequence>
+<xsd:element name="HOE460">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SRA00000" type="SRA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRB00000" type="SRB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対象支払利子等合計額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRC00000" type="SRC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"除外対象特定債券現先取引等に係る支払利子等の額等の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRD00000" type="SRD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対象外支払利子等の額となる特定債券利子等の額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="SRE00000" type="SRE00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOE460-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="SRA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="SRA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SRA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="SRA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="SRB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="SRB00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)のうち外国法人の恒久的施設から本店等に対する内部支払利子の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国銀行等の資本に係る負債の利子の損金算入制度に係る損金算入額のうち、支払利子等の額に相当するもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)-(3)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対象外支払利子等の額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SRB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払利子等を受ける者の課税対象所得に含まれる支払利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一定の公共法人に対する支払利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"除外対象特定債券現先取引等に係る支払利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対象外支払利子等の額となる特定債券利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対象外支払利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="SRB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対象支払利子等合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="SRC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="SRC00010" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SRC00020" type="SRC00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の種類・名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"除外対象特定債券現先取引等に係る平均負債残高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対応債券現先取引等に係る平均資産残高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整後平均負債残高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整前の除外対象特定債券現先取引等に係る支払利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(14)*(13)/(11)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対応債券現先取引等に係る受取利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="SRC00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SRC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(14)*(13)/(11)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"対応債券現先取引等に係る受取利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="SRD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="SRD00010" type="SRD00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)*(95％又は25％)　区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRD00020" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SRD00030" type="SRD00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の銘柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRD00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発行年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRD00050" type="SRD00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発行地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRD00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定債券利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRD00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)のうち支払又は交付の際、所得税の徴収が行われる特定債券利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRD00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)のうち特定債券利子等を受ける者の課税対象所得に含まれる特定債券利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)のうち一定の公共法人に対する特定債券利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRD00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(18)+(19)+(20)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRD00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)*(95％又は25％)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="SRD00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SRD00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(18)+(19)+(20)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SRD00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)*(95％又は25％)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="SRC00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="60"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="SRD00010-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="SRD00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="SRD00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="SRE00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

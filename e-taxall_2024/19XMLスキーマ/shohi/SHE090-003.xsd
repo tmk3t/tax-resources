@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：課税取引金額計算表(農業所得用)
+version：3.0
+Date：2018年10月29日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SHE090-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SHE090-3-0group">
+<xsd:sequence>
+<xsd:element name="SHE090">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATA00000" type="ATA00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATB00000" type="ATB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"収入金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00000" type="ATC00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"経費"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATD00000" type="ATD00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SHE090-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="ATA00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ATA00010" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ATB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ATB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"販売金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"家事消費金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATB00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業消費金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATB00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"雑収入"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATB00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATB00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未成熟果樹収入"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATB00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATB00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農産物の棚卸高(期首)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATB00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農産物の棚卸高(期末)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATB00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATB00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ATC00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ATC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"租税公課"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"種苗費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"素畜費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"肥料費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"飼料費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00210" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農具費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農薬・衛生費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00270" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"諸材料費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00300" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修繕費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動力光熱費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00370" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"作業用衣料費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00390" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00400" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業共済掛金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00410" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00420" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00430" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減価償却費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00460" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"荷造運賃手数料"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00480" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00500" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"雇人費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00510" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00520" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00530" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00540" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利子割引料"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00550" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00560" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00570" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"地代・賃借料"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00580" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00590" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00600" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00610" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"土地改良費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00620" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00630" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00640" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00650" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸倒金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00660" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00670" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00680" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"任意科目　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00690" type="ATC00690-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"任意科目名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00700" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00710" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00720" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00730" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"雑費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00740" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00750" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00760" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00770" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00780" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00790" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ATC00800" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C (A-B)課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00810" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農産物以外の棚卸高(期首)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00820" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00830" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農産物以外の棚卸高(期末)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00840" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00850" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"経費から差し引く果樹牛馬等の育成費用"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00860" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ATC00870" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ATC00880" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ATD00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ATD00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="ATC00690-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

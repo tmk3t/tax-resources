@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：揮発油税及び地方揮発油税納税申告書
+version：1.2
+Date：2023年01月17日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="INC010-1-2VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/><xsd:enumeration value="1.1"/><xsd:enumeration value="1.2"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="INC010-1-2group">
+<xsd:sequence>
+<xsd:element name="INC010">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="GAA00000" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一般申告用年月分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAB00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"都度申告用年月日分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="GAC00000" type="GAC00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="GAD00000" type="GAD00000-1-2Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告提出区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="GAE00000" type="GAE00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="GAF00000" type="GAF00000-1-2Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期限後申告・修正申告をする理由・事情"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAG00000" type="GAG00000-1-2Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"付記事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="GAH00000" type="GAH00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"添付書類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="GAI00000" type="GAI00000-1-2Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"参考事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAJ00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告書作成者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="GAK00000" type="GAK00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士法上の書面提出の有無"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="GAL00000" type="GAL00000-1-2Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知希望区分(加算税)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAM00000" type="GAM00000-1-2Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知希望区分(還付金振込)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="INC010-1-2VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="GAC00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="GAC00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造場の所在地及び名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00040" type="gen:SEIZOJO_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00050" type="gen:SEIZOJO_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00060" type="gen:SEIZOJO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00070" type="gen:SEIZOJO_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告者の住所"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00100" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00110" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00120" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)氏名又は名称及び代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00140" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00150" type="gen:DAIHYO_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00160" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00170" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)同上代理人"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00190" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上代理人フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00200" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上代理人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00210" type="gen:KANPU_KINYUKIKANref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付を受けようとする金融機関"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00220" type="gen:DAIRI_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士署名押印"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GAE00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="GAE00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"揮発油税及び地方揮発油税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除(還付)を受けようとする金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"戻入れによるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入によるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害被害によるもの又は保税作業期間経過による課税分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"揮発油税超過額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAE00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付を受ける金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この申告書が修正申告である場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAE00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告前の確定額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GAH00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="GAH00010" type="GAH00010-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)揮発油税及び地方揮発油税課税標準数量及び税額計算書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00020" type="GAH00020-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)揮発油税戻入れ(移入)控除(還付)税額計算書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00030" type="GAH00030-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)揮発油税災害控除(還付)明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00040" type="GAH00040-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)揮発油税課税物件被災確認書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00050" type="GAH00050-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)被災揮発油についての損失補償の事実を証する書類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00060" type="GAH00060-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)揮発油税保税作業期間経過課税分控除明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00070" type="GAH00070-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)揮発油税課税済証明書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00080" type="GAH00080-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(8)揮発油税超過額計算書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00090" type="GAH00090-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(9)控除対象揮発油の所持数量証明書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00100" type="GAH00100-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(10)揮発油税未納税揮発油移入明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00110" type="GAH00110-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(11)未納税・免税物品等亡失証明書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00120" type="GAH00120-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(12)揮発油税灯油免税明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00130" type="GAH00130-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(13)揮発油税航空機燃料用免税揮発油移入明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00140" type="GAH00140-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(14)揮発油税航空機燃料用免税揮発油移出明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00150" type="GAH00150-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(15)揮発油税石油化学用免税明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00160" type="GAH00160-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(16)揮発油税特定用途免税揮発油移入明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAH00170" type="GAH00170-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)揮発油税特定用途免税揮発油移出明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GAK00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="GAK00010" type="GAK00010-1-2Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士法第30条の書面提出有"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAK00020" type="GAK00020-1-2Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士法第33条の２の書面提出有"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="GAD00000-1-2Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="4"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="GAF00000-1-2Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="75"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="GAG00000-1-2Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="GAH00010-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00020-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00030-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00040-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00050-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00060-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00070-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00080-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00090-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00100-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00110-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00120-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00130-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00140-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00150-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00160-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAH00170-1-2Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAI00000-1-2Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="45"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="GAK00010-1-2Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="GAK00020-1-2Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="GAL00000-1-2Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="GAM00000-1-2Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+
+
+<xsd:complexType name="GAH00010-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00010-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00020-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00020-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00030-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00030-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00040-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00040-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00050-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00050-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00060-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00060-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00070-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00070-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00080-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00080-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00090-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00090-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00100-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00100-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00110-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00110-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00120-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00120-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00130-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00130-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00140-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00140-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00150-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00150-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00160-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00160-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAH00170-1-2type">
+<xsd:simpleContent>
+<xsd:extension base="GAH00170-1-2Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

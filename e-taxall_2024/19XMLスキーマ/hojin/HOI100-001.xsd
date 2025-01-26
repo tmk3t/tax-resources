@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：仮受金（前受金・預り金）の内訳書／源泉所得税預り金の内訳
+version：1.0
+Date：2003年10月28日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOI100-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOI100-1-0group">
+<xsd:sequence>
+<xsd:element name="HOI100">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HJB00000" type="HJB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"仮受金（前受金・預り金）の内訳書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HJC00000" type="HJC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"源泉所得税預り金の内訳"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOI100-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="HJB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="HJB01000" minOccurs="0" maxOccurs="12">
+<xsd:annotation>
+<xsd:appinfo>"仮受金（前受金・預り金）　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HJB01100" type="HJB01100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"科目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HJB01200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相手先"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HJB01210" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称（氏名）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HJB01220" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地（住所）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HJB01230" type="HJB01230-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人・代表者との関係"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HJB01300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末現在高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HJB01400" type="HJB01400-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取引の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="HJC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="HJC01000" minOccurs="0" maxOccurs="12">
+<xsd:annotation>
+<xsd:appinfo>"源泉所得税預り金　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HJC01100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月日"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HJC01110" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HJC01120" type="gen:mm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"月分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HJC01200" type="HJC01200-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HJC01300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末現在高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="HJB01100-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HJB01230-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HJB01400-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HJC01200-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="1"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

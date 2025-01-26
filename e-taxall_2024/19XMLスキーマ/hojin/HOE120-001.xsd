@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十四(十)　特定資産譲渡等損失額の損金不算入に関する明細書
+version：1.0
+Date：2022年06月22日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOE120-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOE120-1-0group">
+<xsd:sequence>
+<xsd:element name="HOE120">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GYA00000" type="GYA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYB00000" type="GYB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYC00000" type="GYC00000-1-0type" minOccurs="0" maxOccurs="20">
+<xsd:annotation>
+<xsd:appinfo>"支配関係事業年度開始日における時価が帳簿価額を下回っていない資産の明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="GYD00000" type="GYD00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOE120-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="GYA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GYA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GYA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GYA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GYB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GYB00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支配関係発生日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYB00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"新たな事業を開始した日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYB00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通算承認の効力が生じた日と新たな事業を開始した日の属する事業年度開始の日とのうちいずれか遅い日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYB00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通算承認の効力が生じた日以後３年を経過する日と支配関係発生日以後５年を経過する日とのうちいずれか早い日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の適用期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GYB00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYB00070" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GYB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の適用期間における特定資産の譲渡等による損失の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の適用期間における特定資産の譲渡等による利益の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資産譲渡等損失額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資産譲渡等損失額からの控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定資産譲渡等損失額の損金不算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GYC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GYC00010" type="GYC00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"時価"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GYC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="GYC00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GYD00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

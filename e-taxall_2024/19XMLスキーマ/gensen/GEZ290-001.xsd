@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/gensen"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/gensen"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：源泉所得税の納期の特例の承認に関する申請書兼納期の特例適用者に係る納期限の特例に関する届出書
+version：1.0
+Date：2003年10月28日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="GEZ290-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="GEZ290-1-0group">
+<xsd:sequence>
+<xsd:element name="GEZ290">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXA00000" type="AXA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXB00000" type="AXB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="GEZ290-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="AXA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AXA00100" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00110" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税務署名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00120" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称（フリガナ）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00130" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00135" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00140" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00150" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00160" type="gen:DAIHYO_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名（フリガナ）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00170" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXA00180" type="gen:DAIRI_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士署名押印"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AXB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AXB00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請の日前６か月間の各月末の給与の支払を受ける者の人員及び各月の支給金額（外書は、臨時雇用者に係るもの）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXB00110" minOccurs="0" maxOccurs="6">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AXB00120" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"月区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXB00130" type="AXB00130-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給人員（外書）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXB00140" type="AXB00140-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給額（外書）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AXB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AXB00170" type="AXB00170-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１　現に国税の滞納があり又は最近において著しい納付遅延の事実がある場合で、それがやむを得ない理由によるものであるときは、その理由の詳細　　２　申請の日前１年以内に納期の特例の承認を取り消されたことがある場合には、その年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="AXB00130-1-0Rtype">
+    <xsd:restriction base="xsd:nonNegativeInteger">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AXB00140-1-0Rtype">
+    <xsd:restriction base="xsd:nonNegativeInteger">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AXB00170-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="360"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="AXB00130-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="AXB00130-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="AXB00140-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="AXB00140-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

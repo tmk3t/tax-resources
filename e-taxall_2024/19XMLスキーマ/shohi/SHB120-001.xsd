@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：課税仕入れ等の税額の計算表【小売等軽減売上割合を使用する課税期間用】
+version：1.1
+Date：2019年08月27日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SHB120-1-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/><xsd:enumeration value="1.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SHB120-1-1group">
+<xsd:sequence>
+<xsd:element name="SHB120">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWA00000" type="CWA00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWB00000" type="CWB00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"卸売業及び小売業に係る課税取引"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWC00000" type="CWC00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"卸売業及び小売業以外の事業に係る課税取引"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWD00000" type="CWD00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"全事業に係る課税取引"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SHB120-1-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CWA00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="CWA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWA00020" type="gen:KAZEI_KIKAN_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWA00030" type="gen:KAZEI_KIKAN_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CWA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用対象期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWA00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWA00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CWA00070" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CWB00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="CWB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業の区分ごとの計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWB00020" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWB00030" type="gen:shokugyo" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"業種"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税資産の譲渡等（免税取引及び旧税率（6.3％等）が適用される取引は除く。）の税込価額の合計額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"軽減対象資産の譲渡等（税率6.24％適用分）の税込価額の合計額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWB00060" type="CWB00060-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小売等軽減売上割合"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税仕入れに係る支払対価の額等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(４)課税仕入れに係る支払対価の額（税込み）"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保税地域から引き取った課税貨物に係る税込引取価額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(６)課税仕入れに係る支払対価の額等の合計額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CWB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(７)軽減対象資産に係る課税仕入れ等（税率6.24％適用分）の税額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(８)軽減対象資産に係る課税仕入れ等以外の課税仕入れ等（税率7.8％適用分）の税額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CWB00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWB00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(７)軽減対象資産に係る課税仕入れ等（税率6.24％適用分）の税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(８)軽減対象資産に係る課税仕入れ等以外の課税仕入れ等（税率7.8％適用分）の税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CWB00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税義務の免除を受けない（受ける）こととなった場合における消費税額の調整（加算又は減算）額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率6.24％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率7.8％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CWC00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="CWC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税仕入れ等の税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWC00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税仕入れに係る支払対価の額（税込み）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率6.24％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率7.8％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CWC00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税仕入れに係る消費税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率6.24％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率7.8％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CWC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定課税仕入れに係る支払対価の額　税率7.8％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWC00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定課税仕入れに係る消費税額　税率7.8％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWC00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税貨物に係る消費税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率6.24％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率7.8％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CWC00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税義務の免除を受けない（受ける）こととなった場合における消費税額の調整（加算又は減算）額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWC00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率6.24％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率7.8％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CWC00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税仕入れ等の税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CWC00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率6.24％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWC00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率7.8％適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CWD00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="CWD00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(19)軽減対象資産に係る課税仕入れ等（税率6.24％適用分）の税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CWD00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(20)軽減対象資産に係る課税仕入れ等以外の課税仕入れ等（税率7.8％適用分）の税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="CWB00060-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="CWB00060-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CWB00060-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

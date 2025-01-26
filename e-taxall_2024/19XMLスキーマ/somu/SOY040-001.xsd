@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：残余財産の処分許可の申請書
+version：1.0
+Date：2004年02月06日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SOY040-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SOY040-1-0group">
+<xsd:sequence>
+<xsd:element name="SOY040">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDA00000" type="BDA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDB00000" type="BDB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"記"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SOY040-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BDA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BDA00010" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDA00020" type="BDA00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発遣番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDA00030" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDA00040" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公益法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDA00050" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"清算人代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDA00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"開催日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDA00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"会議名称"</xsd:appinfo>
+</xsd:annotation><xsd:complexType>
+<xsd:complexContent>
+<xsd:extension base="BDA00070-1-0Rtype">
+<xsd:attribute name="ID" type="xsd:ID" use="required"/>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BDB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BDB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"４　会議名称"</xsd:appinfo>
+</xsd:annotation><xsd:complexType>
+<xsd:attribute name="IDREF" type="xsd:IDREF" use="required" fixed="BDA00070"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDB00020" type="BDB00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"５　その他"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BDA00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="BDA00070-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="BDB00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

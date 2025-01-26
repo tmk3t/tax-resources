@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：付表(変更後の事前確定届出給与等の状況)
+version：2.0
+Date：2017年11月27日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOY851-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOY851-2-0group">
+<xsd:sequence>
+<xsd:element name="HOY851">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00000" type="HWA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細１"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00000" type="HWB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細２"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOY851-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="HWA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="HWA00010" type="HWA00010-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"No."</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWA00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事前確定届出給与対象者の氏名（役職名）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWA00040" type="HWA00040-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役職名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWA00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更前の直前届出に係る「定め」に基づく給与の支給の日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWA00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"直前届出に係る届出書の提出をした日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWA00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当初届出に係る（連結）事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00080" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWA00090" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWA00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当初届出に係る（連結）事業年度開始の日の属する会計期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00110" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWA00120" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWA00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更後の事前確定届出給与に関する事項"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00140" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"職務執行期間開始の日の属する会計期間　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00150" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWA00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWA00170" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"翌会計期間以後　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00180" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWA00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWA00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更前の事前確定届出給与に関する事項"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00210" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"職務執行期間開始の日の属する会計期間　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00230" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWA00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWA00250" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00260" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWA00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWA00280" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"翌会計期間以後　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWA00290" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWA00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="HWB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="HWB00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更後の事前確定届出給与に関する事項"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWB00140" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"職務執行期間開始の日の属する会計期間　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWB00150" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00310" type="HWB00310-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付する株式又は新株予約権の銘柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00320" type="HWB00320-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付決議時価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金銭債権の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWB00170" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"翌会計期間以後　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWB00180" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00350" type="HWB00350-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付する株式又は新株予約権の銘柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00360" type="HWB00360-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付決議時価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金銭債権の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWB00390" type="HWB00390-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"条件その他の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWB00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更前の事前確定届出給与に関する事項"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWB00210" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"職務執行期間開始の日の属する会計期間　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWB00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出内容"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWB00230" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00400" type="HWB00400-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付する株式又は新株予約権の銘柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00410" type="HWB00410-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00420" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付決議時価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00430" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金銭債権の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWB00250" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給内容"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWB00260" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00440" type="HWB00440-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付する株式又は新株予約権の銘柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00450" type="HWB00450-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00460" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付決議時価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金銭債権の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWB00280" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"翌会計期間以後　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HWB00290" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支給時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00480" type="HWB00480-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付する株式又は新株予約権の銘柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00490" type="HWB00490-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付決議時価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HWB00510" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金銭債権の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HWB00520" type="HWB00520-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"条件その他の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="HWA00010-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWA00040-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00310-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00320-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00350-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00360-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00390-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00400-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00410-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00440-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00450-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00480-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00490-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HWB00520-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="HWA00010-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="HWA00010-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HWB00320-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="HWB00320-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HWB00360-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="HWB00360-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HWB00410-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="HWB00410-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HWB00450-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="HWB00450-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HWB00490-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="HWB00490-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

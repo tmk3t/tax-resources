@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：相続税がかかる財産の明細書(土地・家屋等用)(第11表の付表1)(令和6年1月分以降用)
+version：1.0
+Date：2023年11月20日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE161-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE161-1-0group">
+<xsd:sequence>
+<xsd:element name="KSE161">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="EKA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="EKB00000" type="EKB00000-1-0type" minOccurs="0" maxOccurs="8">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE161-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="EKB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="EKB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産の明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EKB00020" type="EKB00020-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"項番"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00030" type="EKB00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"細目コード"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00040" type="EKB00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"細目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00050" type="EKB00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利用区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00060" type="EKB00060-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00070" type="EKB00070-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特例"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00080" type="EKB00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在場所"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EKB00100" type="EKB00100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"都道府県"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00110" type="EKB00110-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"市区町村"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00120" type="EKB00120-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"大字・丁目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00130" type="EKB00130-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"地番又は家屋番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EKB00140" type="EKB00140-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00150" type="EKB00150-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"単価又は倍数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"固定資産税評価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"持分割合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EKB00180" type="EKB00180-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00190" type="EKB00190-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分母"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EKB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EKB00210" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"分割が確定した財産　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EKB00220" type="EKB00220-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産を取得した人の番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="EKB00020-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00060-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="1"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00070-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00080-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00100-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00110-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00120-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00130-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00140-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00150-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00180-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00190-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00220-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="EKB00020-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKB00020-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EKB00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKB00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EKB00060-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKB00060-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EKB00140-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKB00140-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EKB00150-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKB00150-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EKB00180-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKB00180-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EKB00190-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKB00190-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EKB00220-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKB00220-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

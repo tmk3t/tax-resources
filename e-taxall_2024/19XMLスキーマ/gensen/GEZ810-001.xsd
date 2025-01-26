@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/gensen"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/gensen"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：源泉徴収に係る所得税の納税管理人の届出書
+version：1.0
+Date：2004年04月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="GEZ810-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="GEZ810-1-0group">
+<xsd:sequence>
+<xsd:element name="GEZ810">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="DBA00000" type="DBA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBB00000" type="DBB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="GEZ810-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="DBA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="DBA00010" type="DBA00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Date"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBA00020" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBA00030" type="DBA00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Tax Office"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBA00040" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税務署名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBA00050" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBA00060" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所又は所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBA00070" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="DBB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="DBB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税管理人"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="DBB00020" type="gen:zipcode" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBB00030" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBB00040" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBB00050" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBB00060" type="gen:shokugyo" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"職業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBB00070" type="gen:tel-number" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBB00080" type="DBB00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出者との関係"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DBB00090" type="DBB00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税管理人を定めた理由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="DBB00100" type="DBB00100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他参考事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="DBA00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="DBA00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="DBB00080-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="DBB00090-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="160"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="DBB00100-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="160"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

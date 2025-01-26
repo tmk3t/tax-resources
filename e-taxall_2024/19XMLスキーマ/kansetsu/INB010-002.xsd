@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：年__月分印紙税納税申告書(書式表示用)
+version：2.1
+Date：2021年09月03日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="INB010-2-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/><xsd:enumeration value="2.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="INB010-2-1group">
+<xsd:sequence>
+<xsd:element name="INB010">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CAA00000" type="CAA00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告書名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00000" type="CAB00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAC00000" type="CAC00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告提出区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAD00000" type="CAD00000-2-1type" minOccurs="0" maxOccurs="6">
+<xsd:annotation>
+<xsd:appinfo>"明細繰返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAE00000" type="CAE00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計（数量及び納付すべき税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAJ00000" type="CAJ00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"次葉合計（数量及び納付すべき税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAF00000" type="CAF00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計（数量及び納付すべき税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAG00000" type="CAG00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この申告書が修正申告である場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="CAH00000" type="CAH00000-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期限後申告・修正申告をする理由・事情"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAI00000" type="CAI00000-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"参考事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAK00000" type="CAK00000-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知希望区分(加算税)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="INB010-2-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CAA00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="CAA00010" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CAB00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="CAB00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税文書の作成場所及び名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CAB00040" type="gen:SEIZOJO_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00050" type="gen:SEIZOJO_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00060" type="gen:SEIZOJO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00070" type="gen:SEIZOJO_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CAB00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CAB00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告者の住所"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CAB00100" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00110" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00120" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CAB00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称及び代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CAB00140" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00150" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00160" type="gen:DAIHYO_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00170" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CAB00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上代理人"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CAB00190" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代理人氏名フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAB00200" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代理人氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CAC00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="CAC00010" type="CAC00010-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期限後申告書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAC00020" type="CAC00020-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CAD00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="CAD00010" type="CAD00010-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"物件名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAD00020" type="CAD00020-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAD00030" type="CAD00030-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"号別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAD00040" type="CAD00040-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"物件名欄の文書番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAD00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"承認年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAD00060" type="CAD00060-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"承認番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAD00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率・税額区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAD00080" type="CAD00080-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CAE00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="CAE00010" type="CAE00010-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CAJ00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="CAJ00010" type="CAJ00010-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAJ00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CAF00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="CAF00010" type="CAF00010-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAF00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CAG00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="CAG00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告前の確定額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CAG00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="CAC00010-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="CAC00020-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CAD00010-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CAD00020-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CAD00030-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CAD00040-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CAD00060-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CAD00080-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CAE00010-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CAJ00010-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CAF00010-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CAH00000-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="216"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CAI00000-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="216"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="CAK00000-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+
+
+<xsd:complexType name="CAD00030-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="CAD00030-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CAD00040-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="CAD00040-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CAD00060-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="CAD00060-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CAD00080-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="CAD00080-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CAE00010-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="CAE00010-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CAJ00010-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="CAJ00010-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CAF00010-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="CAF00010-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

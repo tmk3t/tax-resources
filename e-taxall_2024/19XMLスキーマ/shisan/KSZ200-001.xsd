@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：相続税の納税猶予の継続届出書
+version：1.0
+Date：2009年11月25日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSZ200-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSZ200-1-0group">
+<xsd:sequence>
+<xsd:element name="KSZ200">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="CPA00000" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPB00000" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="CPC00000" type="CPC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="CPD00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農地等の相続(遺贈)があった年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPE00000" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPF00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPG00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人生年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPH00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"1.納付すべき相続税額のうち納税の猶予の適用を受けた相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPI00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"2. 1のうちこの届出書の提出までに特例農地等の譲渡等をしたため、既に納税の猶予が確定し納付した相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPJ00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"3. 1のうち相続税の申告書の提出期限の翌日から20年が経過をしたため免除された相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPK00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"4. 1のうち届出日現在において納税の猶予を受けている相続税額(1-2-3の金額)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="CPL00000" type="CPL00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"5."</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPM00000" type="CPM00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"関与税理士欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSZ200-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CPC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CPC00010" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPC00020" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPC00030" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPC00040" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CPL00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CPL00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"使用貸借権利設定年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPL00020" type="CPL00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"推定相続人等区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPL00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"推定相続人等氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CPM00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CPM00010" type="gen:DAIRI_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"関与税理士"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CPM00020" type="gen:DAIRI_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="CPL00020-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+
+
+</xsd:schema>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：小規模宅地等についての課税価格の計算明細書(続)(第11･11の2表の付表1(続))(令和2年4月分以降用)
+version：2.0
+Date：2020年07月01日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE113-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE113-2-0group">
+<xsd:sequence>
+<xsd:element name="KSE113">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="FKA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="FKB00000" type="FKB00000-2-0type" minOccurs="0" maxOccurs="6">
+<xsd:annotation>
+<xsd:appinfo>"１　特例の適用にあたっての同意　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FKC00000" type="FKC00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２　小規模宅地等の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE113-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FKB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="FKB00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FKC00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="FKC00010" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"選択した小規模宅地等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FKC00020" type="FKC00020-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小規模宅地等の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FKC00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)特例の適用を受ける取得者の氏名(事業内容)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FKC00040" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FKC00050" type="FKC00050-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FKC00060" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)所在地番"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FKC00070" type="FKC00070-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)取得者の持分に応ずる宅地等の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FKC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)取得者の持分に応ずる宅地等の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FKC00090" type="FKC00090-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)(3)のうち小規模宅地等(「限度面積要件」を満たす宅地等)の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FKC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)(4)のうち小規模宅地等（(4)*(5)/(3)）の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FKC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)課税価格の計算に当たって減額される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FKC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(8)課税価格に算入する価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="FKC00020-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="4"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FKC00050-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FKC00070-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FKC00090-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="FKC00070-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="FKC00070-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FKC00090-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="FKC00090-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

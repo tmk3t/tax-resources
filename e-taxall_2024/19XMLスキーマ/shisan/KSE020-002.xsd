@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：相続税の総額の計算書(第2表)(令和5年1月分以降用)
+version：2.0
+Date：2023年05月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE020-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE020-2-0group">
+<xsd:sequence>
+<xsd:element name="KSE020">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="FDA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="FDB00000" type="FDB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE020-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FDB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="FDB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(イ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(ホ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"遺産に係る基礎控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00050" type="FDB00050-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(ロ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(ハ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税遺産総額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(ニ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(ヘ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00100" minOccurs="0" maxOccurs="9">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法定相続人"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00120" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00130" type="FDB00130-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人との続柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左の法定相続人に応じた法定相続分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00150" type="FDB00150-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00160" type="FDB00160-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分母"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第1表の「相続税の総額(7)」の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法定相続分に応ずる取得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続税の総額の基となる税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第3表の「相続税の総額(7)」の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FDB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法定相続分に応ずる取得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続税の総額の基となる税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FDB00230" type="FDB00230-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法定相続人の数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(8) 相続税の総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FDB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(11) 相続税の総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="FDB00050-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="FDB00130-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun2">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun2_CD">
+                            <xsd:enumeration value="01"/><xsd:enumeration value="11"/><xsd:enumeration value="21"/><xsd:enumeration value="12"/><xsd:enumeration value="22"/><xsd:enumeration value="13"/><xsd:enumeration value="23"/><xsd:enumeration value="14"/><xsd:enumeration value="24"/><xsd:enumeration value="15"/><xsd:enumeration value="25"/><xsd:enumeration value="16"/><xsd:enumeration value="26"/><xsd:enumeration value="17"/><xsd:enumeration value="27"/><xsd:enumeration value="18"/><xsd:enumeration value="28"/><xsd:enumeration value="19"/><xsd:enumeration value="29"/><xsd:enumeration value="90"/><xsd:enumeration value="30"/><xsd:enumeration value="41"/><xsd:enumeration value="42"/><xsd:enumeration value="51"/><xsd:enumeration value="52"/><xsd:enumeration value="61"/><xsd:enumeration value="63"/><xsd:enumeration value="62"/><xsd:enumeration value="64"/><xsd:enumeration value="10"/><xsd:enumeration value="99"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FDB00150-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FDB00160-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FDB00230-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="FDB00050-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="FDB00050-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FDB00150-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="FDB00150-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FDB00160-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="FDB00160-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FDB00230-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="FDB00230-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

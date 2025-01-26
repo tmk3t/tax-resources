@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：教育資金管理契約の終了に関する調書
+version：1.0
+Date：2013年12月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HSZ861-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HSZ861-1-0group">
+<xsd:sequence>
+<xsd:element name="HSZ861">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="FOA00000" type="FOA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払調書の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOB00000" type="FOB00000-1-0Rtype">
+<xsd:annotation>
+<xsd:appinfo>"訂正区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="AAD00000" type="AAD00000861-1-0type">
+<xsd:annotation>
+<xsd:appinfo>"受贈者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="FOE00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与者（氏名）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="FOF00000" type="FOF00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"教育資金管理契約に関する事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOG00000" type="FOG00000-1-0type" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"当該教育資金管理契約に関して既に提出した申告書　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAK00000" type="AAK00000861-1-0type">
+<xsd:annotation>
+<xsd:appinfo>"取扱金融機関の営業所等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="FOH00000" type="FOH00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（摘要）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HSZ861-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="AAD00000861-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FOD00010">
+<xsd:annotation>
+<xsd:appinfo>"（ふりがな）氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOD00020" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"ふりがな"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAD00020" type="gen:name">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AAD00010" type="gen:address">
+<xsd:annotation>
+<xsd:appinfo>"住所又は居所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOD00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"生年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FOF00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FOF00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出事由の生じた日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOF00020" type="FOF00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出事由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOF00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"契約締結日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOF00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非課税拠出額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOF00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"教育資金支出額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FOF00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"教育資金支出額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOF00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"内書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FOF00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"残額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FOG00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FOG00010" type="FOG00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告書の種別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOG00020" type="FOG00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先の税務署名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FOG00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AAK00000861-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AAK00010" type="gen:NOZEISHA_ADRref">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAK00020" type="gen:NOZEISHA_NMref">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="FOA00000-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="FOB00000-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="0"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FOF00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FOG00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FOG00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="6"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FOH00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="FOA00000-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="FOA00000-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

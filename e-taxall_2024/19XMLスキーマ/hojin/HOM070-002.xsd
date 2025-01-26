@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：経営革新計画を実施する中小企業者に対する特定同族会社の特別税率の不適用制度に関する明細書
+version：2.1
+Date：2007年08月23日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOM070-2-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/><xsd:enumeration value="2.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOM070-2-1group">
+<xsd:sequence>
+<xsd:element name="HOM070">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="LIA00000" type="LIA00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LIB00000" type="LIB00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="LIC00000" type="LIC00000-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOM070-2-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="LIA00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="LIA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="LIA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LIA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LIA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="LIB00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="LIB00300" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"経営革新計画の承認年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LIB00310" type="LIB00310-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"経営革新のための事業の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LIB00320" type="LIB00320-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期末における事業の状況"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LIB00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"添付書類"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="LIB00340" type="LIB00340-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"イ　行政庁が中小企業の新たな事業活動の促進に関する法律第９条第１項に規定する承認(同法第10条第1項の承認を含む。)をした旨を証する書類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LIB00350" type="LIB00350-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"ロ　該当する承認経営革新計画の計画書の写し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="LIB00310-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="280"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="LIB00320-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="280"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="LIB00340-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="LIB00350-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="LIC00000-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

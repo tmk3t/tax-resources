@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：預貯金等の内訳書
+version：2.0
+Date：2008年04月28日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOI010-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOI010-2-0group">
+<xsd:sequence>
+<xsd:element name="HOI010">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HAB00000" type="HAB00000-2-0type" minOccurs="0" maxOccurs="23">
+<xsd:annotation>
+<xsd:appinfo>"預貯金等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAC00000" type="HAC00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOI010-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="HAB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="HAB00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金融機関名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HAB00110" type="HAB00110-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"銀行名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00120" type="HAB00120-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支店名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HAB00200" type="HAB00200-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00300" type="HAB00300-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"口座番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00400" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末現在高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00500" type="HAB00500-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="HAC00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="HAC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末現在高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAC00200" type="HAC00200-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="HAB00110-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="11"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAB00120-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="11"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAB00200-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAB00300-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="13"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAB00500-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAC00200-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

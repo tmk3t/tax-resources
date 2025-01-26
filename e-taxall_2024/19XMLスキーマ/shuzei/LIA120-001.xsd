@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：税額算出表(差額課税用)
+version：1.0
+Date：2004年12月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="LIA120-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="LIA120-1-0group">
+<xsd:sequence>
+<xsd:element name="LIA120">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EIA00000" type="EIA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EIB00000" type="EIB00000-1-0type" minOccurs="0" maxOccurs="24">
+<xsd:annotation>
+<xsd:appinfo>"明細  繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="LIA120-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="EIA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="EIA00010" type="gen:SEIZOJO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"販売場等名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EIB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="EIB00010" type="EIB00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"酒類の種類・品目等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EIB00020" type="EIB00020-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"アルコール分別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EIB00030" type="EIB00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)課税標準数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EIB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EIB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EIB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)既納付税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EIB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)差引税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EIB00080" type="EIB00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="EIB00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EIB00020-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:pattern value="[-]?\d?\d?"/><xsd:pattern value="[-]?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EIB00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EIB00080-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="EIB00020-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EIB00020-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EIB00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EIB00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

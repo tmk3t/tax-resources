@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/choshu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/choshu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：収支の明細書及び財産目録
+version：2.0
+Date：2020年11月11日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="COZ520-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="COZ520-2-0group">
+<xsd:sequence>
+<xsd:element name="COZ520">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="COZ520-1" type="COZ520-1-2-0type" minOccurs="0" maxOccurs="unbounded">
+<xsd:annotation>
+<xsd:appinfo>"一面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="COZ520-2" type="COZ520-2-2-0type" minOccurs="0" maxOccurs="unbounded">
+<xsd:annotation>
+<xsd:appinfo>"二面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="COZ520-3" type="COZ520-3-2-0type" minOccurs="0" maxOccurs="unbounded">
+<xsd:annotation>
+<xsd:appinfo>"三面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="COZ520-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="COZ520-1-2-0type">
+<xsd:sequence>
+
+<xsd:element name="CCA00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１　住所・氏名等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCB00010" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所（所在地）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00020" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名（名称）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCC00000" minOccurs="0" maxOccurs="12">
+<xsd:annotation>
+<xsd:appinfo>"２　直前１年間における各月の収入及び支出の状況　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCC00010" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（１）総収入金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（２）総支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（３）差額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00050" type="CCC00050-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCD00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"３　今後の平均的な収入及び支出の見込金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00010" minOccurs="0" maxOccurs="9">
+<xsd:annotation>
+<xsd:appinfo>"収入　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00020" type="CCD00020-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"見込金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCD00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（１）収入合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00050" minOccurs="0" maxOccurs="8">
+<xsd:annotation>
+<xsd:appinfo>"支出　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00060" type="CCD00060-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"見込金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCD00080" type="CCD00080-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"扶養親族"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"見込金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（２）支出合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（３）納付可能基準額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCE00000" type="CCE00000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="COZ520-2-2-0type">
+<xsd:sequence>
+
+<xsd:element name="CCF00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"４　今後１年以内における臨時的な収入及び支出の見込金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCF00010" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"臨時収入　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCF00020" type="CCF00020-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCF00030" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCF00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCF00050" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"臨時支出　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCF00060" type="CCF00060-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCF00070" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCF00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCG00000" minOccurs="0" maxOccurs="8">
+<xsd:annotation>
+<xsd:appinfo>"５　今後１年以内に納付すべきことが見込まれる国税及び地方税等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCG00010" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCG00020" type="CCG00020-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCG00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCH00000" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"６　家族（役員）の状況　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCH00010" type="CCH00010-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"続柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCH00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCH00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"生年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCH00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"収入・報酬"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCH00050" type="CCH00050-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"職業・所有財産等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCI00000" minOccurs="0" maxOccurs="12">
+<xsd:annotation>
+<xsd:appinfo>"７　分割納付年月日及び分割納付金額　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCI00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCI00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（１）納付可能基準額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCI00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（２）季節変動等に伴う増減額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCI00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（３）臨時的入出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCI00045" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国税等　（４）積立額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCI00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国税等　（５）納付額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCI00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（６）分割納付金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="COZ520-3-2-0type">
+<xsd:sequence>
+
+<xsd:element name="CCJ00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCK00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１　住所・氏名等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCK00010" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所（所在地）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCK00020" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名（名称）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCL00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２　財産の状況"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCL00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"預貯金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00020" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"（１）預貯金等の状況　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCL00030" type="CCL00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金融機関等の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00040" type="CCL00040-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"預貯金等の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"預貯金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCL00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"預貯金等合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00070" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"（２）売掛金・貸付金等の状況　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCL00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売掛先等の名称・住所"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCL00090" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00100" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCL00110" type="CCL00110-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00120" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"回収予定日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00130" type="CCL00130-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"回収方法"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売掛金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCL00150" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（３）その他の財産の状況"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCL00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国債・株式等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCL00170" type="CCL00170-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00180" type="CCL00180-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"担保等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"直ちに納付に充てられる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCL00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCL00210" type="CCL00210-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00220" type="CCL00220-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"担保等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"直ちに納付に充てられる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCL00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"車両"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCL00250" type="CCL00250-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00260" type="CCL00260-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"担保等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"直ちに納付に充てられる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCL00280" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他財産"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCL00290" type="CCL00290-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00300" type="CCL00300-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"担保等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"直ちに納付に充てられる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCL00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCL00330" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"（４）借入金・買掛金の状況　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCL00340" type="CCL00340-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"借入先等の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"借入金等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"月額返済額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00370" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"返済終了（支払）年月"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00380" type="CCL00380-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"追加借入の可否"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCL00390" type="CCL00390-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"担保提供財産等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCM00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCM00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"４　現在納付可能資金額　（１）当座資金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCM00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"４　現在納付可能資金額　（２）当面の必要資金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCM00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"４　現在納付可能資金額　（３）現在納付可能資金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCM00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"３　当面の必要資金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCM00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支出見込"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCM00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業支出"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCM00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCM00080" type="CCM00080-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCM00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"生活費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCM00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCM00110" type="CCM00110-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"扶養親族"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCM00120" type="CCM00120-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCM00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"収入見込"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCM00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCM00150" type="CCM00150-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCM00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（支出見込）－（収入見込）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+
+<xsd:simpleType name="CCC00050-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCD00020-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCD00060-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCD00080-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCE00000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="230"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCF00020-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="60"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCF00060-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="60"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCG00020-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="12"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCH00010-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="12"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCH00050-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCL00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCL00040-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="5"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCL00110-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCL00130-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCL00170-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="CCL00180-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CCL00210-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="CCL00220-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CCL00250-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="CCL00260-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CCL00290-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="CCL00300-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CCL00340-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="CCL00380-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CCL00390-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCM00080-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="130"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCM00110-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCM00120-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="90"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCM00150-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="130"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="CCD00080-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="CCD00080-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CCM00110-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="CCM00110-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

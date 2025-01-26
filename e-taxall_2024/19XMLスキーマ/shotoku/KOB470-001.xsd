@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：被災者向け優良賃貸住宅の賃貸が公募要件等に該当する事実を証する明細書
+version：1.1
+Date：2004年07月28日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KOB470-1-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/><xsd:enumeration value="1.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KOB470-1-1group">
+<xsd:sequence>
+<xsd:element name="KOB470">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="CYA00000" type="gen:NENBUNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYB00000" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="CYC00000" type="CYC00000-1-1type" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"公募要件等に該当する事実を証する明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="CYD00000" type="CYD00000-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KOB470-1-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CYC00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="CYC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"賃貸した資産の明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CYC00020" type="CYC00020-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"該当条文"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00025" type="CYC00025-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"該当条文"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00030" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"共同家屋の所在地"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00040" type="CYC00040-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"共同家屋の建物番号"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00050" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"共同家屋の名称"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00060" type="CYC00060-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"共同家屋の全体の戸数"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公募の対象とした独立部分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CYC00080" type="CYC00080-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"戸"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00085" minOccurs="0" maxOccurs="40">
+<xsd:annotation>
+<xsd:appinfo>"号室　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CYC00090" type="CYC00090-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"号室"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CYC00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公募要件に該当する事実等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CYC00110" type="CYC00110-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公募の方法"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公募年月日又は期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CYC00130" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00140" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CYC00150" type="CYC00150-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公募を実施した地域"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"募集期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CYC00170" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00180" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CYC00190" type="CYC00190-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"応募者の範囲"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00200" type="CYC00200-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"賃借人の選定方法"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00210" type="CYC00210-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"管理人の募集及び選定方法"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CYC00220" type="CYC00220-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"管理人の家賃その他の賃貸条件"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="CYC00020-1-1Rtype">
+    <xsd:restriction base="xsd:nonNegativeInteger">
+        <xsd:pattern value="\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYC00025-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="1"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYC00040-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="12"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYC00060-1-1Rtype">
+    <xsd:restriction base="xsd:nonNegativeInteger">
+        <xsd:pattern value="\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYC00080-1-1Rtype">
+    <xsd:restriction base="xsd:nonNegativeInteger">
+        <xsd:pattern value="\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYC00090-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="6"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYC00110-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYC00150-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYC00190-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYC00200-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYC00210-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYC00220-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CYD00000-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="225"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="CYC00020-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CYC00020-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CYC00060-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CYC00060-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CYC00080-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CYC00080-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

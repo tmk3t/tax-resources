@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：個別帰属額等の一覧表
+version：1.0
+Date：2005年01月18日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOR200-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOR200-1-0group">
+<xsd:sequence>
+<xsd:element name="HOR200">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RDA00000" type="RDA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDB00000" type="RDB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結親法人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDC00000" type="RDC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結子法人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDD00000" type="RDD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結子法人数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDE00000" type="RDE00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結親法人及び連結子法人の個別帰属額等の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDF00000" type="RDF00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"参考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOR200-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="RDA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RDA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RDA00020" type="gen:RENKETSU_JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDA00030" type="gen:RENKETSU_JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RDA00040" type="gen:OYA_HOJIN_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結親法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RDB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RDB00010" type="gen:OYA_HOJIN_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDB00020" type="gen:OYA_HOJIN_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別所得金額又は個別欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDB00060" type="RDB00060-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"別途提出"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RDC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RDC00010" minOccurs="0" maxOccurs="10">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RDC00020" type="RDC00020-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一連番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDC00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDC00040" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別所得金額又は個別欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDC00080" type="RDC00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期中加入"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDC00090" type="RDC00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"別途提出"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RDD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RDD00010" type="RDD00010-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"子法人数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RDE00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RDE00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別所得金額又は個別欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別帰属額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RDF00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RDF00010" type="RDF00010-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首の連結子法人数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDF00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期中"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RDF00030" type="RDF00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"加入した連結子法人数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RDF00040" type="RDF00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"離脱した連結子法人数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RDF00050" type="RDF00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末の連結子法人数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="RDB00060-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="RDC00020-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="RDC00080-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="RDC00090-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="RDD00010-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RDF00010-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RDF00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RDF00040-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RDF00050-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="RDC00020-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="RDC00020-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="RDD00010-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="RDD00010-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="RDF00010-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="RDF00010-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="RDF00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="RDF00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="RDF00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="RDF00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="RDF00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="RDF00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

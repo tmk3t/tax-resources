@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：課税取引金額計算表(事業所得用)
+version：1.0
+Date：2003年10月28日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SHE010-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SHE010-1-0group">
+<xsd:sequence>
+<xsd:element name="SHE010">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALA00000" type="ALA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALB00000" type="ALB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上（収入）金額（雑収入を含む）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALC00000" type="ALC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上原価"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALD00000" type="ALD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00000" type="ALE00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"経費"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALF00000" type="ALF00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SHE010-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="ALA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ALA00010" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ALB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ALB00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ALC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ALC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首商品棚卸高"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALC00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"仕入金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALC00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALC00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末商品棚卸高"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALC00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引原価"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ALD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ALD00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ALE00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ALE00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"租税公課"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"荷造運賃"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"水道光熱費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旅費交通費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通信費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"広告宣伝費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"接待交際費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00280" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損害保険料"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00310" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修繕費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00340" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"消耗品費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00370" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減価償却費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00390" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00400" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"福利厚生費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00410" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00420" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00430" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00440" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"給料賃金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00460" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00480" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外注工賃"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00505" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00510" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利子割引料"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00520" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00530" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00550" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"地代家賃"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00560" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00570" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00575" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00580" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸倒金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00590" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00600" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00660" minOccurs="0" maxOccurs="6">
+<xsd:annotation>
+<xsd:appinfo>"任意科目　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00670" type="ALE00670-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"任意科目名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00680" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00690" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00700" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00710" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"雑費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00720" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00730" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00740" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALE00750" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALE00760" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00770" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B Aのうち課税取引にならないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALE00780" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"C （A-B）課税取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ALF00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ALF00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A 決算額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="ALE00670-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

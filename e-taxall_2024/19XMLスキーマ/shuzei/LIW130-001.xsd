@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：業務用減税ウイスキー類の譲渡承認申請書
+version：1.0
+Date：2004年12月16日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="LIW130-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="LIW130-1-0group">
+<xsd:sequence>
+<xsd:element name="LIW130">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BMA00000" type="BMA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00000" type="BMB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="LIW130-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BMA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BMA00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMA00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMA00030" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請者の住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称及び法人の代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BMA00050" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMA00060" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人の代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BMB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BMB00010" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"譲り渡す減税ウイスキー類の品目、銘柄、容器の容量別本数および数量　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BMB00020" type="BMB00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"品目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00030" type="BMB00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"銘柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00040" type="BMB00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"容器の容量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00050" type="BMB00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00060" type="BMB00060-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BMB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請者の指定施設の所在地および名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BMB00080" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00090" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BMB00100" type="BMB00100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲り渡す理由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00110" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲り渡し希望年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲り受ける者の施設等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BMB00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"施設の指定年月日および指定番号"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BMB00140" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"指定年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00150" type="BMB00150-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"指定番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BMB00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"経営者の住所、氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BMB00170" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00180" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BMB00190" type="BMB00190-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"施設の業態"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"施設の所在地および名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BMB00210" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BMB00220" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BMB00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="14"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BMB00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="16"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BMB00040-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BMB00050-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BMB00060-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BMB00100-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BMB00150-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="32"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BMB00190-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="BMB00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BMB00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BMB00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BMB00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BMB00060-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BMB00060-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

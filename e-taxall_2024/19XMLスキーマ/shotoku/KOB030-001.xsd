@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：分離課税の短期譲渡所得の税額計算書
+version：1.0
+Date：2004年12月22日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KOB030-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KOB030-1-0group">
+<xsd:sequence>
+<xsd:element name="KOB030">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="BCA00000" type="gen:NENBUNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00000" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="BCC00000" type="BCC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１．課税される所得金額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCD00000" type="BCD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２．一般所得分の税額計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCE00000" type="BCE00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"３．軽減所得分の税額計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCF00000" type="BCF00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変動・臨時の平均課税を適用する場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KOB030-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BCC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BCC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税される所得金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総合課税の所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCC00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分離課税の短期譲渡所得"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一般所得分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"軽減所得分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BCC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総合課税の所得（１）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BCD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BCD00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（２）*４０％"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCD00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別控除"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCD00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（１）＋（（２）－特別控除）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCD00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（６）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCD00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（（７）－（４））*１１０％"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCD00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（２）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BCE00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BCE00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（３）*２０％"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別控除"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（１）＋（（３）－特別控除）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（６）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCE00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（７）－（４）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCE00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（３）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BCF00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BCF00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"平均課税対象金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCF00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（６）が（１０）の金額を超える場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCF00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCF00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BCF00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（６）が（１０）の金額以下の場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCF00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCF00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BCF00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCF00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整所得金額（１１）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCF00100" type="BCF00100-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"平均税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCF00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別所得金額（１２）に対する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCF00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額の合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BCF00100-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="BCF00100-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCF00100-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

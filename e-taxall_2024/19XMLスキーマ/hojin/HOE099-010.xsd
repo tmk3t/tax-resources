@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十四(二)　寄附金の損金算入に関する明細書
+version：10.0
+Date：2021年06月24日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOE099-10-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="10.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOE099-10-0group">
+<xsd:sequence>
+<xsd:element name="HOE099">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWA00000" type="WWA00000-10-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00000" type="WWB00000-10-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公益法人等以外の法人の場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00000" type="WWC00000-10-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公益法人等の場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWD00000" type="WWD00000-10-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"指定寄附金等に関する明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWE00000" type="WWE00000-10-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益増進法人若しくは認定特定非営利活動法人等に対する寄附金又は認定特定公益信託に対する支出金の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWF00000" type="WWF00000-10-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の寄附金のうち特定公益信託（認定特定公益信託を除く。）に対する支出金の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="WWG00000" type="WWG00000-10-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOE099-10-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+<xsd:attribute name="csvFileNM" type="gen:str"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="WWA00000-10-0type">
+<xsd:sequence>
+
+<xsd:element name="WWA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WWA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="WWB00000-10-0type">
+<xsd:sequence>
+
+<xsd:element name="WWB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一般寄附金の損金算入限度額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支出した寄附金の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"指定寄附金等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益増進法人等に対する寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計（4）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"完全支配関係がある法人に対する寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計（6）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WWB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得金額仮計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金支出前所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00105" type="WWB00105-10-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の2.5又は1.25／100相当額　区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の2.5又は1.25／100相当額　金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末の資本金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の月数換算額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWB00140" type="gen:mm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"月数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WWB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の2.5／1,000相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一般寄附金の損金算入限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WWB00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益増進法人等に対する寄附金の特別損金算入限度額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金支出前所得金額の6.25／100相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末の資本金等の額の月数換算額の3.75／1,000相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益増進法人等に対する寄附金の特別損金算入限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WWB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益増進法人等に対する寄附金の損金算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"指定寄附金等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外関連者に対する寄附金額及び本店等に対する内部寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（4）の寄附金額のうち同上の寄附金以外の寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金不算入額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWB00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上のうち損金の額に算入されない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外関連者に対する寄附金額及び本店等に対する内部寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"完全支配関係がある法人に対する寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWB00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="WWC00000-10-0type">
+<xsd:sequence>
+
+<xsd:element name="WWC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金算入限度額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWC00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支出した寄附金の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"長期給付事業への繰入利子額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上以外のみなし寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WWC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得金額仮計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金支出前所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の20又は50／100相当額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWC00100" type="WWC00100-10-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WWC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公益社団法人又は公益財団法人の公益法人特別限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"長期給付事業を行う共済組合等の損金算入限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金算入限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WWC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"指定寄附金等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外関連者に対する寄附金額及び完全支配関係がある法人に対する寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（28）の寄附金額のうち同上の寄附金以外の寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金不算入額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWC00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上のうち損金の額に算入されない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外関連者に対する寄附金額及び完全支配関係がある法人に対する寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWC00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="WWD00000-10-0type">
+<xsd:sequence>
+
+<xsd:element name="WWD00010" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWD00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附した日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWD00030" type="WWD00030-10-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWD00040" type="WWD00040-10-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"告示番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWD00050" type="WWD00050-10-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金の使途"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWD00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WWD00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="WWE00000-10-0type">
+<xsd:sequence>
+
+<xsd:element name="WWE00010" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWE00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附した日又は支出した日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWE00030" type="WWE00030-10-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附先又は受託者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWE00040" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWE00050" type="WWE00050-10-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金の使途又は認定特定公益信託の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWE00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金額又は支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WWE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="WWF00000-10-0type">
+<xsd:sequence>
+
+<xsd:element name="WWF00010" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WWF00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支出した日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWF00030" type="WWF00030-10-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受託者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWF00040" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWF00050" type="WWF00050-10-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益信託の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WWF00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="WWB00105-10-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="WWC00100-10-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="WWD00030-10-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WWD00040-10-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WWD00050-10-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WWE00030-10-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WWE00050-10-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WWF00030-10-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WWF00050-10-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WWG00000-10-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

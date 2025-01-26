@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：特定の資産の譲渡に伴う特別勘定を設けた場合の取得予定資産の明細書
+version：2.0
+Date：2006年10月17日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOR920-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOR920-2-0group">
+<xsd:sequence>
+<xsd:element name="HOR920">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TQA00000" type="TQA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="TQB00000" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人の所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="TQC00000" type="TQC00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡資産の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQD00000" type="TQD00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別勘定金額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQE00000" type="TQE00000-2-0type" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"取得予定資産の明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="TQF00000" type="TQF00000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他参考となるべき事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQG00000" type="TQG00000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOR920-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="TQA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="TQA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TQA00020" type="TQA00020-2-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQA00030" type="TQA00030-2-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TQA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TQA00050" type="gen:OYA_HOJIN_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQA00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名(連結子法人)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="TQC00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="TQC00010" type="TQC00010-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQC00020" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQC00030" type="TQC00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"規模"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQC00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="TQD00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="TQD00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別勘定として経理した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQD00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"繰入限度超過額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQD00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特別勘定金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="TQE00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="TQE00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"措置法第68条の78第1項の表の該当号"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TQE00030" type="TQE00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"措置法第＿号該当"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TQE00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得予定資産の明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TQE00060" type="TQE00060-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"種類"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQE00070" type="TQE00070-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構造"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQE00080" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQE00090" type="TQE00090-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"規模"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TQE00100" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得予定年月日"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="TQC00010-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TQC00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TQE00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="2"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TQE00060-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TQE00070-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TQE00090-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TQF00000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="240"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TQG00000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="TQA00020-2-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="TQA00020-2-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="TQA00020-2-0Rtype">
+            <xsd:attribute name="IDREF" type="TQA00020-2-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="TQA00020-2-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_FROM"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="TQA00030-2-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="TQA00030-2-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="TQA00030-2-0Rtype">
+            <xsd:attribute name="IDREF" type="TQA00030-2-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="TQA00030-2-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_TO"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

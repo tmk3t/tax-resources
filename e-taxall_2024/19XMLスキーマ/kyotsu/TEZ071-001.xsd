@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：酒税更正請求書次葉(総括表)
+version：1.0
+Date：2004年12月16日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="TEZ071-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="TEZ071-1-0group">
+<xsd:sequence>
+<xsd:element name="TEZ071">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BJA00000" type="BJA00000-1-0type" minOccurs="0" maxOccurs="12">
+<xsd:annotation>
+<xsd:appinfo>"総括表　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="TEZ071-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BJA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BJA00010" type="BJA00010-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"次葉区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJA00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税期間区分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BJA00030" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税年月"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJA00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BJA00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本税額の減少額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJA00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付金相当税額の増加額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BJA00010-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="BJA00010-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BJA00010-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

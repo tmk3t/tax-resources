@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十八の二付表三　合併、残余財産確定及び分割型分割の場合の調整額の計算に関する明細書
+version：3.0
+Date：2011年10月20日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOR843-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOR843-3-0group">
+<xsd:sequence>
+<xsd:element name="HOR843">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNA00000" type="TNA00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNI00000" type="TNI00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前期の連結子法人以外の法人を被合併法人とする適格合併による加算調整額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNB00000" type="TNB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前期の連結内合併又は残余財産確定による加算調整額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNE00000" type="TNE00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の連結子法人以外の法人を被合併法人とする適格合併による加算調整額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNJ00000" type="TNJ00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の連結内合併又は残余財産確定による加算調整額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNF00000" type="TNF00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前期の分割型分割による加算調整額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="TNH00000" type="TNH00000-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOR843-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="TNA00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="TNA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNA00020" type="gen:RENKETSU_JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNA00030" type="gen:RENKETSU_JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TNA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="TNI00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="TNI00010" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNI00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNI00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合併の日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNI00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"直前の事業年度又は連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNI00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNI00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TNI00070" type="TNI00070-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左の月数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNI00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人の確定法人税額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNI00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TNI00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前期の連結子法人以外の法人を被合併法人とする適格合併による加算調整額　調整額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="TNB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="TNB00010" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNB00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNB00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合併の日又は残余財産確定の日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"最終事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNB00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNB00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TNB00070" type="TNB00070-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左の月数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等の確定法人税額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TNB00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前期の連結内合併又は残余財産確定による加算調整額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="TNE00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="TNE00010" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNE00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNE00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合併の日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNE00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"直前の事業年度又は連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNE00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNE00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TNE00070" type="TNE00070-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左の月数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNE00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人の確定法人税額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNE00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TNE00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の連結子法人以外の法人を被合併法人とする適格合併による加算調整額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNE00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="TNJ00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="TNJ00010" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNJ00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNJ00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合併の日又は残余財産確定の日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNJ00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"最終事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNJ00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNJ00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TNJ00070" type="TNJ00070-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左の月数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNJ00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被合併法人等の確定法人税額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNJ00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TNJ00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の連結内合併又は残余財産確定による加算調整額　調整額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="TNF00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="TNF00010" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNF00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分割法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNF00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分割の日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNF00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分割前事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNF00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNF00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TNF00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"確定法人税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TNF00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TNF00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前期の分割型分割による加算調整額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TNF00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="TNI00070-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TNB00070-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TNE00070-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TNJ00070-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TNH00000-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="TNI00070-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="TNI00070-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="TNB00070-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="TNB00070-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="TNE00070-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="TNE00070-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="TNJ00070-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="TNJ00070-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

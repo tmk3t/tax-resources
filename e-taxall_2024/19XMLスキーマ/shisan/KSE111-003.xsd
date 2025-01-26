@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：相続時精算課税適用財産の明細書・相続時精算課税分の贈与税額控除額の計算書(第11の2表)(令和5年1月分以降用)
+version：3.0
+Date：2023年05月12日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE111-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE111-3-0group">
+<xsd:sequence>
+<xsd:element name="KSE111">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="FIA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="FIB00000" type="FIB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１　相続税の課税価格に加算する相続時精算課税適用財産の課税価格及び納付すべき相続税額から控除すべき贈与税額の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FID00000" type="FID00000-3-0type" minOccurs="0" maxOccurs="6">
+<xsd:annotation>
+<xsd:appinfo>"２　相続時精算課税適用財産（１の(4)）の明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE111-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FIB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="FIB00010" minOccurs="0" maxOccurs="6">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FIB00020" type="FIB00020-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FIB00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与を受けた人の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FIB00040" type="FIB00040-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与を受けた年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FIB00050" type="FIB00050-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与税の申告書を提出した税務署の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FIB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)の年分に被相続人から相続時精算課税に係る贈与を受けた財産の価額の合計額（課税価格）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FIB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)の財産に係る贈与税額（贈与税の外国税額控除前の金額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FIB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)のうち贈与税額に係る外国税額控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FIC00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与を受けた人ごとの相続時精算課税適用財産の課税価格及び贈与税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FIC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（各人の合計）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FIC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FIC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FIC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(8)のうち贈与税額に係る外国税額控除額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FIC00050" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FIC00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FIC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FIC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FIC00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(8)のうち贈与税額に係る外国税額控除額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FID00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="FID00010" type="FID00010-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FID00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与を受けた人の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FID00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FID00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続時精算課税適用財産の明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FID00050" type="FID00050-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FID00055" type="FID00055-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"細目　名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FID00060" type="FID00060-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"細目　区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FID00070" type="FID00070-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利用区分、銘柄等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FID00080" type="FID00080-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在場所等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FID00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FID00100" type="FID00100-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FID00110" type="FID00110-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"単位"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FID00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="FIB00020-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FIB00040-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FIB00050-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FID00010-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FID00050-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FID00055-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="FID00060-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun2">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun2_CD">
+                            <xsd:enumeration value="11"/><xsd:enumeration value="12"/><xsd:enumeration value="13"/><xsd:enumeration value="14"/><xsd:enumeration value="15"/><xsd:enumeration value="21"/><xsd:enumeration value="31"/><xsd:enumeration value="32"/><xsd:enumeration value="33"/><xsd:enumeration value="34"/><xsd:enumeration value="41"/><xsd:enumeration value="42"/><xsd:enumeration value="43"/><xsd:enumeration value="44"/><xsd:enumeration value="45"/><xsd:enumeration value="51"/><xsd:enumeration value="53"/><xsd:enumeration value="54"/><xsd:enumeration value="61"/><xsd:enumeration value="71"/><xsd:enumeration value="72"/><xsd:enumeration value="73"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FID00070-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FID00080-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FID00100-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FID00110-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="2"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="FIB00020-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FIB00020-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FID00010-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FID00010-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FID00100-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FID00100-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

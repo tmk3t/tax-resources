@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：特定転用の継続届出書　付表
+version：1.0
+Date：2004年12月16日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSZ391-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSZ391-1-0group">
+<xsd:sequence>
+<xsd:element name="KSZ391">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CTA00000" type="CTA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="CTB00000" type="CTB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"条文（号）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="CTC00000" type="CTC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"承認を受けて転用した特定市街化区域農地等に関する事項（旧１号、旧４号転用の場合）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTD00000" type="CTD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"共同住宅の貸付けに関する事項（新１号、旧２号転用の場合）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00000" type="CTE00000-1-0type" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"新築又は取得した共同住宅等に関する事項（新１号、新２号、旧２号、旧３号転用の場合）　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTF00000" type="CTF00000-1-0type" minOccurs="0" maxOccurs="8">
+<xsd:annotation>
+<xsd:appinfo>"承認を受けて転用した特定市街化区域農地等とともに同一用途に供する土地等がある場合のその明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSZ391-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CTA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CTA00010" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CTC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CTC00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"契約締結年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTC00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸付け先特定法人／地方公共団体"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CTC00030" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTC00040" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CTC00050" type="CTC00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸付け期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTC00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸付け条件"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CTC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"賃料年額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTC00080" type="CTC00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の条件"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTC00090" type="CTC00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この届出書の提出時までに条件の変更があった場合の変更内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CTC00100" type="CTC00100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸付土地等の用途"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTC00110" type="CTC00110-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"共同住宅又は都市公園の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CTD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CTD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸付け先特定法人"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CTD00020" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTD00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CTD00040" type="CTD00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸付け期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTD00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸付け条件"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CTD00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"賃料年額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTD00070" type="CTD00070-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の条件"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTD00080" type="CTD00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この届出書の提出時までに条件の変更があった場合の変更内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CTE00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CTE00010" type="CTE00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"棟別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00020" type="CTE00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"新築又は取得の別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00030" type="CTE00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構造"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00040" type="CTE00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"地上階数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00050" type="CTE00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"独立部分の数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00060" type="CTE00060-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"共同住宅の床面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"独立部分の床面積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CTE00080" type="CTE00080-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"最高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00090" type="CTE00090-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"最低"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CTE00100" type="CTE00100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"台所、浴室、便所、洗面設備の有無"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"独立部分３.３平方メートル当たりの取得価額（増改築を行った場合）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00120" type="CTE00120-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"共同住宅の用途"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00130" type="CTE00130-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各棟ごとの敷地の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTE00140" type="CTE00140-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各棟の敷地面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CTF00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CTF00010" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在場所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTF00020" type="CTF00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"地目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CTF00030" type="CTF00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="CTB00000-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTC00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTC00080-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTC00090-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="CTC00100-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CTC00110-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTD00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTD00070-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTD00080-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTE00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="CTE00020-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CTE00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTE00040-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTE00050-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTE00060-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTE00080-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTE00090-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="CTE00100-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CTE00120-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTE00130-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTE00140-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTF00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="8"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CTF00030-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="CTB00000-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="CTB00000-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CTE00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="CTE00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CTE00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="CTE00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CTE00060-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="CTE00060-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CTE00080-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="CTE00080-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CTE00090-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="CTE00090-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CTE00140-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="CTE00140-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CTF00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="CTF00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表八(一)　受取配当等の益金不算入に関する明細書
+version：13.0
+Date：2018年11月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOB800-13-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="13.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOB800-13-0group">
+<xsd:sequence>
+<xsd:element name="HOB800">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBA00000" type="CBA00000-13-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00000" type="CBB00000-13-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当年度実績により負債利子等の額を計算する場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00000" type="CBC00000-13-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"基準年度実績により負債利子等の額を計算する場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBD00000" type="CBD00000-13-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当年度実績による場合の総資産価額等の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00000" type="CBG00000-13-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="CBF00000" type="CBF00000-13-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOB800-13-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+<xsd:attribute name="csvFileNM" type="gen:str"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CBA00000-13-0type">
+<xsd:sequence>
+
+<xsd:element name="CBA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CBB00000-13-0type">
+<xsd:sequence>
+
+<xsd:element name="CBB00005" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"完全子法人株式等に係る受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"関連法人株式等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"負債利子等の額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期に支払う負債利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結法人に支払う負債利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外支配株主等に係る負債の利子等の損金不算入額、関連者等に係る支払利子等の損金不算入額又は恒久的施設に帰せられるべき資本に対応する負債の利子の損金不算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"超過利子額の損金算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末関連法人株式等の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額から控除する負債利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他株式等に係る受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00143" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非支配目的株式等に係る受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00147" type="CBB00147-13-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の益金不算入額　区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の益金不算入額　金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CBC00000-13-0type">
+<xsd:sequence>
+
+<xsd:element name="CBC00005" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"完全子法人株式等に係る受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"関連法人株式等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"負債利子等の額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期に支払う負債利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外支配株主等に係る負債の利子等の損金不算入額、関連者等に係る支払利子等の損金不算入額又は恒久的施設に帰せられるべき資本に対応する負債の利子の損金不算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"超過利子額の損金算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00046" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"平成27年４月１日から平成29年３月31日までの間に開始した各事業年度の負債利子等の額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の各事業年度の関連法人株式等に係る負債利子等の額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00070" type="CBC00070-13-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"負債利子控除割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額から控除する負債利子等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBC00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他株式等に係る受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00143" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非支配目的株式等に係る受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00147" type="CBC00147-13-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の益金不算入額　区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の益金不算入額　金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CBD00000-13-0type">
+<xsd:sequence>
+
+<xsd:element name="CBD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前期末現在額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBD00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBD00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結法人に支払う負債利子等の元本の負債の額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBD00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBD00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末関連法人株式等の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBD00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期末現在額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBD00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結法人に支払う負債利子等の元本の負債の額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBD00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBD00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末関連法人株式等の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBD00150" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBD00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBD00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結法人に支払う負債利子等の元本の負債の額等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBD00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBD00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末関連法人株式等の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CBG00000-13-0type">
+<xsd:sequence>
+
+<xsd:element name="CBG00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"完全子法人株式等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00020" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00040" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店の所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額の計算期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00070" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBG00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBG00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBG00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"関連法人株式等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00120" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00130" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00140" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店の所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00150" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額の計算期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00160" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00170" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBG00180" type="CBG00180-13-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保有割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち益金の額に算入される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"益金不算入の対象となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBG00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち益金の額に算入される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"益金不算入の対象となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBG00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他株式等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00270" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00280" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00290" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店の所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち益金の額に算入される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"益金不算入の対象となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBG00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち益金の額に算入される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"益金不算入の対象となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBG00370" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非支配目的株式等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00380" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00390" type="CBG00390-13-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名又は銘柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00400" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店の所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00410" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"基準日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00420" type="CBG00420-13-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保有割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00430" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち益金の額に算入される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"益金不算入の対象となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CBG00460" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CBG00470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00480" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち益金の額に算入される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CBG00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"益金不算入の対象となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="CBB00147-13-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CBC00070-13-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="CBC00147-13-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CBG00180-13-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CBG00390-13-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CBG00420-13-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CBF00000-13-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="CBC00070-13-0type">
+<xsd:simpleContent>
+<xsd:extension base="CBC00070-13-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

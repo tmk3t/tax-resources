@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：仕入控除税額に関する明細書(法人用)
+version：1.0
+Date：2003年10月28日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SHC010-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SHC010-1-0group">
+<xsd:sequence>
+<xsd:element name="SHC010">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIA00000" type="AIA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00000" type="AIB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除対象取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIC00000" type="AIC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付申告となった主な理由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AID00000" type="AID00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"主な課税仕入れ等の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SHC010-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="AIA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AIA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地・名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIA00020" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIA00030" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AIB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AIB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損益科目"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00030" type="AIB00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（イ）決算額（税込・税抜）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"商品仕入高等［１］"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［イ］決算額     （税込・税抜）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［ロ］左のうち   控除対象外金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（［イ］－［ロ］）　控除対象取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AIB00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"販売費・一般管理費［２］"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［イ］決算額     （税込・税抜）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［ロ］左のうち   控除対象外金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（［イ］－［ロ］）　控除対象取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AIB00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"営業外費用［３］"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［イ］決算額     （税込・税抜）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［ロ］左のうち   控除対象外金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（［イ］－［ロ］）　控除対象取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AIB00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他［４］"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［イ］決算額     （税込・税抜）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［ロ］左のうち   控除対象外金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（［イ］－［ロ］）　控除対象取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AIB00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計［５］"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（［イ］－［ロ］）　控除対象取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AIB00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00230" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資産科目"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00240" type="AIB00240-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（イ）資産の取得価額（税込・税抜）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00250" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"固定資産［６］"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［イ］資産の取得価額　（税込・税抜）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［ロ］左のうち            控除対象外金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（［イ］－［ロ］）      　   控除対象取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AIB00290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"繰延資産［７］"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［イ］資産の取得価額　（税込・税抜）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"［ロ］左のうち            控除対象外金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIB00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（［イ］－［ロ］）      　   控除対象取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AIB00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計［８］"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（［イ］－［ロ］）      　   控除対象取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AIB00350" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"仕入控除税額［９］　［５］＋［８］の金額に対する消費税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIB00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（［イ］－［ロ］） 控除対象取引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AIC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AIC00020" type="AIC00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"設備投資（高額な固定資産の購入等）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIC00040" type="AIC00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"輸出等の免税取引の割合が高い"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIC00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIC00060" type="AIC00060-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"該当区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIC00070" type="AIC00070-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AID00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AID00010" type="AID00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取引金額等（税込・税抜）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AID00020" minOccurs="0" maxOccurs="10">
+<xsd:annotation>
+<xsd:appinfo>"主な課税仕入れ等の明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AID00030" type="AID00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資産の種類等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AID00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得年月日等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AID00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取引金額等（税込・税抜）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AID00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取引先の氏名（名称）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AID00070" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取引先の住所（所在地）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="AIB00030-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="AIB00240-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="AIC00020-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="AIC00040-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="AIC00060-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="AIC00070-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="AID00010-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="AID00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

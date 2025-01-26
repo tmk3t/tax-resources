@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/saiken"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/saiken"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：被災明細書
+version：1.0
+Date：2004年12月16日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="CRZ300-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="CRZ300-1-0group">
+<xsd:sequence>
+<xsd:element name="CRZ300">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGA00000" type="AGA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGB00000" type="AGB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（被災の状況）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="CRZ300-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="AGA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AGA00010" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所（所在地）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGA00020" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名（名称）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AGB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AGB00010" minOccurs="0" maxOccurs="10">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被災前の全財産"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGB00030" type="AGB00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AGB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被災財産"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGB00060" type="AGB00060-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)被災の程度"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)損害額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)(4)に対し保険金等により補てんされる額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)差引実損額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AGB00100" type="AGB00100-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損害割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGB00110" type="AGB00110-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="AGB00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AGB00060-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AGB00100-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AGB00110-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="AGB00100-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="AGB00100-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：揮発油税航空機燃料用免税揮発油移入届出書(次葉)
+version：1.0
+Date：2004年12月16日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="INU101-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="INU101-1-0group">
+<xsd:sequence>
+<xsd:element name="INU101">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGA00000" type="BGA00000-1-0type" minOccurs="0" maxOccurs="22">
+<xsd:annotation>
+<xsd:appinfo>"移出内容／移入内容　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="INU101-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BGA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BGA00010" type="BGA00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"品名規格"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGA00020" type="BGA00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"容器等の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGA00030" type="BGA00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移出数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGA00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGA00050" type="BGA00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGA00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGA00070" type="BGA00070-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGA00080" type="BGA00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"理由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BGA00090" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BGA00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGA00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGA00030-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGA00050-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGA00070-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGA00080-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="BGA00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BGA00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BGA00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BGA00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BGA00070-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BGA00070-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

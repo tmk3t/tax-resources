@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general"
+xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"
+xmlns:sho="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns:som="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ elementFormDefault="qualified" attributeFormDefault="unqualified"
+ version="1.0" > 
+
+<xsd:annotation>
+<xsd:documentation>
+消費税課税売上割合に準ずる割合の不適用届出
+version:14.0.0 Date: 2014年09月02日
+</xsd:documentation>
+</xsd:annotation>
+
+<!-- import and include-->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+<xsd:include schemaLocation="../general/ITdefinition.xsd"/>
+<xsd:include schemaLocation="../general/CATALOG.xsd"/>
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/shohi" schemaLocation="../shohi/SHZ155-001.xsd"/>
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/somu" schemaLocation="../somu/SOZ-001.xsd"/>
+<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="../general/XMLDSIG050.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="PKO0640-140-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="14.0.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:complexType name="TETSUZUKItype">
+<xsd:complexContent>
+<xsd:restriction base="gen:procedure">
+<xsd:sequence>
+<xsd:element name="procedure_CD">
+<xsd:simpleType>
+<xsd:restriction base="gen:procedure_CD">
+<xsd:enumeration value="PKO0640"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="procedure_NM" minOccurs="0">
+<xsd:simpleType>
+<xsd:restriction base="gen:str">
+<xsd:maxLength value="200"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+</xsd:sequence>
+</xsd:restriction>
+</xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="SHINKOKU_KBNtype">
+<xsd:complexContent>
+<xsd:restriction base="gen:kubun2">
+<xsd:sequence>
+<xsd:element name="kubun_CD">
+<xsd:simpleType>
+<xsd:restriction base="xsd:nonNegativeInteger">
+<xsd:pattern value="\d?\d"/>
+</xsd:restriction></xsd:simpleType>
+</xsd:element>
+<xsd:element name="kubun_NM" minOccurs="0">
+<xsd:simpleType>
+<xsd:restriction base="gen:str">
+<xsd:maxLength value="30"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+</xsd:sequence>
+</xsd:restriction>
+</xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="KEISANSHO_KBNtype">
+<xsd:complexContent>
+<xsd:restriction base="gen:kubun2">
+<xsd:sequence>
+<xsd:element name="kubun_CD">
+<xsd:simpleType>
+<xsd:restriction base="xsd:nonNegativeInteger">
+<xsd:pattern value="\d?\d"/>
+</xsd:restriction></xsd:simpleType>
+</xsd:element>
+<xsd:element name="kubun_NM" minOccurs="0">
+<xsd:simpleType>
+<xsd:restriction base="gen:str">
+<xsd:maxLength value="30"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+</xsd:sequence>
+</xsd:restriction>
+</xsd:complexContent>
+</xsd:complexType>
+
+<!-- Root Element Definition --><xsd:element name="DATA">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="PKO0640" type="PKO0640-140-0type"/>
+<!-- XML-SIGNATURE -->
+<xsd:element ref="dsig:Signature" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID"/></xsd:complexType>
+</xsd:element>
+<!-- Procedure Definition -->
+<xsd:complexType name="PKO0640-140-0type">
+<xsd:sequence>
+<xsd:element name="CATALOG" type="CATALOGtype">
+<xsd:annotation>
+<xsd:appinfo>管理部</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CONTENTS" type="PKO0640-140-0contentsType">
+<xsd:annotation>
+<xsd:appinfo>内容部分</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID" use="required"/><xsd:attribute name="VR" type="PKO0640-140-0VRtype" use="required"/>
+</xsd:complexType>
+<xsd:complexType name="PKO0640-140-0contentsType"><xsd:sequence>
+<!-- IT部-->
+<xsd:element name="IT" type="ITtype"/>
+<!-- 帳票個別部分 -->
+<xsd:group ref="sho:SHZ155-1-0group" minOccurs="1" maxOccurs="1"/>
+
+<xsd:element name="TENPU" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="som:SOZ071" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID" use="required"/>
+</xsd:complexType>
+</xsd:element>
+
+
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID" use="required"/>
+
+
+</xsd:complexType>
+</xsd:schema>

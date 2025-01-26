@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：戻入れ酒類の控除(還付)税額計算書
+version：2.0
+Date：2006年06月20日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="LIA220-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="LIA220-2-0group">
+<xsd:sequence>
+<xsd:element name="LIA220">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EKA00000" type="EKA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00000" type="EKB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"頁数及び総頁数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKC00000" type="EKC00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKD00000" type="EKD00000-2-0type" minOccurs="0" maxOccurs="18">
+<xsd:annotation>
+<xsd:appinfo>"明細  繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="LIA220-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="EKA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="EKA00010" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税年月"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKA00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EKB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="EKB00010" type="EKB00010-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"頁数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKB00020" type="EKB00020-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総頁数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EKC00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="EKC00010" type="gen:SEIZOJO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造場名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EKD00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="EKD00010" type="EKD00010-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKD00020" type="EKD00020-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"酒類コード"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKD00030" type="EKD00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"酒類の品目別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKD00040" type="EKD00040-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"アルコール分別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKD00080" type="EKD00080-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKD00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKD00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"軽減後税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EKD00120" type="EKD00120-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="EKB00010-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="999"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKB00020-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="999"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="EKD00010-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="0"/><xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="7"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="EKD00020-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKD00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKD00040-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:pattern value="[-]?\d?\d?"/><xsd:pattern value="[-]?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKD00080-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EKD00120-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="64"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="EKB00010-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKB00010-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EKB00020-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKB00020-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EKD00040-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKD00040-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EKD00080-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="EKD00080-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

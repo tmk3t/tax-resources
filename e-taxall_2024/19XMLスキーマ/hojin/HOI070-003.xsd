@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：固定資産(土地、土地の上に存する権利及び建物に限る。)の内訳書
+version：3.0
+Date：2018年11月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOI070-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOI070-3-0group">
+<xsd:sequence>
+<xsd:element name="HOI070">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HGB00000" type="HGB00000-3-0type" minOccurs="0" maxOccurs="10">
+<xsd:annotation>
+<xsd:appinfo>"固定資産　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOI070-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+<xsd:attribute name="csvFileNM" type="gen:str"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="HGB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="HGB00100" type="HGB00100-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"種類・構造"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HGB00200" type="HGB00200-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"用途"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HGB00300" type="HGB00300-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HGB00400" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"物件の所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HGB00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末現在高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HGB00600" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期中取得（処分）の明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HGB00610" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"異動年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HGB00620" type="HGB00620-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"異動事由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HGB00630" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得（処分）価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HGB00640" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"異動直前の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HGB00650" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売却（購入）先の名称（氏名）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HGB00660" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売却（購入）先の所在地（住所）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HGB00670" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売却物件の取得年月"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="HGB00100-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HGB00200-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HGB00300-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HGB00620-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="HGB00300-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="HGB00300-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

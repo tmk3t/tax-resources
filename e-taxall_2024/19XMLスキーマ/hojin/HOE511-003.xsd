@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十七(二)付表　特定外国子会社等の判定に関する明細書(平成16年4月1日以後終了分)
+version：3.0
+Date：2005年07月05日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOE511-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOE511-3-0group">
+<xsd:sequence>
+<xsd:element name="HOE511">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ESA00000" type="ESA00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESB00000" type="ESB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定外国子会社等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00000" type="ESC00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得に対する租税の負担割合の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOE511-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="ESA00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ESA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度又は連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ESA00020" type="ESA00020-3-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESA00030" type="ESA00030-3-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ESA00035" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ESA00040" type="ESA00040-3-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESA00045" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名（連結子法人）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ESB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ESB00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国関係会社の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国関係会社の事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ESB00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESB00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ESB00050" type="ESB00050-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店所在地国における法人の所得に対する税の有無"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ESC00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="ESC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得の金額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ESC00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の所得金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ESC00040" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の決算上の利益又は欠損の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00070" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店所在地国における課税所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ESC00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"加算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ESC00110" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非課税所得の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00140" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金の額に算入した支払配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00170" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金の額に算入した外国法人税の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00200" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保険準備金繰入限度超過額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00230" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保険準備金取崩不足額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00260" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ESC00280" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ESC00300" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)のうち国内法人から受けた配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00330" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)のうち国外法人から受けた配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00360" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"益金の額に算入した還付外国法人税の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00390" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ESC00420" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ESC00440" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"租税の額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ESC00450" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店所在地国の外国法人税の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ESC00470" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"実際に納付する外国法人税の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00490" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得の額に応じて税率が高くなる場合に納付したものとみなされる税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ESC00500" type="ESC00500-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（＿％）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00520" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ESC00550" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付したものとみなして本店所在地国の外国法人税の額から控除される額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00580" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減免された外国法人税の額のうち租税条約の規定により納付したものとみなされるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ESC00610" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店所在地国外において納付する外国法人税の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00640" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"租税の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ESC00660" type="ESC00660-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得に対する租税の負担割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ESC00670" type="ESC00670-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(16)が欠損金額となる場合には、その行う主たる事業に係る収入金額から所得が生じたとした場合に適用される税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="ESB00050-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="ESC00500-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ESC00660-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ESC00670-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="ESA00020-3-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="ESA00020-3-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="ESA00020-3-0Rtype">
+            <xsd:attribute name="IDREF" type="ESA00020-3-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="ESA00020-3-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_FROM"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_FROM"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="ESA00030-3-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="ESA00030-3-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="ESA00030-3-0Rtype">
+            <xsd:attribute name="IDREF" type="ESA00030-3-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="ESA00030-3-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_TO"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_TO"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="ESA00040-3-0IDREFtype">
+    <xsd:attribute name="IDREF" use="required">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:IDREF">
+                <xsd:enumeration value="NOZEISHA_NM"/>
+                <xsd:enumeration value="OYA_HOJIN_NM"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+</xsd:complexType>
+
+<xsd:complexType name="ESC00500-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="ESC00500-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="ESC00660-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="ESC00660-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="ESC00670-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="ESC00670-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

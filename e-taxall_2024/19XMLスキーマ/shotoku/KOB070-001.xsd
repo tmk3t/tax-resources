@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：給与所得者の特定支出に関する明細書
+version：1.0
+Date：2003年10月28日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KOB070-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KOB070-1-0group">
+<xsd:sequence>
+<xsd:element name="KOB070">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KOB070-1" type="KOB070-1-1-0type" minOccurs="0" maxOccurs="unbounded">
+<xsd:annotation>
+<xsd:appinfo>"給与所得者の特定支出に関する明細書（一面）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KOB070-2" type="KOB070-2-1-0type" minOccurs="0" maxOccurs="unbounded">
+<xsd:annotation>
+<xsd:appinfo>"給与所得者の特定支出に関する明細書（二面）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KOB070-3" type="KOB070-3-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"給与所得者の特定支出に関する明細書（三面）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KOB070-4" type="KOB070-4-1-0type" minOccurs="0" maxOccurs="unbounded">
+<xsd:annotation>
+<xsd:appinfo>"給与所得者の特定支出に関する明細書（四面）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KOB070-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="KOB070-1-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BGA00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGA00010" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGA00020" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGB00000" type="gen:NENBUNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BGC00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通勤費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGC00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ａ　支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｂ　補てんされる金額のうち非課税部分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGC00030" type="BGC00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｃ  差引金額区分（定表示）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｃ　差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BGD00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"転居費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"転任前"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGD00020" type="BGD00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"勤務地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGD00030" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所（又は居所）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BGD00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"転任後"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGD00050" type="BGD00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"勤務地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGD00060" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所（又は居所）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BGD00070" type="BGD00070-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"再転任をした場合など書ききれないときはこの欄に書いてください。(勤務地)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGD00080" type="BGD00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"再転任をした場合など書ききれないときはこの欄に書いてください。(住所又は居所)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ａ　支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGD00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｂ　補てんされる金額のうち非課税部分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGD00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｃ　差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BGE00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"研修費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGE00010" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"研修内容　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGE00020" type="BGE00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"研修の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ａ　支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｂ　補てんされる金額のうち非課税部分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGE00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｃ　差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BGE00060" type="BGE00060-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"職務の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計(イ+ロ+ハ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BGF00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資格取得費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGF00010" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"資格内容　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGF00020" type="BGF00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資格の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGF00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ａ　支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGF00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｂ　補てんされる金額のうち非課税部分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGF00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｃ　差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BGF00060" type="BGF00060-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"職務の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGF00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計(ニ+ホ+ヘ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BGG00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"帰宅旅費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGG00010" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"勤務地（又は居所）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGG00020" type="BGG00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配偶者等の居住する場所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGG00030" type="BGG00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"勤務地や配偶者等の居住する場所が変わった場合など書ききれないときは、この欄に書いてください。"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGG00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ａ　支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGG00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｂ　補てんされる金額のうち非課税部分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGG00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｃ　差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGG00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定支出の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="KOB070-2-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BGH00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通勤の経路及び方法"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGH00010" type="BGH00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年の中途で通勤の経路及び方法が変わったときは、変更後の経路及び方法も書いてください。"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGH00020" type="BGH00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"参考事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="KOB070-3-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BGI00000" minOccurs="0" maxOccurs="39">
+<xsd:annotation>
+<xsd:appinfo>"支出の内訳　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGI00010" type="BGI00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定支出の区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGI00020" type="BGI00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支出の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGI00030" type="BGI00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGI00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGI00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ａ　支払金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGI00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｂ　補てんされる金額のうち非課税部分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGI00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｃ　差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="KOB070-4-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BGJ00000" minOccurs="0" maxOccurs="39">
+<xsd:annotation>
+<xsd:appinfo>"支出の内訳　（三面のつづき）　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BGJ00010" type="BGJ00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定支出の区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGJ00020" type="BGJ00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支出の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGJ00030" type="BGJ00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGJ00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGJ00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ａ　支払金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGJ00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｂ　補てんされる金額のうち非課税部分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BGJ00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｃ　差引金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+<xsd:simpleType name="BGC00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGD00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGD00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGD00070-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGD00080-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGE00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGE00060-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGF00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGF00060-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGG00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGG00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGH00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGH00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGI00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGI00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGI00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGJ00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGJ00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BGJ00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

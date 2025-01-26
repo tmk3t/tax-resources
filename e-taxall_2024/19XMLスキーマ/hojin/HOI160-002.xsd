@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：雑益、雑損失等の内訳書
+version：2.0
+Date：2018年11月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOI160-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOI160-2-0group">
+<xsd:sequence>
+<xsd:element name="HOI160">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HPB00000" type="HPB00000-2-0type" minOccurs="0" maxOccurs="10">
+<xsd:annotation>
+<xsd:appinfo>"雑益等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HPC00000" type="HPC00000-2-0type" minOccurs="0" maxOccurs="10">
+<xsd:annotation>
+<xsd:appinfo>"雑損失等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOI160-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+<xsd:attribute name="csvFileNM" type="gen:str"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="HPB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="HPB00100" type="HPB00100-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"科目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HPB00200" type="HPB00200-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取引の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HPB00300" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相手先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HPB00400" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地（住所）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HPB00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="HPC00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="HPC00100" type="HPC00100-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"科目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HPC00200" type="HPC00200-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取引の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HPC00300" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相手先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HPC00400" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地（住所）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HPC00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="HPB00100-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HPB00200-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HPC00100-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HPC00200-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

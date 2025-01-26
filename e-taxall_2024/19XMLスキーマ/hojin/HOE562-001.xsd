@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十七(三の三)　特定外国子会社等の課税対象金額等に係る控除対象外国法人税額又は個別課税対象金額等に係る個別控除対象外国法人税額の計算に関する明細書(分離法対応)
+version：1.0
+Date：2011年10月20日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOE562-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOE562-1-0group">
+<xsd:sequence>
+<xsd:element name="HOE562">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WFA00000" type="WFA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00000" type="WFB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="WFC00000" type="WFC00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOE562-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="WFA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="WFA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度又は連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WFA00020" type="WFA00020-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFA00030" type="WFA00030-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WFA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WFA00050" type="WFA00050-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFA00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名(連結子法人)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="WFB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="WFB00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定外国子会社等の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WFB00030" type="WFB00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国名又は地域名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00040" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WFB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WFB00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00070" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WFB00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国法人税"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WFB00090" type="WFB00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税種目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WFB00110" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00120" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増額又は減額前の事業年度又は連結事業年度の(6)の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WFB00130" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用対象金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00140" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"子会社から受ける配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00150" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除対象配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00160" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税対象金額又は個別課税対象金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00163" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"部分課税対象金額又は個別部分課税対象金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00166" type="WFB00166-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)*((11)又は(12))/((8)+(9)+(10))　区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00170" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)*((11)又は(12))/((8)+(9)+(10))　金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00175" type="WFB00175-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(11)と(13)のうち少ない金額又は(12)と(13)のうち少ない金額　区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00180" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(11)と(13)のうち少ない金額又は(12)と(13)のうち少ない金額　金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00190" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国法人税が異動した場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WFB00200" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増額又は減額前の事業年度又は連結事業年度の(14)の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00210" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(14)＞＝(15)の場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(14)＜(15)の場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WFB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（）書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00240" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WFB00250" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税対象金額等に係る控除対象外国法人税額又は個別課税対象金額等に係る個別控除対象外国法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WFB00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（）書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WFB00270" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="WFB00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WFB00090-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="WFB00166-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="WFB00175-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="WFC00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="WFA00020-1-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="WFA00020-1-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="WFA00020-1-0Rtype">
+            <xsd:attribute name="IDREF" type="WFA00020-1-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="WFA00020-1-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_FROM"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_FROM"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="WFA00030-1-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="WFA00030-1-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="WFA00030-1-0Rtype">
+            <xsd:attribute name="IDREF" type="WFA00030-1-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="WFA00030-1-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_TO"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_TO"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="WFA00050-1-0IDREFtype">
+    <xsd:attribute name="IDREF" use="required">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:IDREF">
+                <xsd:enumeration value="NOZEISHA_NM"/>
+                <xsd:enumeration value="OYA_HOJIN_NM"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+</xsd:complexType>
+
+</xsd:schema>

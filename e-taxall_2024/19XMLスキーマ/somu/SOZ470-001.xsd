@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：登録事項変更通知書
+version：1.0
+Date：2004年12月16日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SOZ470-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SOZ470-1-0group">
+<xsd:sequence>
+<xsd:element name="SOZ470">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SOZ470-1" type="SOZ470-1-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知書一面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SOZ470-2" type="SOZ470-2-1-0type" minOccurs="0" maxOccurs="unbounded">
+<xsd:annotation>
+<xsd:appinfo>"通知書ニ面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SOZ470-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="SOZ470-1-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AMA00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知書"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AMA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発遣番号"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AMA00020" type="AMA00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発遣番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AMA00030" type="AMA00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第＿号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AMA00040" type="AMA00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"登録番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AMA00050" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AMA00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"日本税理士会連合会会長名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="SOZ470-2-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AMB00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"次葉"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AMB00010" type="AMB00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"経由税理士会"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AMB00020" type="AMB00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所轄国税局"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AMB00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更登録年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AMB00040" minOccurs="0" maxOccurs="17">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AMB00050" type="AMB00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"登録番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AMB00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AMB00070" type="AMB00070-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AMB00080" type="AMB00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更後の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AMB00090" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更の生じた年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AMB00100" type="AMB00100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"証票番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+<xsd:simpleType name="AMA00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="4"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AMA00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AMA00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AMB00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="6"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AMB00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="7"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AMB00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AMB00070-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AMB00080-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AMB00100-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="AMA00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="AMA00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

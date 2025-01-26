@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：課税移出数量等の容器別内訳書
+version：1.0
+Date：2004年12月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="LIA270-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="LIA270-1-0group">
+<xsd:sequence>
+<xsd:element name="LIA270">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EPA00000" type="EPA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EPB00000" type="EPB00000-1-0type" minOccurs="0" maxOccurs="24">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="LIA270-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="EPA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="EPA00010" type="gen:SEIZOJO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"販売場等名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EPB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="EPB00010" type="EPB00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"酒類の種類・品目等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EPB00020" type="EPB00020-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"アルコール分別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EPB00030" type="EPB00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"容器の形態"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EPB00040" type="EPB00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)容器の容量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EPB00050" type="EPB00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)容器の総個数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EPB00060" type="EPB00060-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)課税標準数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EPB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EPB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EPB00090" type="EPB00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="EPB00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EPB00020-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:pattern value="[-]?\d?\d?"/><xsd:pattern value="[-]?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EPB00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EPB00040-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EPB00050-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EPB00060-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EPB00090-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="EPB00020-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EPB00020-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EPB00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EPB00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EPB00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EPB00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EPB00060-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EPB00060-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

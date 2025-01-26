@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/choshu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/choshu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：担保物変更(一部解除)申出書
+version：1.0
+Date：2004年03月25日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="COZ090-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="COZ090-1-0group">
+<xsd:sequence>
+<xsd:element name="COZ090">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AEA00000" type="AEA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEB00000" type="AEB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下記のとおり＿税＿担保についてその変更（一部解除）を申出します。"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00000" type="AEC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"記"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="COZ090-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="AEA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AEA00010" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税務署長"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEA00020" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEA00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AEA00040" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（住所）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEA00050" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（氏名）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AEB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AEB00010" type="AEB00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"＿税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEB00020" type="AEB00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"＿担保"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AEC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AEC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１ 延納税額等の状況"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AEC00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)延納等の総額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AEC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税猶予税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AEC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)現在までの納付額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)担保の変更（一部解除）に伴い納付する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"ほか"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)差引延納等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"ほか利子税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)提供中の担保の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)申出をする担保の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)新たに提供する担保の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(8)差引担保の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AEC00140" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"２　変更（解除）を求める担保＿繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AEC00150" type="AEC00150-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"種類及び物件の表示"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00160" type="AEC00160-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00180" type="AEC00180-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AEC00190" type="AEC00190-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"４ 担保の変更（一部解除）を求める理由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"５ 参考事項"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AEC00210" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納許可（納税猶予届出）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AEC00220" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AEC00230" type="AEC00230-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第＿号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AEC00240" type="AEC00240-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"６ 備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="AEB00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="4"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AEB00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="4"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AEC00150-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="60"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AEC00160-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AEC00180-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AEC00190-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="150"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AEC00230-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="6"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AEC00240-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="180"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

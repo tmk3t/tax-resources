@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/choshu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/choshu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：納税の猶予期間延長申請書
+version：2.0
+Date：2014年11月04日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="COZ270-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="COZ270-2-0group">
+<xsd:sequence>
+<xsd:element name="COZ270">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BFA00000" type="BFA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00000" type="BFB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="COZ270-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BFA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="BFA00010" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFA00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFA00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BFA00040" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所（所在地）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFA00043" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFA00047" type="gen:tel-number" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"携帯電話"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFA00050" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名（名称）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BFB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="BFB00010" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"納税の猶予期間延長申請税額　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BFB00020" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年度"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00030" type="BFB00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00055" type="BFB00055-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"加算税種別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"加算税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延滞税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利子税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"滞納処分費"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00100" type="BFB00100-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BFB00105" type="BFB00105-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"猶予期間内に猶予を受けた金額を納付することができない理由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00110" minOccurs="0" maxOccurs="12">
+<xsd:annotation>
+<xsd:appinfo>"納付計画　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BFB00120" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BFB00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延長期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BFB00150" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00160" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00170" type="BFB00170-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"＿月間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BFB00185" type="BFB00185-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"担保有無"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BFB00190" type="BFB00190-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"担保財産の詳細又は提供できない特別の事情"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="BFB00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="12"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="BFB00055-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="4"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="BFB00100-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BFB00105-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="800"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BFB00170-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="BFB00185-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="BFB00190-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="160"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="BFB00170-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BFB00170-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

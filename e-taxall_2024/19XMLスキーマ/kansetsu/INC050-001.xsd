@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：揮発油税戻入れ(移入)控除(還付)税額計算書
+version：1.0
+Date：2020年01月14日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="INC050-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="INC050-1-0group">
+<xsd:sequence>
+<xsd:element name="INC050">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="GEA00000" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一般申告用年月分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GEB00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"都度申告用年月日分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="GEC00000" type="GEC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造場の所在地及び名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GED00000" type="GED00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"戻入れ揮発油"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GEE00000" type="GEE00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入揮発油"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="GEF00000" type="GEF00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"参考事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="INC050-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="GEC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GEC00010" type="gen:SEIZOJO_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GEC00020" type="gen:SEIZOJO_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GEC00030" type="gen:SEIZOJO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GED00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GED00010" minOccurs="0" maxOccurs="7">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GED00020" type="GED00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"品名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GED00030" type="GED00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"戻入れ数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GED00040" type="GED00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GED00050" type="GED00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GED00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GED00070" type="GED00070-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"戻入れ数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GED00080" type="GED00080-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GED00090" type="GED00090-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GED00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GEE00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GEE00010" minOccurs="0" maxOccurs="7">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GEE00020" type="GEE00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"品名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GEE00030" type="GEE00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GEE00040" type="GEE00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GEE00050" type="GEE00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GEE00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GEE00070" type="GEE00070-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GEE00080" type="GEE00080-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GEE00090" type="GEE00090-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GEE00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="GED00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GED00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GED00040-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GED00050-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GED00070-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GED00080-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GED00090-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GEE00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GEE00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GEE00040-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GEE00050-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GEE00070-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GEE00080-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GEE00090-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GEF00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="80"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="GED00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GED00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GED00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GED00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GED00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GED00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GED00070-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GED00070-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GED00080-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GED00080-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GED00090-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GED00090-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GEE00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GEE00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GEE00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GEE00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GEE00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GEE00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GEE00070-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GEE00070-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GEE00080-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GEE00080-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GEE00090-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GEE00090-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表六(二)付表三　国外事業所等帰属資本相当額の計算に関する明細書
+version：3.0
+Date：2023年06月26日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOB026-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOB026-3-0group">
+<xsd:sequence>
+<xsd:element name="HOB026">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLA00000" type="FLA00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00000" type="FLB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="FLC00000" type="FLC00000-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOB026-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FLA00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="FLA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLA00050" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FLB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="FLB00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00020" type="FLB00020-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国名又は地域名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00030" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00040" type="FLB00040-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"主たる事業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"銀行等以外の内国法人に係る国外事業所等帰属資本相当額の計算に関する明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資本配賦原則法"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産の帳簿価額の平均残高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総負債の帳簿価額の平均残高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等に帰せられる資産の額について発生し得る危険を勘案して計算した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産の額について発生し得る危険を勘案して計算した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等帰属資本相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資本配賦簡便法"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産の帳簿価額の平均残高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総負債の帳簿価額の平均残高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度終了の時の国外事業所等に帰せられる資産の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度終了の時の貸借対照表に計上されている総資産の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等帰属資本相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"リスク資産資本比率比準法"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等に帰せられる資産の額について発生し得る危険を勘案して計算した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象法人の状況"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00210" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00230" type="FLB00230-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国名又は地域名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00240" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00250" type="FLB00250-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"主たる事業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00270" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00280" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象事業年度終了の時の貸借対照表に計上されている純資産の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象事業年度終了の時の総資産の額について発生し得る危険を勘案して計算した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00310" type="FLB00310-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"リスク資産資本比率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等帰属資本相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"簿価資産資本比率比準法"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等に帰せられる資産の帳簿価額の平均残高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00350" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象法人の状況"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00360" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00370" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00380" type="FLB00380-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国名又は地域名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00390" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00400" type="FLB00400-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"主たる事業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00410" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00420" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00430" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象事業年度終了の時の貸借対照表に計上されている純資産の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象事業年度終了の時の貸借対照表に計上されている総資産の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00460" type="FLB00460-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"簿価資産資本比率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等帰属資本相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00480" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"銀行等である内国法人に係る国外事業所等帰属資本相当額の計算に関する明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00490" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"規制資本配賦法"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"規制上の自己資本の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00510" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等に帰せられる資産の額について発生し得る危険を勘案して計算した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00520" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産の額について発生し得る危険を勘案して計算した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00530" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等帰属資本相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00540" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"危険勘案資産額を特例により算出した場合の国外事業所等帰属資本相当額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00550" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"信用リスク額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00560" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(39)のうち貸出債権リスク額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00570" type="FLB00570-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(39)/(37)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00580" type="FLB00580-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(40)/(39)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00590" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等に帰せられる貸出債権リスク額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00600" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(41)＞80％かつ(42)＞50％である場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00610" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"リスク資産規制資本比率比準法"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00620" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等に帰せられる資産の額について発生し得る危険を勘案して計算した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00630" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象法人の状況"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00640" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00650" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00660" type="FLB00660-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国名又は地域名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00670" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00680" type="FLB00680-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"主たる事業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00690" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FLB00700" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00710" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00720" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象事業年度終了の時の規制上の自己資本の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00730" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比較対象事業年度終了の時の総資産の額について発生し得る危険を勘案して計算した金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FLB00740" type="FLB00740-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"リスク資産規制資本比率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FLB00750" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外事業所等帰属資本相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="FLB00020-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00040-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00230-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00250-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00310-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00380-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00400-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00460-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00570-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00580-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00660-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00680-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLB00740-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FLC00000-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="FLB00310-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FLB00310-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FLB00460-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FLB00460-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FLB00570-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FLB00570-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FLB00580-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FLB00580-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FLB00740-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="FLB00740-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十七(三の二)　特定外国子会社等に係る部分課税対象金額又は個別部分課税対象金額の計算に関する明細書(分離法対応)
+version：1.0
+Date：2011年10月20日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOE561-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOE561-1-0group">
+<xsd:sequence>
+<xsd:element name="HOE561">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEA00000" type="WEA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEB00000" type="WEB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00000" type="WEC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定所得の金額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WED00000" type="WED00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"部分課税対象金額又は個別部分課税対象金額の計算等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="WEE00000" type="WEE00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOE561-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="WEA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="WEA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度又は連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEA00020" type="WEA00020-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEA00030" type="WEA00030-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WEA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEA00050" type="WEA00050-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEA00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名(連結子法人)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="WEB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="WEB00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定外国子会社等の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEB00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEB00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="WEC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="WEC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"収入金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00020" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"剰余金の配当等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00030" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の利子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00040" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の償還差益"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00050" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"株式等の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00060" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00070" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特許権等の使用料"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00080" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"船舶又は航空機の貸付けによる対価"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WEC00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)のうち特定所得に係る収入金額の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00100" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"剰余金の配当等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00110" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の利子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00120" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の償還差益"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00130" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"株式等の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00140" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00150" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特許権等の使用料"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00160" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"船舶又は航空機の貸付けによる対価"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WEC00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)に係る株式等又は債券の譲渡に係る原価の額の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00180" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"株式等の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00190" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WEC00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)に係る直接費用の額の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00210" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"剰余金の配当等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00220" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の利子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00230" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の償還差益"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00240" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"株式等の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00250" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00260" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特許権等の使用料"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00270" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"船舶又は航空機の貸付けによる対価"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WEC00280" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"負債利子配賦額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期に支払う負債利子の額の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00300" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"剰余金の配当等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00310" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の利子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00320" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の償還差益"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WEC00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)のうち(6)に含まれる金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00340" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"剰余金の配当等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00350" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の利子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00360" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の償還差益"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WEC00370" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総資産の帳簿価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00380" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"剰余金の配当等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00390" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の利子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00400" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の償還差益"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WEC00410" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定所得に係る株式等又は債券の帳簿価額等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00420" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"剰余金の配当等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00430" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の利子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00440" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の償還差益"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WEC00450" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)*(10)/(9)-(8)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00460" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"剰余金の配当等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00470" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の利子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00480" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の償還差益"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WEC00490" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定所得の金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00500" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"剰余金の配当等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00510" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の利子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00520" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の償還差益"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00530" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"株式等の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00540" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00550" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特許権等の使用料"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00560" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"船舶又は航空機の貸付けによる対価"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WEC00570" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一単位当たりの帳簿価額の算出の方法又は償却費計算上の適用法令"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00580" type="WEC00580-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の償還差益"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00590" type="WEC00590-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"株式等の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00600" type="WEC00600-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債券の譲渡による所得"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00610" type="WEC00610-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特許権等の使用料"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00620" type="WEC00620-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"船舶又は航空機の貸付けによる対価"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="WED00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="WED00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"部分適用対象金額に係る適用除外の判定"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WED00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"収入基準　部分適用対象金額に係る収入金額の合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WED00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"()書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WED00040" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WED00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得基準"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WED00060" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税引前当期利益の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WED00070" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(15)*５％"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WED00080" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"部分適用対象金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WED00090" type="WED00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"措法第66条の６第５項又は第68条の90第５項の適用の有無"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WED00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"部分課税対象金額又は個別部分課税対象金額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WED00110" type="WED00110-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"請求権勘案保有株式等の保有割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WED00120" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)*(19)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WED00130" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税対象金額又は個別課税対象金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WED00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"部分課税対象金額又は個別部分課税対象金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WED00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"()書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WED00160" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="WEC00580-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="WEC00590-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="WEC00600-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="WEC00610-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="WEC00620-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="WED00090-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="WED00110-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WEE00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="WEA00020-1-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="WEA00020-1-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="WEA00020-1-0Rtype">
+            <xsd:attribute name="IDREF" type="WEA00020-1-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="WEA00020-1-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_FROM"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_FROM"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="WEA00030-1-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="WEA00030-1-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="WEA00030-1-0Rtype">
+            <xsd:attribute name="IDREF" type="WEA00030-1-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="WEA00030-1-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_TO"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_TO"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="WEA00050-1-0IDREFtype">
+    <xsd:attribute name="IDREF" use="required">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:IDREF">
+                <xsd:enumeration value="NOZEISHA_NM"/>
+                <xsd:enumeration value="OYA_HOJIN_NM"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+</xsd:complexType>
+
+<xsd:complexType name="WED00110-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="WED00110-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

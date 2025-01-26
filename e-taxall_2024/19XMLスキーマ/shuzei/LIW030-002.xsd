@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：未納税引取証明申請書
+version：2.0
+Date：2006年06月20日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="LIW030-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="LIW030-2-0group">
+<xsd:sequence>
+<xsd:element name="LIW030">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCA00000" type="BCA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00000" type="BCB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="LIW030-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BCA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="BCA00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCA00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCA00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCA00050" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCA00060" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCA00070" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BCA00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称及び代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCA00085" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称(フリガナ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCA00090" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCA00095" type="gen:DAIHYO_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名(フリガナ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCA00100" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BCB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="BCB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"引取者の住所及び氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCB00020" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BCB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"引取製造場等の所在地及び名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCB00050" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BCB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納税引取承認年月日及び承認番号"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCB00080" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納税引取承認年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00090" type="BCB00090-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"承認番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BCB00100" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納税引取証明書提出期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00110" type="BCB00110-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"引取の目的"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00120" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"酒類　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCB00140" type="BCB00140-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"品目別等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00150" type="BCB00150-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BCB00160" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"引取　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCB00170" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00180" type="BCB00180-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"A容器の容量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00190" type="BCB00190-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"B容器の個数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00200" type="BCB00200-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量(A*B)　(温度)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00210" type="BCB00210-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量(A*B)　(換算数量)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00220" type="BCB00220-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"アルコール分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00230" type="BCB00230-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比重"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BCB00240" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"移入　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCB00250" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00260" type="BCB00260-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"容器の個数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00270" type="BCB00270-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量(温度)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00280" type="BCB00280-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量(換算数量)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00290" type="BCB00290-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"アルコール分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00300" type="BCB00300-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"比重"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BCB00310" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"増減　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BCB00320" type="BCB00320-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BCB00330" type="BCB00330-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"アルコール分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BCB00340" type="BCB00340-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="BCB00090-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="25"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00110-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="70"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00140-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="16"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00150-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="16"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00180-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="16"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00190-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00200-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00210-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00220-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00230-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00260-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00270-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00280-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00290-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00300-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00320-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00330-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BCB00340-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="150"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="BCB00190-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00190-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BCB00200-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00200-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BCB00210-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00210-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BCB00220-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00220-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BCB00230-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00230-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BCB00260-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00260-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BCB00270-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00270-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BCB00280-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00280-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BCB00290-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00290-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BCB00300-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00300-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BCB00320-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00320-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BCB00330-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BCB00330-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

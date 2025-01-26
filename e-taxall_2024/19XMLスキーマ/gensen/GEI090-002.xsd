@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/gensen"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/gensen"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：届出事項(非課税口座開設届出書に記載された事項等)
+version：2.0
+Date：2020年11月11日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="GEI090-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="GEI090-2-0group">
+<xsd:sequence>
+<xsd:element name="GEI090">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="IIA00000" type="IIA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"情報"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="GEI090-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="IIA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="IIA00010" type="IIA00010-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請事項等の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00030" type="IIA00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00040" type="IIA00040-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出者のフリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出者の生年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00060" type="IIA00060-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出者の現住所（居所）又は所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00070" type="gen:bango" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出者の個人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00080" type="IIA00080-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金融商品取引業者等の営業所の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00090" type="IIA00090-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金融商品取引業者等の営業所の所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00100" type="gen:zipcode" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金融商品取引業者等の営業所の郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00110" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"勘定設定期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00120" type="IIA00120-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非課税口座に設定しようとする勘定の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00130" type="IIA00130-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非課税口座の記号又は番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00140" type="IIA00140-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金融商品取引業者等の営業所使用欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IIA00150" type="gen:zeimusho" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金融商品取引業者等の営業所の所轄税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="IIA00010-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IIA00030-2-0Rtype">
+    <xsd:restriction base="gen:i-string">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IIA00040-2-0Rtype">
+    <xsd:restriction base="gen:i-string">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IIA00060-2-0Rtype">
+    <xsd:restriction base="gen:i-string">
+        <xsd:maxLength value="125"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IIA00080-2-0Rtype">
+    <xsd:restriction base="gen:i-string">
+        <xsd:maxLength value="60"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IIA00090-2-0Rtype">
+    <xsd:restriction base="gen:i-string">
+        <xsd:maxLength value="125"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="IIA00120-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="IIA00130-2-0Rtype">
+    <xsd:restriction base="gen:i-string">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IIA00140-2-0Rtype">
+    <xsd:restriction base="gen:i-string">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="IIA00010-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="IIA00010-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

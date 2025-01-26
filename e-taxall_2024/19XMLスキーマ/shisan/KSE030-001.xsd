@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：財産を取得した人のうちに農業相続人がいる場合の各人の算出税額の計算書(第3表)(平成26年分以降用)
+version：1.0
+Date：2023年11月20日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE030-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE030-1-0group">
+<xsd:sequence>
+<xsd:element name="KSE030">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="EHA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="EHB00000" type="EHB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE030-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="EHB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="EHB00010" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"相続税の納税猶予の適用を受ける農業相続人の氏名　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00030" type="EHB00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年齢"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細１"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（各人の合計）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得財産の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債務及び葬式費用の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額に加算される暦年課税分の贈与財産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の算出税額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続税の総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算出税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業相続人の納税猶予の基となる税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続税の総額の差額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業投資価格超過額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人へのあん分額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の算出税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続税の総額１"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続税の総額２"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00240" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00250" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産を取得した人の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00270" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得財産の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債務及び葬式費用の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額に加算される暦年課税分の贈与財産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00340" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の算出税額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00350" type="EHB00350-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"あん分割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算出税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00370" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業相続人の納税猶予の基となる税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業投資価格超過額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00390" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人へのあん分額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00400" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の算出税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00410" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"明細２　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00420" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産を取得した人の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00430" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00440" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得財産の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00460" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債務及び葬式費用の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00480" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額に加算される暦年課税分の贈与財産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00510" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の算出税額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00520" type="EHB00520-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"あん分割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00530" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算出税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00540" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業相続人の納税猶予の基となる税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHB00550" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農業投資価格超過額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00560" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人へのあん分額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EHB00570" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の算出税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="EHB00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EHB00350-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="1"/><xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EHB00520-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="1"/><xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="EHB00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EHB00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EHB00350-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EHB00350-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EHB00520-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="EHB00520-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

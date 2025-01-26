@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：売上高等の事業所別の内訳書
+version：4.0
+Date：2018年11月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOI130-4-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="4.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOI130-4-0group">
+<xsd:sequence>
+<xsd:element name="HOI130">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HMB00000" type="HMB00000-4-0type" minOccurs="0" maxOccurs="14">
+<xsd:annotation>
+<xsd:appinfo>"売上高等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMC00000" type="HMC00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOI130-4-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+<xsd:attribute name="csvFileNM" type="gen:str"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="HMB00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="HMB00100" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業所の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMB00200" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMB00300" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"責任者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMB00400" type="HMB00400-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者との関係"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMB00500" type="HMB00500-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業等の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMB00600" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMB00700" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末棚卸高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMB00800" type="HMB00800-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末従業員数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMB00900" type="HMB00900-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"使用建物の延面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMB01000" type="HMB01000-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"源泉所得税納付署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMB01100" type="HMB01100-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="HMC00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="HMC00100" type="HMC00100-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業等の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMC00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMC00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末棚卸高"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMC00400" type="HMC00400-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末従業員数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HMC00500" type="HMC00500-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"使用建物の延面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="HMB00400-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HMB00500-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HMB00800-4-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HMB00900-4-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HMB01000-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HMB01100-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HMC00100-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HMC00400-4-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HMC00500-4-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="HMB00800-4-0type">
+<xsd:simpleContent>
+<xsd:extension base="HMB00800-4-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HMB00900-4-0type">
+<xsd:simpleContent>
+<xsd:extension base="HMB00900-4-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HMC00400-4-0type">
+<xsd:simpleContent>
+<xsd:extension base="HMC00400-4-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HMC00500-4-0type">
+<xsd:simpleContent>
+<xsd:extension base="HMC00500-4-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

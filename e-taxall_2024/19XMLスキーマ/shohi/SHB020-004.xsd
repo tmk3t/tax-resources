@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：付表2　課税売上割合・控除対象仕入税額等の計算表
+version：4.0
+Date：2015年07月07日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SHB020-4-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="4.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SHB020-4-0group">
+<xsd:sequence>
+<xsd:element name="SHB020">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ADA00000" type="ADA00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADB00000" type="ADB00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税売上割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADC00000" type="ADC00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税仕入れ等の税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="ADD00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税売上高が５億円以下、かつ、課税売上割合が９５％以上の場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="ADE00000" type="ADE00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税売上高が５億円超又は課税売上割合が９５％未満の場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADF00000" type="ADF00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除税額の調整"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADG00000" type="ADG00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="ADH00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸倒回収に係る消費税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SHB020-4-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="ADA00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="ADA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ADA00020" type="gen:KAZEI_KIKAN_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADA00030" type="gen:KAZEI_KIKAN_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ADA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ADB00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="ADB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税資産の譲渡等の対価の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ADB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税売上額（税抜き）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"免税売上額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非課税資産の輸出等の金額、海外支店等へ移送した資産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税資産の譲渡等の対価の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ADB00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資産の譲渡等の対価の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ADB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税資産の譲渡等の対価の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非課税売上額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資産の譲渡等の対価の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ADB00100" type="ADB00100-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税売上割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ADC00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="ADC00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税仕入れに係る支払対価の額（税込み）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税仕入れに係る消費税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定課税仕入れに係る支払対価の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定課税仕入れに係る消費税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税貨物に係る消費税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税義務の免除を受けない（受ける）こととなった場合における消費税額の調整(加算又は減算)額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税仕入れ等の税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ADE00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="ADE00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別対応方式"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ADE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（１４）のうち、課税売上げにのみ要するもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（１４）のうち、課税売上げと非課税売上げに共通して要するもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個別対応方式により控除する課税仕入れ等の税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ADE00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一括比例配分方式により控除する課税仕入れ等の税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ADF00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="ADF00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税売上割合変動時の調整対象固定資産に係る消費税額の調整（加算又は減算）額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADF00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整対象固定資産を課税業務用（非課税業務用）に転用した場合の調整（加算又は減算）額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ADG00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="ADG00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除対象仕入税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ADG00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除過大調整税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="ADB00100-4-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0.00"/><xsd:maxInclusive value="100.00"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="ADB00100-4-0type">
+<xsd:simpleContent>
+<xsd:extension base="ADB00100-4-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

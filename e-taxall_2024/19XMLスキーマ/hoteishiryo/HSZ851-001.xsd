@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：外国親会社等が国内の役員等に供与等をした経済的利益に関する調書
+version：1.0
+Date：2012年08月27日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HSZ851-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HSZ851-1-0group">
+<xsd:sequence>
+<xsd:element name="HSZ851">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="FMA00000" type="FMA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払調書の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FMB00000" type="FMB00000-1-0Rtype">
+<xsd:annotation>
+<xsd:appinfo>"訂正区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAC00000" type="gen:NENBUNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="AAD00000" type="AAD00000851-1-0type">
+<xsd:annotation>
+<xsd:appinfo>"経済的利益の供与等を受けた者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FME00000" type="FME00000-1-0type" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"経済的利益の供与等明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="FMF00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"権利付与年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FMG00000" type="FMG00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"権利の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FMH00000" type="FMH00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得できる株式等の総数若しくは金銭等の総額又は付与された権利の総数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FMI00000" type="FMI00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"単位"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="FMJ00000" type="FMJ00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国親会社等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="FMK00000" type="FMK00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（摘要）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="AAK00000" type="AAK00000851-1-0type">
+<xsd:annotation>
+<xsd:appinfo>"提出者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HSZ851-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="AAD00000851-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AAD00010" type="gen:address">
+<xsd:annotation>
+<xsd:appinfo>"住所又は居所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAD00020" type="gen:name">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FME00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FME00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"供与等の年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FME00020" type="FME00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"経済的利益の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FME00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"供与等を受けた株式の価額又は金銭その他の経済的利益の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FME00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"供与等を受けた株式の価額又は金銭その他の経済的利益の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FME00050" type="FME00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"基礎となる株式又は権利の数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FME00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１単位当たりの金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FME00070" type="FME00070-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"表示通貨"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FMJ00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FMJ00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FMJ00020" type="FMJ00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地の国名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AAK00000851-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AAK00010" type="gen:NOZEISHA_ADRref">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAK00020" type="gen:NOZEISHA_NMref">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAK00030" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="FMA00000-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="FMB00000-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="0"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="FME00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FME00050-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FME00070-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FMG00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FMH00000-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FMI00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FMJ00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="25"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FMK00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="FMA00000-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="FMA00000-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FMH00000-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="FMH00000-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FME00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="FME00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：付表3(連結子法人等の主要株主等の状況)
+version：1.0
+Date：2005年01月18日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOS070-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOS070-1-0group">
+<xsd:sequence>
+<xsd:element name="HOS070">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="UNA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結子法人等の法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UNB00000" type="UNB00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結子法人等の発行済株式総数又は出資金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="UNC00000" type="UNC00000-1-0type" minOccurs="0" maxOccurs="10">
+<xsd:annotation>
+<xsd:appinfo>"連結子法人等の主要株主等の株式数等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOS070-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="UNC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="UNC00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UNC00020" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所又は所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UNC00030" type="UNC00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保有株式数又は出資金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UNC00040" type="UNC00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発行済株式総数又は出資金額に対する保有株式数又は出資金額の割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="UNB00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UNC00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="UNC00040-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="UNC00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="UNC00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

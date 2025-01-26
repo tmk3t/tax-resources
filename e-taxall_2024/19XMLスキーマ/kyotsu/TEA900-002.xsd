@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:xlink="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：添付書類送付書
+version：2.0
+Date：2018年08月30日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+<xsd:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="TEA900-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="TEA900-2-0group">
+<xsd:sequence>
+<xsd:element name="SOFUSHO">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TEA900-1" type="TEA900-1-2-0type">
+<xsd:annotation>
+<xsd:appinfo>"一面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TEA900-2" type="TEA900-2-2-0type" minOccurs="0" maxOccurs="unbounded">
+<xsd:annotation>
+<xsd:appinfo>"二面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="fid"
+type="xsd:string"
+use="required"
+fixed="TEA900"/>
+<xsd:attribute name="VR"
+type="TEA900-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="TEA900-1-2-0type">
+<xsd:sequence>
+
+<xsd:element name="WEC00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEC00010" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00020" type="gen:NOZEISHA_IDref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利用者識別番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00030" type="WEC00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"手続名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00040" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所（所在地）又は納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00050" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00060" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者等氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00070" type="gen:DAIRI_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士等氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEC00080" type="gen:DAIRI_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士等電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="WED00000" maxOccurs="16">
+<xsd:annotation>
+<xsd:appinfo>"添付書類　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WED00010" type="WED00010-2-0Rtype">
+<xsd:annotation>
+<xsd:appinfo>"ファイル名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WED00020" type="WED00020-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"添付書類名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WED00030" type="WED00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="TEA900-2-2-0type">
+<xsd:sequence>
+
+<xsd:element name="WEE00000" minOccurs="0" maxOccurs="24">
+<xsd:annotation>
+<xsd:appinfo>"添付書類　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="WEE00010" type="WEE00010-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"ファイル名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEE00020" type="WEE00020-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"添付書類名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="WEE00030" type="WEE00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+
+<xsd:simpleType name="WEC00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="WED00010-2-0Rtype">
+    <xsd:simpleContent>
+        <xsd:extension base="WED00010-2-0BASEtype">
+            <xsd:attribute ref="xlink:type"/>
+            <xsd:attribute ref="xlink:href"/>
+        </xsd:extension>
+    </xsd:simpleContent>
+</xsd:complexType>
+<xsd:simpleType name="WED00010-2-0BASEtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="45"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WED00020-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WED00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="WEE00010-2-0Rtype">
+    <xsd:simpleContent>
+        <xsd:extension base="WEE00010-2-0BASEtype">
+            <xsd:attribute ref="xlink:type"/>
+            <xsd:attribute ref="xlink:href"/>
+        </xsd:extension>
+    </xsd:simpleContent>
+</xsd:complexType>
+<xsd:simpleType name="WEE00010-2-0BASEtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="45"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WEE00020-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="WEE00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十四(三)　譲渡制限付株式に関する明細書
+version：2.0
+Date：2018年06月28日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOE109-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOE109-2-0group">
+<xsd:sequence>
+<xsd:element name="HOE109">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NCA00000" type="NCA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00000" type="NCB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="NCC00000" type="NCC00000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOE109-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="NCA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="NCA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度又は連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NCA00020" type="NCA00020-2-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCA00030" type="NCA00030-2-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NCA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NCA00050" type="NCA00050-2-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCA00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名（連結子法人）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="NCB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="NCB00010" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NCB00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00030" type="NCB00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付対象者の区分及び人数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"給付され、又は消滅した債権の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00050" type="NCB00050-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡制限付株式交付数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00060" type="NCB00060-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡制限期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付の時等の単価"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡制限付株式の変動状況の明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NCB00090" type="NCB00090-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首譲渡制限付株式数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00100" type="NCB00100-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期無償取得等株式数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00110" type="NCB00110-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期給与等課税額確定数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00120" type="NCB00120-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末譲渡制限付株式数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NCB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首費用計上累積額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期費用又は損失計上額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役務の提供を受けたことによる費用の額又は役務の提供を受けられなかったことによる損失の額のうち、損金不算入となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役務の提供を受けたことによる費用の額のうち当期の損金算入額の基礎となる金額　内書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役務の提供を受けたことによる費用の額のうち当期の損金算入額の基礎となる金額　本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末費用計上累積額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NCB00190" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NCB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首費用計上累積額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期費用又は損失計上額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役務の提供を受けたことによる費用の額又は役務の提供を受けられなかったことによる損失の額のうち、損金不算入となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役務の提供を受けたことによる費用の額のうち当期の損金算入額の基礎となる金額　内書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役務の提供を受けたことによる費用の額のうち当期の損金算入額の基礎となる金額　本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NCB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末費用計上累積額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="NCB00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="NCB00050-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="NCB00060-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="NCB00090-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="NCB00100-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="NCB00110-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="NCB00120-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="NCC00000-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="NCA00020-2-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="NCA00020-2-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="NCA00020-2-0Rtype">
+            <xsd:attribute name="IDREF" type="NCA00020-2-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="NCA00020-2-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_FROM"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_FROM"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="NCA00030-2-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="NCA00030-2-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="NCA00030-2-0Rtype">
+            <xsd:attribute name="IDREF" type="NCA00030-2-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="NCA00030-2-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_TO"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_TO"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="NCA00050-2-0IDREFtype">
+    <xsd:attribute name="IDREF" use="required">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:IDREF">
+                <xsd:enumeration value="NOZEISHA_NM"/>
+                <xsd:enumeration value="OYA_HOJIN_NM"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+</xsd:complexType>
+
+</xsd:schema>

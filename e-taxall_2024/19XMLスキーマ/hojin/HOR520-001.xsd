@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表五の二(一)　連結利益積立金額及び連結資本積立金額の計算に関する明細書
+version：1.0
+Date：2005年01月18日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOR520-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOR520-1-0group">
+<xsd:sequence>
+<xsd:element name="HOR520">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLA00000" type="RLA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00000" type="RLB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"1連結利益積立金額の計算に関する明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLC00000" type="RLC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"2連結資本積立金額の計算に関する明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="RLD00000" type="RLD00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOR520-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="RLA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RLA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLA00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLA00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLA00040" type="gen:OYA_HOJIN_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RLB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RLB00010" minOccurs="0" maxOccurs="13">
+<xsd:annotation>
+<xsd:appinfo>"各連結法人の連結個別利益積立金額　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期利益金処分等による増減(減は赤)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期利益金処分等による増減(減は赤)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税充当金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期利益金処分等による増減(減は赤)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00230" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納法人税等(退職年金等積立金に対するものを除く。)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納連結法人税(附帯税を除く。)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期利益金処分等による増減(減は赤)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00310" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納法人税(附帯税を除く。)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期利益金処分等による増減(減は赤)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00380" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納道府県民税(均等割額及び利子割額を含む。)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00390" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00400" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00410" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00420" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00430" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期利益金処分等による増減(減は赤)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00450" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納市町村民税(均等割額を含む。)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00460" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00470" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00480" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期利益金処分等による増減(減は赤)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00510" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00520" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00530" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00540" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLB00550" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00560" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLB00570" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期利益金処分等による増減(減は赤)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLB00580" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在連結利益積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RLC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RLC00010" minOccurs="0" maxOccurs="8">
+<xsd:annotation>
+<xsd:appinfo>"各連結法人の連結個別資本積立金額　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLC00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在連結資本積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLC00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在連結資本積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLC00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLC00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首現在連結資本積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLC00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中の増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RLC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RLC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RLC00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引翌期首現在連結資本積立金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="RLD00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表四(次葉)　所得の金額の計算に関する明細書(次葉)
+version：4.0
+Date：2006年05月01日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOA430-4-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="4.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOA430-4-0group">
+<xsd:sequence>
+<xsd:element name="HOA430">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="LGA00000" type="LGA00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00000" type="LGB00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期利益又は当期欠損の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOA430-4-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="LGA00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="LGA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="LGA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LGA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="LGB00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="LGB00010" minOccurs="0" maxOccurs="20">
+<xsd:annotation>
+<xsd:appinfo>"加算　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="LGB00020" type="LGB00020-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00030" type="LGB00030-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"項番"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"留保"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00055" type="LGB00055-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"社外流出区分名　外書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00060" type="LGB00060-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"社外流出区分名　本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00065" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"社外流出　外書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"社外流出　本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LGB00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"加算次葉合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="LGB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"留保"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00103" type="LGB00103-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"社外流出区分名　外書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00107" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"社外流出　外書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"社外流出　本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LGB00120" minOccurs="0" maxOccurs="20">
+<xsd:annotation>
+<xsd:appinfo>"減算　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="LGB00130" type="LGB00130-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00140" type="LGB00140-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"項番"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"留保"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00165" type="LGB00165-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"社外流出区分名   外書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00170" type="LGB00170-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"社外流出区分名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"社外流出"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="LGB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="LGB00210" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減算次葉合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="LGB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"留保"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"社外流出"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="LGB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="LGB00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="LGB00020-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="LGB00030-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="4"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="LGB00055-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="LGB00060-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="LGB00103-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="LGB00130-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="LGB00140-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="4"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="LGB00165-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="LGB00170-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kokusai"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kokusai"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：特定多国籍企業グループに係る最終親会社等届出事項兼最終親会社等届出事項・国別報告事項・事業概況報告事項の提供義務者が複数ある場合における代表提供者に係る事項等の提供
+version：1.0
+Date：2016年12月22日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="AIA110-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="AIA110-1-0group">
+<xsd:sequence>
+<xsd:element name="AIA110">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AIA110-1" type="AIA110-1-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請書1面目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AIA110-2" type="AIA110-2-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請書2面目(次葉)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="AIA110-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="AIA110-1-1-0type">
+<xsd:sequence>
+
+<xsd:element name="HNA00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNA00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNA00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNA00030" type="HNA00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNA00050" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNA00060" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNA00070" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNA00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNA00083" type="gen:zipcode" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNA00086" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNA00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNA00100" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNA00110" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNA00120" type="gen:NOZEISHA_BANGOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNA00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNA00140" type="gen:DAIHYO_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNA00150" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNA00160" type="gen:DAIRI_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士署名押印"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNB00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提供内容"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)特定多国籍企業グループに係る最終親会社等届出事項"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNB00020" type="HNB00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出対象区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNB00030" type="HNB00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)最終親会社等届出事項の提供義務者が複数ある場合における代表提供者に係る事項等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNB00050" type="HNB00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出対象区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNB00060" type="HNB00060-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)国別報告事項の提供義務者が複数ある場合における代表提供者に係る事項等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNB00080" type="HNB00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出対象区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNB00090" type="HNB00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNB00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)事業概況報告事項の提供義務者が複数ある場合における代表提供者に係る事項等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNB00110" type="HNB00110-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出対象区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNB00120" type="HNB00120-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNC00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提供対象の最終親会計年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNC00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNC00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HND00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"最終親会社等届出事項"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HND00010" type="HND00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国別報告事項の提供者の属性"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"最終親会社等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HND00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HND00040" type="HND00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00050" type="HND00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HND00060" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HND00080" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00090" type="AIA110-1-0countryType" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在国"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HND00100" type="gen:bango" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00110" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HND00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代理親会社等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HND00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HND00140" type="HND00140-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00150" type="HND00150-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HND00160" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HND00180" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00190" type="AIA110-1-0countryType" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在国"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HND00200" type="gen:bango" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00210" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HND00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提供義務者が複数ある場合における代表提供者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HND00230" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HND00240" type="HND00240-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00250" type="HND00250-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HND00260" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00270" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HND00280" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00290" type="AIA110-1-0countryType" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在国"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HND00300" type="gen:bango" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HND00310" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="AIA110-2-1-0type">
+<xsd:sequence>
+
+<xsd:element name="HNE00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国別報告事項の提供義務者が複数ある場合における代表提供者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNE00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNE00020" type="HNE00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNE00030" type="HNE00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNE00040" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNE00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNE00060" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNE00070" type="AIA110-1-0countryType" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在国"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNE00080" type="gen:bango" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNE00090" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNF00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業概況報告事項の提供義務者が複数ある場合における代表提供者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNF00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(フリガナ)名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNF00020" type="HNF00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNF00030" type="HNF00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNF00040" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNF00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HNF00060" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNF00070" type="AIA110-1-0countryType" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在国"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HNF00080" type="gen:bango" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HNF00090" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+
+<xsd:complexType name="HNA00030-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HNB00020-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HNB00030-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HNB00050-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HNB00060-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HNB00080-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HNB00090-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HNB00110-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HNB00120-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HND00010-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="HND00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HND00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HND00140-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HND00150-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HND00240-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HND00250-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HNE00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HNE00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HNF00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HNF00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="AIA110-1-0countryType">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:country">
+            <xsd:sequence>
+                <xsd:element name="country_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:country_CD">
+                            <xsd:enumeration value="AF"/><xsd:enumeration value="AX"/><xsd:enumeration value="AL"/><xsd:enumeration value="DZ"/><xsd:enumeration value="AS"/><xsd:enumeration value="AD"/><xsd:enumeration value="AO"/><xsd:enumeration value="AI"/><xsd:enumeration value="AQ"/><xsd:enumeration value="AG"/><xsd:enumeration value="AR"/><xsd:enumeration value="AM"/><xsd:enumeration value="AW"/><xsd:enumeration value="AU"/><xsd:enumeration value="AT"/><xsd:enumeration value="AZ"/><xsd:enumeration value="BS"/><xsd:enumeration value="BH"/><xsd:enumeration value="BD"/><xsd:enumeration value="BB"/><xsd:enumeration value="BY"/><xsd:enumeration value="BE"/><xsd:enumeration value="BZ"/><xsd:enumeration value="BJ"/><xsd:enumeration value="BM"/><xsd:enumeration value="BT"/><xsd:enumeration value="BO"/><xsd:enumeration value="BQ"/><xsd:enumeration value="BA"/><xsd:enumeration value="BW"/><xsd:enumeration value="BV"/><xsd:enumeration value="BR"/><xsd:enumeration value="IO"/><xsd:enumeration value="BN"/><xsd:enumeration value="BG"/><xsd:enumeration value="BF"/><xsd:enumeration value="BI"/><xsd:enumeration value="KH"/><xsd:enumeration value="CM"/><xsd:enumeration value="CA"/><xsd:enumeration value="CV"/><xsd:enumeration value="KY"/><xsd:enumeration value="CF"/><xsd:enumeration value="TD"/><xsd:enumeration value="CL"/><xsd:enumeration value="CN"/><xsd:enumeration value="CX"/><xsd:enumeration value="CC"/><xsd:enumeration value="CO"/><xsd:enumeration value="KM"/><xsd:enumeration value="CG"/><xsd:enumeration value="CD"/><xsd:enumeration value="CK"/><xsd:enumeration value="CR"/><xsd:enumeration value="CI"/><xsd:enumeration value="HR"/><xsd:enumeration value="CU"/><xsd:enumeration value="CW"/><xsd:enumeration value="CY"/><xsd:enumeration value="CZ"/><xsd:enumeration value="DK"/><xsd:enumeration value="DJ"/><xsd:enumeration value="DM"/><xsd:enumeration value="DO"/><xsd:enumeration value="EC"/><xsd:enumeration value="EG"/><xsd:enumeration value="SV"/><xsd:enumeration value="GQ"/><xsd:enumeration value="ER"/><xsd:enumeration value="EE"/><xsd:enumeration value="ET"/><xsd:enumeration value="FK"/><xsd:enumeration value="FO"/><xsd:enumeration value="FJ"/><xsd:enumeration value="FI"/><xsd:enumeration value="FR"/><xsd:enumeration value="GF"/><xsd:enumeration value="PF"/><xsd:enumeration value="TF"/><xsd:enumeration value="GA"/><xsd:enumeration value="GM"/><xsd:enumeration value="GE"/><xsd:enumeration value="DE"/><xsd:enumeration value="GH"/><xsd:enumeration value="GI"/><xsd:enumeration value="GR"/><xsd:enumeration value="GL"/><xsd:enumeration value="GD"/><xsd:enumeration value="GP"/><xsd:enumeration value="GU"/><xsd:enumeration value="GT"/><xsd:enumeration value="GG"/><xsd:enumeration value="GN"/><xsd:enumeration value="GW"/><xsd:enumeration value="GY"/><xsd:enumeration value="HT"/><xsd:enumeration value="HM"/><xsd:enumeration value="VA"/><xsd:enumeration value="HN"/><xsd:enumeration value="HK"/><xsd:enumeration value="HU"/><xsd:enumeration value="IS"/><xsd:enumeration value="IN"/><xsd:enumeration value="ID"/><xsd:enumeration value="IR"/><xsd:enumeration value="IQ"/><xsd:enumeration value="IE"/><xsd:enumeration value="IM"/><xsd:enumeration value="IL"/><xsd:enumeration value="IT"/><xsd:enumeration value="JM"/><xsd:enumeration value="JP"/><xsd:enumeration value="JE"/><xsd:enumeration value="JO"/><xsd:enumeration value="KZ"/><xsd:enumeration value="KE"/><xsd:enumeration value="KI"/><xsd:enumeration value="KP"/><xsd:enumeration value="KR"/><xsd:enumeration value="KW"/><xsd:enumeration value="KG"/><xsd:enumeration value="LA"/><xsd:enumeration value="LV"/><xsd:enumeration value="LB"/><xsd:enumeration value="LS"/><xsd:enumeration value="LR"/><xsd:enumeration value="LY"/><xsd:enumeration value="LI"/><xsd:enumeration value="LT"/><xsd:enumeration value="LU"/><xsd:enumeration value="MO"/><xsd:enumeration value="MK"/><xsd:enumeration value="MG"/><xsd:enumeration value="MW"/><xsd:enumeration value="MY"/><xsd:enumeration value="MV"/><xsd:enumeration value="ML"/><xsd:enumeration value="MT"/><xsd:enumeration value="MH"/><xsd:enumeration value="MQ"/><xsd:enumeration value="MR"/><xsd:enumeration value="MU"/><xsd:enumeration value="YT"/><xsd:enumeration value="MX"/><xsd:enumeration value="FM"/><xsd:enumeration value="MD"/><xsd:enumeration value="MC"/><xsd:enumeration value="MN"/><xsd:enumeration value="ME"/><xsd:enumeration value="MS"/><xsd:enumeration value="MA"/><xsd:enumeration value="MZ"/><xsd:enumeration value="MM"/><xsd:enumeration value="NA"/><xsd:enumeration value="NR"/><xsd:enumeration value="NP"/><xsd:enumeration value="NL"/><xsd:enumeration value="NC"/><xsd:enumeration value="NZ"/><xsd:enumeration value="NI"/><xsd:enumeration value="NE"/><xsd:enumeration value="NG"/><xsd:enumeration value="NU"/><xsd:enumeration value="NF"/><xsd:enumeration value="MP"/><xsd:enumeration value="NO"/><xsd:enumeration value="OM"/><xsd:enumeration value="PK"/><xsd:enumeration value="PW"/><xsd:enumeration value="PS"/><xsd:enumeration value="PA"/><xsd:enumeration value="PG"/><xsd:enumeration value="PY"/><xsd:enumeration value="PE"/><xsd:enumeration value="PH"/><xsd:enumeration value="PN"/><xsd:enumeration value="PL"/><xsd:enumeration value="PT"/><xsd:enumeration value="PR"/><xsd:enumeration value="QA"/><xsd:enumeration value="RE"/><xsd:enumeration value="RO"/><xsd:enumeration value="RU"/><xsd:enumeration value="RW"/><xsd:enumeration value="BL"/><xsd:enumeration value="SH"/><xsd:enumeration value="KN"/><xsd:enumeration value="LC"/><xsd:enumeration value="MF"/><xsd:enumeration value="PM"/><xsd:enumeration value="VC"/><xsd:enumeration value="WS"/><xsd:enumeration value="SM"/><xsd:enumeration value="ST"/><xsd:enumeration value="SA"/><xsd:enumeration value="SN"/><xsd:enumeration value="RS"/><xsd:enumeration value="SC"/><xsd:enumeration value="SL"/><xsd:enumeration value="SG"/><xsd:enumeration value="SX"/><xsd:enumeration value="SK"/><xsd:enumeration value="SI"/><xsd:enumeration value="SB"/><xsd:enumeration value="SO"/><xsd:enumeration value="ZA"/><xsd:enumeration value="GS"/><xsd:enumeration value="SS"/><xsd:enumeration value="ES"/><xsd:enumeration value="LK"/><xsd:enumeration value="SD"/><xsd:enumeration value="SR"/><xsd:enumeration value="SJ"/><xsd:enumeration value="SZ"/><xsd:enumeration value="SE"/><xsd:enumeration value="CH"/><xsd:enumeration value="SY"/><xsd:enumeration value="TW"/><xsd:enumeration value="TJ"/><xsd:enumeration value="TZ"/><xsd:enumeration value="TH"/><xsd:enumeration value="TL"/><xsd:enumeration value="TG"/><xsd:enumeration value="TK"/><xsd:enumeration value="TO"/><xsd:enumeration value="TT"/><xsd:enumeration value="TN"/><xsd:enumeration value="TR"/><xsd:enumeration value="TM"/><xsd:enumeration value="TC"/><xsd:enumeration value="TV"/><xsd:enumeration value="UG"/><xsd:enumeration value="UA"/><xsd:enumeration value="AE"/><xsd:enumeration value="GB"/><xsd:enumeration value="US"/><xsd:enumeration value="UM"/><xsd:enumeration value="UY"/><xsd:enumeration value="UZ"/><xsd:enumeration value="VU"/><xsd:enumeration value="VE"/><xsd:enumeration value="VN"/><xsd:enumeration value="VG"/><xsd:enumeration value="VI"/><xsd:enumeration value="WF"/><xsd:enumeration value="EH"/><xsd:enumeration value="YE"/><xsd:enumeration value="ZM"/><xsd:enumeration value="ZW"/><xsd:enumeration value="99"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="country_NM" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:simpleContent>
+                            <xsd:extension base="gen:country_NMType">
+                                <xsd:attribute name="seishikiNM" type="xsd:string"/>
+                            </xsd:extension>
+                        </xsd:simpleContent>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+
+
+</xsd:schema>

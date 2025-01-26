@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：酒類蔵置所設置・廃止報告書
+version：2.0
+Date：2006年06月20日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="LIY280-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="LIY280-2-0group">
+<xsd:sequence>
+<xsd:element name="LIY280">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="CCA00000" type="CCA00000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"報告区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="CCB00000" type="CCB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00000" type="CCC00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"報告内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="LIY280-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CCB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="CCB00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"報告先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"報告者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCB00040" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00050" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00060" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称及び代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCB00075" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称(フリガナ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00080" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00085" type="gen:DAIHYO_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名(フリガナ)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00090" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CCC00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="CCC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"蔵置所を設置する・廃止した製造場又は販売場の所在地及び名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCC00020" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00040" type="gen:tel-number" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCC00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"設置する・廃止した蔵置所の所在地及び名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCC00060" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00070" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCC00080" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"設置・廃止年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00090" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"設置する期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00100" type="CCC00100-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"蔵置する酒類の範囲(品目等)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00110" type="CCC00110-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"蔵置能力"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00120" type="CCC00120-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造場又は販売場からの距離及び所要時間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00130" type="CCC00130-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"設置の目的又は廃止の理由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00140" type="CCC00140-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の参考事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="CCA00000-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CCC00100-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="70"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCC00110-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="24"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCC00120-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="24"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCC00130-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="70"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCC00140-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="220"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

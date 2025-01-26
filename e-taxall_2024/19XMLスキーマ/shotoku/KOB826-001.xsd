@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：住宅特定改修特別税額控除額の計算明細書(平成28年4月1日以後居住用)
+version：1.0
+Date：2016年08月23日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KOB826-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KOB826-1-0group">
+<xsd:sequence>
+<xsd:element name="KOB826">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="KHA00000" type="gen:NENBUNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHB00000" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="KHC00000" type="KHC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１　改修工事をした家屋に係る事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHD00000" type="KHD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（共有者の氏名）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHE00000" type="KHE00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２　一般断熱改修工事等に係る事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00000" type="KHF00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"３　高齢者等居住改修工事等に係る事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHG00000" type="KHG00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"４　多世帯同居改修工事等に係る事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="KHH00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"５　住宅特定改修特別税額控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KOB826-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="KHC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="KHC00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"居住開始年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHC00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"あなたの共有持分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="KHC00030" type="KHC00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分子"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHC00040" type="KHC00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分母"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="KHD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="KHD00010" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ１"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHD00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名１"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHD00030" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ２"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHD00040" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名２"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="KHE00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="KHE00010" type="KHE00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"太陽光発電設備設置工事の有無"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一般断熱改修工事等の標準的な費用の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付を受ける補助金等の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"((4)－(5))"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHE00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)又は((6)*(2))"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHE00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一般断熱改修工事等に係る断熱改修工事限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)と(8)のいずれか少ない方の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHE00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"((9)*10％)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="KHF00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="KHF00010" type="KHF00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年齢が50歳以上"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00020" type="KHF00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00030" type="KHF00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"要介護認定又は要支援認定を受けている"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00040" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同居親族の方の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00050" type="gen:zokugara" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同居親族の方の続柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"高齢者等居住改修工事等の標準的な費用の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付を受ける補助金等の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"((14)－(15))"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(16)又は((16)*(2))"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"高齢者等居住改修工事等に係る改修工事限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)と(18)のいずれか少ない方の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHF00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"((19)*10％)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="KHG00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="KHG00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"多世帯同居改修工事等の標準的な費用の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHG00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付を受ける補助金等の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHG00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"((21)－(22))"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHG00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(23)又は((23)*(2))"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHG00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"多世帯同居改修工事等に係る改修工事限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHG00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(24)と(25)のいずれか少ない方の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="KHG00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"((26)*10％)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="KHC00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="KHC00040-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="KHE00010-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="KHF00010-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="KHF00020-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="KHF00030-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+
+
+<xsd:complexType name="KHC00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="KHC00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="KHC00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="KHC00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

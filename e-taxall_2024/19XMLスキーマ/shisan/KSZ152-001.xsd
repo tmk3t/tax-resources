@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：第3表-付1
+version：1.0
+Date：2004年04月07日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSZ152-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSZ152-1-0group">
+<xsd:sequence>
+<xsd:element name="KSZ152">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ARA00000" type="ARA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附財産が使用開始されていない場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARB00000" type="ARB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)寄附財産がやむを得ない事情により寄附があった日から2年以内に使用開始できない場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="ARC00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"使用開始予定年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSZ152-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="ARA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ARA00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月日現在"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附財産が土地の場合でその土地の上に建物を建築中又は建築する予定である場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ARA00030" type="ARA00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"建築着工の有無"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"入札年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"建築確認申請年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"請負契約年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00070" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"工事着工年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"請負契約金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"建築請負業者に関する事項"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ARA00100" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00110" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00120" type="gen:tel-number" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ARA00130" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"建築資金の調達方法等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ARA00140" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調達(予定)年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00150" type="ARA00150-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調達(予定)方法"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額(予定)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00170" type="ARA00170-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調達(予定)先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARA00180" type="ARA00180-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附者と調達先との関係"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ARA00190" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"以外の場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ARA00200" type="ARA00200-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"使用開始されていない理由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ARB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ARB00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"作成年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ARB00020" type="ARB00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"やむを得ない事情"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="ARA00030-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="ARA00150-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="ARA00170-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ARA00180-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ARA00200-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="500"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ARB00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="600"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

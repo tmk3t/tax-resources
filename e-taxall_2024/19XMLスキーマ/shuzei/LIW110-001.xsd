@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：酒税軽減対象製造場の確認事項変更承認申請書
+version：1.0
+Date：2004年04月27日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="LIW110-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="LIW110-1-0group">
+<xsd:sequence>
+<xsd:element name="LIW110">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BKA00000" type="BKA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BKB00000" type="BKB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="LIW110-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BKA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BKA00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BKA00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BKA00030" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請者の住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BKA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称及び法人の代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BKA00050" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BKA00060" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人の代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BKB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BKB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造場の所在地"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BKB00020" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更前"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BKB00030" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更後"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BKB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造場の名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BKB00050" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更前"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BKB00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更後"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BKB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更の内容"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BKB00080" type="BKB00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"土地・建物"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BKB00090" type="BKB00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"酒類の製造、貯蔵用機械器具等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BKB00100" type="BKB00100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造又は貯蔵設備能力"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BKB00110" type="BKB00110-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更目的"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BKB00120" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"変更予定年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BKB00130" type="BKB00130-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他参考事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BKB00080-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="240"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BKB00090-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="240"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BKB00100-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="240"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BKB00110-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="150"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BKB00130-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="135"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

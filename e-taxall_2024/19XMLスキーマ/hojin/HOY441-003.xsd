@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：受け入れた寄附金の明細表(第1表付表1)
+version：3.1
+Date：2006年08月03日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOY441-3-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/><xsd:enumeration value="3.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOY441-3-1group">
+<xsd:sequence>
+<xsd:element name="HOY441">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWA00000" type="RWA00000-3-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWB00000" type="RWB00000-3-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"1　基準限度額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWC00000" type="RWC00000-3-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"2　寄附者の氏名又は名称が明らかでない寄附金"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00000" type="RWD00000-3-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"3　寄附者の氏名又は名称が明らかな寄附金"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOY441-3-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="RWA00000-3-1type">
+<xsd:sequence>
+
+<xsd:element name="RWA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前々事業年度・前事業年度・実績判定期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWA00015" type="RWA00015-3-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWA00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWA00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RWB00000-3-1type">
+<xsd:sequence>
+
+<xsd:element name="RWB00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受入寄附金総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"基準限度額(受入寄附金総額の5％相当額((A)*5％))"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"基準限度額(受入寄附金総額の50％相当額((A)*50％))"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RWC00000-3-1type">
+<xsd:sequence>
+
+<xsd:element name="RWC00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(A)のうち寄附者の氏名又は名称が明らかでない寄附金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RWD00000-3-1type">
+<xsd:sequence>
+
+<xsd:element name="RWD00010" minOccurs="0" maxOccurs="8">
+<xsd:annotation>
+<xsd:appinfo>"明細  繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00030" type="RWD00030-3-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役員・社員の別、役員・社員との親族関係"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00043" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00045" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)(1)欄と(B)(特定公益増進法人、認定NPO法人については(C))欄のいずれか少ない金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00053" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00055" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)(1)のうち基準限度超過額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00063" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00065" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00190" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役員、社員等の同一の者からの寄附金の額が20万円以上のものの合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00230" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)(1)欄と(B)(特定公益増進法人、認定NPO法人については(C))欄のいずれか少ない金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)(1)のうち基準限度超過額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益増進法人、認定NPO法人"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)(1)欄と(B)(特定公益増進法人、認定NPO法人については(C))欄のいずれか少ない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)(1)のうち基準限度超過額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(F)欄以外の者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00083" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00085" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)(1)欄と(B)(特定公益増進法人、認定NPO法人については(C))欄のいずれか少ない金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00093" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00095" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)(1)のうち基準限度超過額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00103" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00105" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同一の者からの寄附金の額が1千円未満のものの合計額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00123" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00125" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)寄附金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00163" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00165" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)(1)欄と(B)(特定公益増進法人、認定NPO法人については(C))欄のいずれか少ない金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00173" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00175" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RWD00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)(1)のうち基準限度超過額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RWD00183" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"上段(　　)欄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RWD00185" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"下段"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="RWA00015-3-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="RWD00030-3-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

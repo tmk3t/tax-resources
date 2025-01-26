@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：清算結了の届出書
+version：1.0
+Date：2004年04月09日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SOY080-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SOY080-1-0group">
+<xsd:sequence>
+<xsd:element name="SOY080">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHA00000" type="BHA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHB00000" type="BHB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"記"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SOY080-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BHA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BHA00010" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHA00020" type="BHA00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発遣番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHA00030" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公益法人名"</xsd:appinfo>
+</xsd:annotation><xsd:complexType>
+<xsd:simpleContent>
+<xsd:extension base="gen:name">
+<xsd:attribute name="ID" type="xsd:ID" use="required"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHA00050" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"清算人代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHA00070" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"解散年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHA00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公益法人名"</xsd:appinfo>
+</xsd:annotation><xsd:complexType>
+<xsd:attribute name="IDREF" type="xsd:IDREF" use="required" fixed="BHA00040"/>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHA00090" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"清算結了年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BHB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BHB00010" type="BHB00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"５　その他"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BHA00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHB00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

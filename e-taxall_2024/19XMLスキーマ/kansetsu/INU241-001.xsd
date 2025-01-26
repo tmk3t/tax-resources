@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：揮発油税未納税移出揮発油移入届出書(次葉)
+version：1.0
+Date：2004年12月16日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="INU241-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="INU241-1-0group">
+<xsd:sequence>
+<xsd:element name="INU241">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BQA00000" type="BQA00000-1-0type" minOccurs="0" maxOccurs="22">
+<xsd:annotation>
+<xsd:appinfo>"移出内容／移入内容　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="INU241-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BQA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BQA00010" type="BQA00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"品名規格"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BQA00020" type="BQA00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"用途"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BQA00030" type="BQA00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"容器等の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BQA00040" type="BQA00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移出数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BQA00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BQA00060" type="BQA00060-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BQA00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増減"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BQA00080" type="BQA00080-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BQA00090" type="BQA00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"理由"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BQA00100" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BQA00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BQA00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BQA00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BQA00040-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BQA00060-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BQA00080-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BQA00090-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="BQA00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BQA00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BQA00060-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BQA00060-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BQA00080-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="BQA00080-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：設立直後における財産目録等の提出書
+version：1.0
+Date：2004年02月06日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SOY090-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SOY090-1-0group">
+<xsd:sequence>
+<xsd:element name="SOY090">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BIA00000" type="BIA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BIB00000" type="BIB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"記"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SOY090-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BIA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BIA00010" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BIA00020" type="BIA00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発遣番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BIA00030" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BIA00040" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公益法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BIA00050" type="BIA00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役職名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BIA00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BIB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BIB00010" type="BIB00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"６　その他"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BIA00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BIA00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="4"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BIB00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="200"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

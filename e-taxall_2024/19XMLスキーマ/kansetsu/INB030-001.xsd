@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：年度分印紙税納税申告書(一括納付用)
+version：1.1
+Date：2021年09月03日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="INB030-1-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/><xsd:enumeration value="1.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="INB030-1-1group">
+<xsd:sequence>
+<xsd:element name="INB030">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCA00000" type="CCA00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告書名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00000" type="CCB00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00000" type="CCC00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告提出区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00000" type="CCD00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税文書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="CCE00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="CCF00000" type="CCF00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この申告書が修正申告である場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="CCG00000" type="CCG00000-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期限後申告・修正申告をする理由・事情"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCH00000" type="CCH00000-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"参考事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCJ00000" type="CCJ00000-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知希望区分(加算税)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCI00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告書作成者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="INB030-1-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CCA00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="CCA00010" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年度分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CCB00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="CCB00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税文書の作成場所"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCB00040" type="gen:zipcode" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00050" type="gen:tel-number" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00060" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCB00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCB00090" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00100" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00110" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCB00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称及び代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCB00130" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCB00140" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CCC00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="CCC00010" type="CCC00010-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期限後申告書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCC00020" type="CCC00020-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CCD00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="CCD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"預貯金通帳等の区分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"普通預金通帳"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00030" type="CCD00030-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"4月1日現在の口座数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCD00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知預金通帳"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00070" type="CCD00070-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"4月1日現在の口座数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCD00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"定期預金通帳"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00110" type="CCD00110-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"4月1日現在の口座数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCD00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当座預金通帳"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00150" type="CCD00150-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"4月1日現在の口座数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCD00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貯蓄預金通帳"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00190" type="CCD00190-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"4月1日現在の口座数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCD00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"勤務先預金通帳"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00230" type="CCD00230-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"4月1日現在の口座数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCD00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"複合預金通帳"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00270" type="CCD00270-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"4月1日現在の口座数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCD00300" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00310" type="CCD00310-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"4月1日現在の口座数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CCD00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"複合寄託通帳"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CCD00340" type="CCD00340-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"4月1日現在の口座数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCD00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CCF00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="CCF00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告前の確定額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CCF00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="CCC00010-1-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="CCC00020-1-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CCD00030-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCD00070-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCD00110-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCD00150-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCD00190-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCD00230-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCD00270-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCD00310-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCD00340-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCG00000-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="242"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CCH00000-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="330"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="CCJ00000-1-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+
+
+<xsd:complexType name="CCD00030-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CCD00030-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CCD00070-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CCD00070-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CCD00110-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CCD00110-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CCD00150-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CCD00150-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CCD00190-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CCD00190-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CCD00230-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CCD00230-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CCD00270-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CCD00270-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CCD00310-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CCD00310-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="CCD00340-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="CCD00340-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

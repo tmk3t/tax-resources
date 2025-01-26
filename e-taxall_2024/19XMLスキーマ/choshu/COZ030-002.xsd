@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/choshu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/choshu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：納税の猶予申請書
+version：2.0
+Date：2014年11月19日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="COZ030-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="COZ030-2-0group">
+<xsd:sequence>
+<xsd:element name="COZ030">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACA00000" type="ACA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00000" type="ACB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="COZ030-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="ACA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="ACA00010" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACA00021" type="ACA00021-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国税通則法第46条第__項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACA00023" type="ACA00023-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第__号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACA00027" type="ACA00027-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第５号の場合、第__号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACA00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申請者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACA00050" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所(所在地)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACA00053" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACA00057" type="gen:tel-number" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"携帯電話"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACA00060" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名(名称)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ACB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="ACB00010" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき国税　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACB00020" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年度"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00030" type="ACB00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00055" type="ACB00055-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"加算税種別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"加算税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延滞税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利子税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"滞納処分費"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00100" type="ACB00100-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACB00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき国税のうち、納税の猶予を受けようとする金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"加算税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延滞税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利子税"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"滞納処分費"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00260" type="ACB00260-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"備考"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACB00270" type="ACB00270-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"猶予該当事実の詳細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00280" type="ACB00280-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一時に納付することができない事情の詳細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00110" minOccurs="0" maxOccurs="12">
+<xsd:annotation>
+<xsd:appinfo>"納付計画　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACB00120" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACB00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"猶予期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACB00150" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00160" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00170" type="ACB00170-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"__月間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACB00185" type="ACB00185-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"担保有無"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00190" type="ACB00190-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"担保財産の詳細又は提供できない特別の事情"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="ACA00021-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ACA00023-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ACA00027-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ACB00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="12"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="ACB00055-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="4"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="ACB00100-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ACB00260-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ACB00270-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="500"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ACB00280-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="250"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ACB00170-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="ACB00185-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="ACB00190-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="160"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="ACA00021-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="ACA00021-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="ACA00023-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="ACA00023-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="ACA00027-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="ACA00027-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="ACB00170-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="ACB00170-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

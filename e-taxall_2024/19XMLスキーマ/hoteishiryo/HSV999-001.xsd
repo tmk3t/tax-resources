@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：法定調書CSV
+version：1.0
+Date：2020年08月04日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HSV999-1-0VRtype">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value="1.0"/>
+	</xsd:restriction>
+</xsd:simpleType>
+<!-- Root Element Definition -->
+<xsd:element name="HSV999" type="HSV999-1-0type"/>
+
+<xsd:complexType name="HSV999-1-0type">
+<xsd:simpleContent>
+	<xsd:extension base="xsd:string">
+		<xsd:attribute name="VR" type="HSV999-1-0VRtype" use="required"/>
+		<xsd:attributeGroup ref="gen:FormAttribute"/>
+		<xsd:attribute name="csvFileNM" type="gen:str" use="required"/>
+		<xsd:attribute name="shiryoCD" type="HSV999-1-0shiryoCDtype" use="required"/>
+	</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+
+<xsd:simpleType name="HSV999-1-0shiryoCDtype">
+	<xsd:restriction base="xsd:string">
+		<xsd:pattern value="[0-9]{3}"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+</xsd:schema>

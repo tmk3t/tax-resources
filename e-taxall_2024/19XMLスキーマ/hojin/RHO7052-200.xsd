@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general"
+xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"
+xmlns:som="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ elementFormDefault="qualified" attributeFormDefault="unqualified"
+ version="1.0" > 
+
+<xsd:annotation>
+<xsd:documentation>
+仮決算をした場合の連結法人の連結中間申告
+version:20.0.2 Date: 2020年10月07日
+</xsd:documentation>
+</xsd:annotation>
+
+<!-- import and include-->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+<xsd:include schemaLocation="../general/ITdefinition.xsd"/>
+<xsd:include schemaLocation="../general/CATALOG.xsd"/>
+<xsd:include schemaLocation="HOR112-002.xsd"/>
+<xsd:include schemaLocation="HOR116-001.xsd"/>
+<xsd:include schemaLocation="HOA201-004.xsd"/>
+<xsd:include schemaLocation="HOA320-004.xsd"/>
+<xsd:include schemaLocation="HOA322-004.xsd"/>
+<xsd:include schemaLocation="HOA323-004.xsd"/>
+<xsd:include schemaLocation="HOA324-003.xsd"/>
+<xsd:include schemaLocation="HOA330-004.xsd"/>
+<xsd:include schemaLocation="HOA350-004.xsd"/>
+<xsd:include schemaLocation="HOA360-004.xsd"/>
+<xsd:include schemaLocation="HOA370-004.xsd"/>
+<xsd:include schemaLocation="HOA380-004.xsd"/>
+<xsd:include schemaLocation="HOR327-005.xsd"/>
+<xsd:include schemaLocation="HOR326-003.xsd"/>
+<xsd:include schemaLocation="HOR330-002.xsd"/>
+<xsd:include schemaLocation="HOR329-003.xsd"/>
+<xsd:include schemaLocation="HOR420-017.xsd"/>
+<xsd:include schemaLocation="HOR425-017.xsd"/>
+<xsd:include schemaLocation="HOR422-009.xsd"/>
+<xsd:include schemaLocation="HOA512-001.xsd"/>
+<xsd:include schemaLocation="HOR510-007.xsd"/>
+<xsd:include schemaLocation="HOR511-007.xsd"/>
+<xsd:include schemaLocation="HOR517-004.xsd"/>
+<xsd:include schemaLocation="HOA531-002.xsd"/>
+<xsd:include schemaLocation="HOR514-006.xsd"/>
+<xsd:include schemaLocation="HOR516-006.xsd"/>
+<xsd:include schemaLocation="HOB024-002.xsd"/>
+<xsd:include schemaLocation="HOB025-002.xsd"/>
+<xsd:include schemaLocation="HOB026-002.xsd"/>
+<xsd:include schemaLocation="HOB027-003.xsd"/>
+<xsd:include schemaLocation="HOB022-008.xsd"/>
+<xsd:include schemaLocation="HOB035-002.xsd"/>
+<xsd:include schemaLocation="HOB031-007.xsd"/>
+<xsd:include schemaLocation="HOB032-006.xsd"/>
+<xsd:include schemaLocation="HOB033-005.xsd"/>
+<xsd:include schemaLocation="HOB040-006.xsd"/>
+<xsd:include schemaLocation="HOB043-002.xsd"/>
+<xsd:include schemaLocation="HOB042-012.xsd"/>
+<xsd:include schemaLocation="HOB660-008.xsd"/>
+<xsd:include schemaLocation="HOB670-009.xsd"/>
+<xsd:include schemaLocation="HOR616-006.xsd"/>
+<xsd:include schemaLocation="HOR620-017.xsd"/>
+<xsd:include schemaLocation="HOR621-009.xsd"/>
+<xsd:include schemaLocation="HOR611-002.xsd"/>
+<xsd:include schemaLocation="HOR677-007.xsd"/>
+<xsd:include schemaLocation="HOR678-007.xsd"/>
+<xsd:include schemaLocation="HOR729-003.xsd"/>
+<xsd:include schemaLocation="HOR622-010.xsd"/>
+<xsd:include schemaLocation="HOR617-006.xsd"/>
+<xsd:include schemaLocation="HOR669-004.xsd"/>
+<xsd:include schemaLocation="HOR679-004.xsd"/>
+<xsd:include schemaLocation="HOR657-008.xsd"/>
+<xsd:include schemaLocation="HOR740-005.xsd"/>
+<xsd:include schemaLocation="HOR742-005.xsd"/>
+<xsd:include schemaLocation="HOR653-010.xsd"/>
+<xsd:include schemaLocation="HOR687-003.xsd"/>
+<xsd:include schemaLocation="HOR688-003.xsd"/>
+<xsd:include schemaLocation="HOR659-012.xsd"/>
+<xsd:include schemaLocation="HOR671-013.xsd"/>
+<xsd:include schemaLocation="HOR663-012.xsd"/>
+<xsd:include schemaLocation="HOR691-011.xsd"/>
+<xsd:include schemaLocation="HOR672-007.xsd"/>
+<xsd:include schemaLocation="HOR673-006.xsd"/>
+<xsd:include schemaLocation="HOR716-010.xsd"/>
+<xsd:include schemaLocation="HOR717-008.xsd"/>
+<xsd:include schemaLocation="HOR785-004.xsd"/>
+<xsd:include schemaLocation="HOR786-005.xsd"/>
+<xsd:include schemaLocation="HOR780-006.xsd"/>
+<xsd:include schemaLocation="HOR782-005.xsd"/>
+<xsd:include schemaLocation="HOR730-004.xsd"/>
+<xsd:include schemaLocation="HOR792-006.xsd"/>
+<xsd:include schemaLocation="HOR794-006.xsd"/>
+<xsd:include schemaLocation="HOR734-003.xsd"/>
+<xsd:include schemaLocation="HOR783-006.xsd"/>
+<xsd:include schemaLocation="HOR784-005.xsd"/>
+<xsd:include schemaLocation="HOR705-008.xsd"/>
+<xsd:include schemaLocation="HOR706-006.xsd"/>
+<xsd:include schemaLocation="HOR682-004.xsd"/>
+<xsd:include schemaLocation="HOR683-004.xsd"/>
+<xsd:include schemaLocation="HOR707-008.xsd"/>
+<xsd:include schemaLocation="HOR719-005.xsd"/>
+<xsd:include schemaLocation="HOR727-003.xsd"/>
+<xsd:include schemaLocation="HOR728-003.xsd"/>
+<xsd:include schemaLocation="HOR735-001.xsd"/>
+<xsd:include schemaLocation="HOR736-001.xsd"/>
+<xsd:include schemaLocation="HOR737-001.xsd"/>
+<xsd:include schemaLocation="HOR675-007.xsd"/>
+<xsd:include schemaLocation="HOR676-007.xsd"/>
+<xsd:include schemaLocation="HOR626-010.xsd"/>
+<xsd:include schemaLocation="HOR627-011.xsd"/>
+<xsd:include schemaLocation="HOR628-010.xsd"/>
+<xsd:include schemaLocation="HOR720-012.xsd"/>
+<xsd:include schemaLocation="HOR731-010.xsd"/>
+<xsd:include schemaLocation="HOR721-007.xsd"/>
+<xsd:include schemaLocation="HOR733-004.xsd"/>
+<xsd:include schemaLocation="HOM095-002.xsd"/>
+<xsd:include schemaLocation="HOR723-010.xsd"/>
+<xsd:include schemaLocation="HOR725-008.xsd"/>
+<xsd:include schemaLocation="HOB810-005.xsd"/>
+<xsd:include schemaLocation="HOB820-001.xsd"/>
+<xsd:include schemaLocation="HOR800-011.xsd"/>
+<xsd:include schemaLocation="HOR802-003.xsd"/>
+<xsd:include schemaLocation="HOB900-012.xsd"/>
+<xsd:include schemaLocation="HOB930-005.xsd"/>
+<xsd:include schemaLocation="HOC012-003.xsd"/>
+<xsd:include schemaLocation="HOC020-012.xsd"/>
+<xsd:include schemaLocation="HOC022-004.xsd"/>
+<xsd:include schemaLocation="HOC024-004.xsd"/>
+<xsd:include schemaLocation="HOC026-003.xsd"/>
+<xsd:include schemaLocation="HOC060-013.xsd"/>
+<xsd:include schemaLocation="HOR805-003.xsd"/>
+<xsd:include schemaLocation="HOR810-005.xsd"/>
+<xsd:include schemaLocation="HOR815-001.xsd"/>
+<xsd:include schemaLocation="HOR817-001.xsd"/>
+<xsd:include schemaLocation="HOC110-009.xsd"/>
+<xsd:include schemaLocation="HOC112-014.xsd"/>
+<xsd:include schemaLocation="HOC120-003.xsd"/>
+<xsd:include schemaLocation="HOD010-011.xsd"/>
+<xsd:include schemaLocation="HOD025-002.xsd"/>
+<xsd:include schemaLocation="HOD040-008.xsd"/>
+<xsd:include schemaLocation="HOD065-005.xsd"/>
+<xsd:include schemaLocation="HOD070-007.xsd"/>
+<xsd:include schemaLocation="HOD090-007.xsd"/>
+<xsd:include schemaLocation="HOD165-004.xsd"/>
+<xsd:include schemaLocation="HOD175-003.xsd"/>
+<xsd:include schemaLocation="HOD180-009.xsd"/>
+<xsd:include schemaLocation="HOD185-007.xsd"/>
+<xsd:include schemaLocation="HOD188-006.xsd"/>
+<xsd:include schemaLocation="HOD190-013.xsd"/>
+<xsd:include schemaLocation="HOD201-011.xsd"/>
+<xsd:include schemaLocation="HOD205-009.xsd"/>
+<xsd:include schemaLocation="HOD215-003.xsd"/>
+<xsd:include schemaLocation="HOD035-002.xsd"/>
+<xsd:include schemaLocation="HOD225-002.xsd"/>
+<xsd:include schemaLocation="HOD236-002.xsd"/>
+<xsd:include schemaLocation="HOD410-006.xsd"/>
+<xsd:include schemaLocation="HOD420-004.xsd"/>
+<xsd:include schemaLocation="HOD430-003.xsd"/>
+<xsd:include schemaLocation="HOD440-005.xsd"/>
+<xsd:include schemaLocation="HOD451-004.xsd"/>
+<xsd:include schemaLocation="HOD460-003.xsd"/>
+<xsd:include schemaLocation="HOD491-005.xsd"/>
+<xsd:include schemaLocation="HOD495-006.xsd"/>
+<xsd:include schemaLocation="HOD500-008.xsd"/>
+<xsd:include schemaLocation="HOD510-009.xsd"/>
+<xsd:include schemaLocation="HOE104-006.xsd"/>
+<xsd:include schemaLocation="HOE109-002.xsd"/>
+<xsd:include schemaLocation="HOB911-003.xsd"/>
+<xsd:include schemaLocation="HOB920-008.xsd"/>
+<xsd:include schemaLocation="HOE110-004.xsd"/>
+<xsd:include schemaLocation="HOE111-004.xsd"/>
+<xsd:include schemaLocation="HOE112-002.xsd"/>
+<xsd:include schemaLocation="HOE113-003.xsd"/>
+<xsd:include schemaLocation="HOE105-004.xsd"/>
+<xsd:include schemaLocation="HOE108-003.xsd"/>
+<xsd:include schemaLocation="HOR820-011.xsd"/>
+<xsd:include schemaLocation="HOR830-012.xsd"/>
+<xsd:include schemaLocation="HOE315-004.xsd"/>
+<xsd:include schemaLocation="HOE325-004.xsd"/>
+<xsd:include schemaLocation="HOE330-008.xsd"/>
+<xsd:include schemaLocation="HOE341-003.xsd"/>
+<xsd:include schemaLocation="HOE340-008.xsd"/>
+<xsd:include schemaLocation="HOE350-004.xsd"/>
+<xsd:include schemaLocation="HOE351-003.xsd"/>
+<xsd:include schemaLocation="HOE360-006.xsd"/>
+<xsd:include schemaLocation="HOE370-008.xsd"/>
+<xsd:include schemaLocation="HOE381-002.xsd"/>
+<xsd:include schemaLocation="HOE390-004.xsd"/>
+<xsd:include schemaLocation="HOE400-008.xsd"/>
+<xsd:include schemaLocation="HOE410-002.xsd"/>
+<xsd:include schemaLocation="HOE450-001.xsd"/>
+<xsd:include schemaLocation="HOE545-004.xsd"/>
+<xsd:include schemaLocation="HOE546-002.xsd"/>
+<xsd:include schemaLocation="HOE547-003.xsd"/>
+<xsd:include schemaLocation="HOE561-004.xsd"/>
+<xsd:include schemaLocation="HOE562-005.xsd"/>
+<xsd:include schemaLocation="HOE563-005.xsd"/>
+<xsd:include schemaLocation="HOE570-004.xsd"/>
+<xsd:include schemaLocation="HOE580-004.xsd"/>
+<xsd:include schemaLocation="HOE585-003.xsd"/>
+<xsd:include schemaLocation="HOE531-004.xsd"/>
+<xsd:include schemaLocation="HOE532-002.xsd"/>
+<xsd:include schemaLocation="HOE533-001.xsd"/>
+<xsd:include schemaLocation="HOE534-002.xsd"/>
+<xsd:include schemaLocation="HOE535-001.xsd"/>
+<xsd:include schemaLocation="HOE536-003.xsd"/>
+<xsd:include schemaLocation="HOE537-003.xsd"/>
+<xsd:include schemaLocation="HOE538-002.xsd"/>
+<xsd:include schemaLocation="HOE539-002.xsd"/>
+<xsd:include schemaLocation="HOE541-001.xsd"/>
+<xsd:include schemaLocation="HOE548-002.xsd"/>
+<xsd:include schemaLocation="HOE543-001.xsd"/>
+<xsd:include schemaLocation="HOE544-001.xsd"/>
+<xsd:include schemaLocation="HOE600-011.xsd"/>
+<xsd:include schemaLocation="HOE605-001.xsd"/>
+<xsd:include schemaLocation="HOR750-003.xsd"/>
+<xsd:include schemaLocation="HOR760-005.xsd"/>
+<xsd:include schemaLocation="HOR762-002.xsd"/>
+<xsd:include schemaLocation="HOR764-004.xsd"/>
+<xsd:include schemaLocation="HOR766-004.xsd"/>
+<xsd:include schemaLocation="HOR770-003.xsd"/>
+<xsd:include schemaLocation="HOR772-004.xsd"/>
+<xsd:include schemaLocation="HOR774-003.xsd"/>
+<xsd:include schemaLocation="HOR776-001.xsd"/>
+<xsd:include schemaLocation="HOR778-001.xsd"/>
+<xsd:include schemaLocation="HOL266-003.xsd"/>
+<xsd:include schemaLocation="HOL040-017.xsd"/>
+<xsd:include schemaLocation="HOL042-006.xsd"/>
+<xsd:include schemaLocation="HOL046-007.xsd"/>
+<xsd:include schemaLocation="HOL051-004.xsd"/>
+<xsd:include schemaLocation="HOL048-006.xsd"/>
+<xsd:include schemaLocation="HOL049-009.xsd"/>
+<xsd:include schemaLocation="HOL055-002.xsd"/>
+<xsd:include schemaLocation="HOL057-001.xsd"/>
+<xsd:include schemaLocation="HOL052-007.xsd"/>
+<xsd:include schemaLocation="HOL050-017.xsd"/>
+<xsd:include schemaLocation="HOL054-007.xsd"/>
+<xsd:include schemaLocation="HOL092-004.xsd"/>
+<xsd:include schemaLocation="HOL060-016.xsd"/>
+<xsd:include schemaLocation="HOL065-002.xsd"/>
+<xsd:include schemaLocation="HOL130-016.xsd"/>
+<xsd:include schemaLocation="HOL169-007.xsd"/>
+<xsd:include schemaLocation="HOL170-017.xsd"/>
+<xsd:include schemaLocation="HOL175-007.xsd"/>
+<xsd:include schemaLocation="HOL190-017.xsd"/>
+<xsd:include schemaLocation="HOL240-016.xsd"/>
+<xsd:include schemaLocation="HOL263-009.xsd"/>
+<xsd:include schemaLocation="HOL286-007.xsd"/>
+<xsd:include schemaLocation="HOL262-003.xsd"/>
+<xsd:include schemaLocation="HOL261-009.xsd"/>
+<xsd:include schemaLocation="HOL290-017.xsd"/>
+<xsd:include schemaLocation="HOL300-015.xsd"/>
+<xsd:include schemaLocation="HOL330-015.xsd"/>
+<xsd:include schemaLocation="HOL360-007.xsd"/>
+<xsd:include schemaLocation="HOL363-006.xsd"/>
+<xsd:include schemaLocation="HOL365-007.xsd"/>
+<xsd:include schemaLocation="HOL370-006.xsd"/>
+<xsd:include schemaLocation="HOL380-007.xsd"/>
+<xsd:include schemaLocation="HOL355-008.xsd"/>
+<xsd:include schemaLocation="HOL390-007.xsd"/>
+<xsd:include schemaLocation="HOL391-001.xsd"/>
+<xsd:include schemaLocation="HOL392-001.xsd"/>
+<xsd:include schemaLocation="HOR920-004.xsd"/>
+<xsd:include schemaLocation="HOR940-004.xsd"/>
+<xsd:include schemaLocation="HOR910-002.xsd"/>
+<xsd:include schemaLocation="HOM060-004.xsd"/>
+<xsd:include schemaLocation="HOM090-001.xsd"/>
+<xsd:include schemaLocation="HOM120-001.xsd"/>
+<xsd:include schemaLocation="HOM130-001.xsd"/>
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/kyotsu" schemaLocation="../kyotsu/RHO7052a-200.xsd"/>
+<xsd:include schemaLocation="HOV999-001.xsd"/>
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/somu" schemaLocation="../somu/SOZ-001.xsd"/>
+<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="../general/XMLDSIG050.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="RHO7052-200-2VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="20.0.0"/><xsd:enumeration value="20.0.1"/><xsd:enumeration value="20.0.2"/></xsd:restriction></xsd:simpleType>
+
+<xsd:complexType name="TETSUZUKItype">
+<xsd:complexContent>
+<xsd:restriction base="gen:procedure">
+<xsd:sequence>
+<xsd:element name="procedure_CD">
+<xsd:simpleType>
+<xsd:restriction base="gen:procedure_CD">
+<xsd:enumeration value="RHO7052"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="procedure_NM" minOccurs="0">
+<xsd:simpleType>
+<xsd:restriction base="gen:str">
+<xsd:maxLength value="200"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+</xsd:sequence>
+</xsd:restriction>
+</xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="SHINKOKU_KBNtype">
+<xsd:complexContent>
+<xsd:restriction base="gen:kubun2">
+<xsd:sequence>
+<xsd:element name="kubun_CD">
+<xsd:simpleType>
+<xsd:restriction base="xsd:nonNegativeInteger">
+<xsd:pattern value="\d?\d"/>
+</xsd:restriction></xsd:simpleType>
+</xsd:element>
+<xsd:element name="kubun_NM" minOccurs="0">
+<xsd:simpleType>
+<xsd:restriction base="gen:str">
+<xsd:maxLength value="30"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+</xsd:sequence>
+</xsd:restriction>
+</xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="KEISANSHO_KBNtype">
+<xsd:complexContent>
+<xsd:restriction base="gen:kubun2">
+<xsd:sequence>
+<xsd:element name="kubun_CD">
+<xsd:simpleType>
+<xsd:restriction base="xsd:nonNegativeInteger">
+<xsd:pattern value="\d?\d"/>
+</xsd:restriction></xsd:simpleType>
+</xsd:element>
+<xsd:element name="kubun_NM" minOccurs="0">
+<xsd:simpleType>
+<xsd:restriction base="gen:str">
+<xsd:maxLength value="30"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+</xsd:sequence>
+</xsd:restriction>
+</xsd:complexContent>
+</xsd:complexType>
+
+<!-- Root Element Definition --><xsd:element name="DATA">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RHO7052" type="RHO7052-200-2type"/>
+<!-- XML-SIGNATURE -->
+<xsd:element ref="dsig:Signature" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID"/></xsd:complexType>
+</xsd:element>
+<!-- Procedure Definition -->
+<xsd:complexType name="RHO7052-200-2type">
+<xsd:sequence>
+<xsd:element name="CATALOG" type="CATALOGtype">
+<xsd:annotation>
+<xsd:appinfo>管理部</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CONTENTS" type="RHO7052-200-2contentsType">
+<xsd:annotation>
+<xsd:appinfo>内容部分</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID" use="required"/><xsd:attribute name="VR" type="RHO7052-200-2VRtype" use="required"/>
+</xsd:complexType>
+<xsd:complexType name="RHO7052-200-2contentsType"><xsd:sequence>
+<!-- IT部-->
+<xsd:element name="IT" type="ITtype"/>
+<!-- 帳票個別部分 -->
+<xsd:group ref="HOR112-2-0group" minOccurs="1" maxOccurs="1"/>
+<xsd:group ref="HOR116-1-0group" minOccurs="0" maxOccurs="1"/>
+<xsd:group ref="HOA201-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOA320-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOA322-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOA323-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOA324-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOA330-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOA350-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOA360-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOA370-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOA380-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR327-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR326-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR330-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR329-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR420-17-0group" minOccurs="0" maxOccurs="1"/>
+<xsd:group ref="HOR425-17-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR422-9-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOA512-1-1group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR510-7-0group" minOccurs="0" maxOccurs="1"/>
+<xsd:group ref="HOR511-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR517-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOA531-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR514-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR516-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB024-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB025-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB026-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB027-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB022-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB035-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB031-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB032-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB033-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB040-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB043-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB042-12-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB660-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB670-9-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR616-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR620-17-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR621-9-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR611-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR677-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR678-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR729-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR622-10-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR617-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR669-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR679-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR657-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR740-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR742-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR653-10-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR687-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR688-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR659-12-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR671-13-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR663-12-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR691-11-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR672-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR673-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR716-10-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR717-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR785-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR786-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR780-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR782-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR730-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR792-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR794-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR734-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR783-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR784-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR705-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR706-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR682-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR683-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR707-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR719-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR727-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR728-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR735-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR736-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR737-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR675-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR676-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR626-10-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR627-11-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR628-10-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR720-12-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR731-10-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR721-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR733-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOM095-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR723-10-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR725-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB810-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB820-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR800-11-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR802-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB900-12-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB930-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOC012-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOC020-12-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOC022-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOC024-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOC026-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOC060-13-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR805-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR810-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR815-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR817-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOC110-9-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOC112-14-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOC120-3-1group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD010-11-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD025-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD040-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD065-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD070-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD090-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD165-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD175-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD180-9-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD185-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD188-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD190-13-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD201-11-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD205-9-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD215-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD035-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD225-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD236-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD410-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD420-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD430-3-1group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD440-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD451-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD460-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD491-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD495-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD500-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOD510-9-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE104-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE109-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB911-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOB920-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE110-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE111-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE112-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE113-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE105-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE108-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR820-11-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR830-12-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE315-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE325-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE330-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE341-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE340-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE350-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE351-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE360-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE370-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE381-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE390-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE400-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE410-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE450-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE545-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE546-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE547-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE561-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE562-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE563-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE570-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE580-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE585-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE531-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE532-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE533-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE534-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE535-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE536-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE537-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE538-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE539-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE541-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE548-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE543-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOE544-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:choice minOccurs="0">
+<xsd:sequence>
+<xsd:group ref="HOE600-11-0group" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:sequence>
+<xsd:group ref="HOE605-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:choice>
+<xsd:group ref="HOR750-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR760-5-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR762-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR764-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR766-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR770-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR772-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR774-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR776-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR778-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL266-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL040-17-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL042-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL046-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL051-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL048-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL049-9-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL055-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL057-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL052-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL050-17-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL054-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL092-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL060-16-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL065-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL130-16-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL169-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL170-17-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL175-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL190-17-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL240-16-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL263-9-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL286-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL262-3-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL261-9-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL290-17-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL300-15-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL330-15-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL360-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL363-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL365-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL370-6-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL380-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL355-8-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL390-7-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL391-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOL392-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR920-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR940-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOR910-2-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOM060-4-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOM090-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOM120-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:group ref="HOM130-1-0group" minOccurs="0" maxOccurs="unbounded"/>
+
+<xsd:element name="TENPU" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="som:SOZ041" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:element ref="som:SOZ051" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:element ref="kyo:TEI010" minOccurs="0" maxOccurs="1"/>
+<xsd:element ref="som:SOZ072" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID" use="required"/>
+</xsd:complexType>
+</xsd:element>
+
+
+<!-- 送付書 -->
+<xsd:group ref="kyo:TEA050-2-0group" minOccurs="0"/>
+
+<!-- CSV -->
+<xsd:element name="CSV" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="HOV999" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID" use="required"/>
+
+
+</xsd:complexType>
+</xsd:schema>

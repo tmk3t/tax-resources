@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shinsaseikyu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shinsaseikyu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：反論書の提出について
+version：1.0
+Date：2004年03月25日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="REZ020-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="REZ020-1-0group">
+<xsd:sequence>
+<xsd:element name="REZ020">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="AAA00000" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAB00000" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国税不服審判所(支部・支所名）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAC00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"担当審判官"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="AAD00000" type="AAD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"審査請求人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAE00000" type="AAE00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代理人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="AAF00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"処分年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAG00000" type="AAG00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"答弁意見区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="REZ020-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="AAD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AAD00010" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所・所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAD00020" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名・名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AAE00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AAE00010" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所・所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AAE00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名・名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="AAG00000-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+
+</xsd:schema>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：経営革新計画を実施する連結親法人である中小企業者に対する特定同族会社の特別税率の不適用制度に関する明細書
+version：2.1
+Date：2007年08月23日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOR930-2-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/><xsd:enumeration value="2.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOR930-2-1group">
+<xsd:sequence>
+<xsd:element name="HOR930">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TRA00000" type="TRA00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TRB00000" type="TRB00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="TRC00000" type="TRC00000-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOR930-2-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="TRA00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="TRA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TRA00020" type="TRA00020-2-1IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TRA00030" type="TRA00030-2-1IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="TRA00040" type="gen:OYA_HOJIN_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結親法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="TRB00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="TRB00300" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結親法人の経営革新計画の承認年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TRB00310" type="TRB00310-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結親法人の経営革新のための事業の内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TRB00320" type="TRB00320-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期末における連結親法人の事業の状況"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TRB00330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"添付書類"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="TRB00340" type="TRB00340-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"イ　行政庁が中小企業の新たな事業活動の促進に関する法律第９条第１項に規定する承認(同法第10条第1項の承認を含む。)をした旨を証する書類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TRB00350" type="TRB00350-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"ロ　該当する承認経営革新計画の計画書の写し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="TRB00310-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="280"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TRB00320-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="280"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="TRB00340-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="TRB00350-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="TRC00000-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="TRA00020-2-1Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="TRA00020-2-1IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="TRA00020-2-1Rtype">
+            <xsd:attribute name="IDREF" type="TRA00020-2-1-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="TRA00020-2-1-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_FROM"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="TRA00030-2-1Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="TRA00030-2-1IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="TRA00030-2-1Rtype">
+            <xsd:attribute name="IDREF" type="TRA00030-2-1-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="TRA00030-2-1-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_TO"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

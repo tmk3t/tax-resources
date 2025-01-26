@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：指定製造場相続等届出書
+version：1.0
+Date：2004年04月27日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="LIW100-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="LIW100-1-0group">
+<xsd:sequence>
+<xsd:element name="LIW100">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BJA00000" type="BJA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJB00000" type="BJB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="LIW100-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BJA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BJA00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJA00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJA00030" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出者の住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称及び法人の代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BJA00050" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJA00060" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人の代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BJB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="BJB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出製造場の所在地及び名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BJB00020" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJB00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BJB00040" type="BJB00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"免許年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJB00050" type="BJB00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"免許酒類の種類別、品目別及び条件"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJB00060" type="BJB00060-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前１年間の種類別品目別製造数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造場の状況"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BJB00080" type="BJB00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"土地・建物"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BJB00090" type="BJB00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造又は貯蔵設備能力"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BJB00100" type="BJB00100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他参考となる事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BJB00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="121"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BJB00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="220"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BJB00060-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="220"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BJB00080-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="240"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BJB00090-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="240"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BJB00100-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="210"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

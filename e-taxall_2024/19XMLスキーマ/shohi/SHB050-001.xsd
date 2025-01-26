@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：付表5　控除対象仕入税額の計算表
+version：1.0
+Date：2004年12月22日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SHB050-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SHB050-1-0group">
+<xsd:sequence>
+<xsd:element name="SHB050">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGA00000" type="AGA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="AGB00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税標準額に対する消費税額（申告書（２）欄の金額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGC00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸倒回収に係る消費税額（申告書（３）欄の金額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGD00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上対価の返還等に係る消費税額（申告書（５）欄の金額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGE00000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除対象仕入税額計算の基礎となる消費税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="AGF00000" type="AGF00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１種類の事業の専業者の場合［控除対象仕入税額］　
+(4)*みなし仕入率(90%・80%・70%・60%・50%)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00000" type="AGG00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２種類以上の事業を営む事業者の場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SHB050-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="AGA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AGA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGA00020" type="gen:KAZEI_KIKAN_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGA00030" type="gen:KAZEI_KIKAN_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AGA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AGF00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AGF00010" type="AGF00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"みなし仕入率(90%・80%・70%・60%・50%)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGF00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１種類の事業の専業者の場合［控除対象仕入税額］"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="AGG00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="AGG00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税売上高に係る消費税額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業区分別の課税売上高（税抜き）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業区分別の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第一種事業（卸売業）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業区分別の課税売上高（税抜き）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00060" type="AGG00060-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AGG00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第二種事業（小売業）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業区分別の課税売上高（税抜き）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00090" type="AGG00090-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AGG00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第三種事業（製造業等）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業区分別の課税売上高（税抜き）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00120" type="AGG00120-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AGG00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第四種事業（その他）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業区分別の課税売上高（税抜き）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00150" type="AGG00150-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AGG00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第五種事業（サービス業等）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業区分別の課税売上高（税抜き）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00180" type="AGG00180-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"売上割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AGG00190" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左の課税売上高に係る消費税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業区分別の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第一種事業（卸売業）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第二種事業（小売業）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第三種事業（製造業等）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第四種事業（その他）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第五種事業（サービス業等）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AGG00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除対象仕入税額の計算式区分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"原則計算を適用する場合
+（４）*みなし仕入率［｛(13)*90%＋(14)*80%＋(15)*70%＋(16)*60%＋(17)*50%｝/(12)］"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00280" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特例計算を適用する場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１種類の事業で75%以上
+｛（7)/(6)・(8)/(6)・(9)/(6)・(10)/(6)・(11)/(6)｝&gt;=75%
+(4)*みなし仕入率（90%・80%・70%・60%・50%）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00300" type="AGG00300-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"みなし仕入率（90%・80%・70%・60%・50%）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AGG00320" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２種類の事業で75%以上"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AGG00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"{(7)+(8)}/(6)&gt;=75%
+(4)*[(13)*90%+{(12)-(13)}*80%]/(12)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"{(7)+(9)}/(6)&gt;=75%
+(4)*[(13)*90%+{(12)-(13)}*70%]/(12)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"{(7)+(10)}/(6)&gt;=75%
+(4)*[(13)*90%+{(12)-(13)}*60%]/(12)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"{(7)+(11)}/(6)&gt;=75%
+(4)*[(13)*90%+{(12)-(13)}*50%]/(12)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"{(8)+(9)}/(6)&gt;=75%
+(4)*[(14)*80%+{(12)-(14)}*70%]/(12)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"{(8)+(10)}/(6)&gt;=75%
+(4)*[(14)*80%+{(12)-(14)}*60%]/(12)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00390" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"{(8)+(11)}/(6)&gt;=75%
+(4)*[(14)*80%+{(12)-(14)}*50%]/(12)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00400" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"{(9)+(10)}/(6)&gt;=75%
+(4)*[(15)*70%+{(12)-(15)}*60%]/(12)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00410" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"{(9)+(11)}/(6)&gt;=75%
+(4)*[(15)*70%+{(12)-(15)}*50%]/(12)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AGG00420" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"{(10)+(11)}/(6)&gt;=75%
+(4)*[(16)*60%+{(12)-(16)}*50%]/(12)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AGG00430" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"【控除対象仕入税額】（選択可能な計算方式による(18)～(29)の内から選択した金額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="AGF00010-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="4"/><xsd:enumeration value="5"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="AGG00060-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0.0"/><xsd:maxInclusive value="100.0"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AGG00090-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0.0"/><xsd:maxInclusive value="100.0"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AGG00120-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0.0"/><xsd:maxInclusive value="100.0"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AGG00150-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0.0"/><xsd:maxInclusive value="100.0"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AGG00180-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0.0"/><xsd:maxInclusive value="100.0"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="AGG00300-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="4"/><xsd:enumeration value="5"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+
+<xsd:complexType name="AGG00060-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="AGG00060-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="AGG00090-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="AGG00090-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="AGG00120-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="AGG00120-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="AGG00150-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="AGG00150-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="AGG00180-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="AGG00180-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

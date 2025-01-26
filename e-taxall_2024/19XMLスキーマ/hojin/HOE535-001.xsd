@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十七(三の八)　特定外国関係会社又は対象外国関係会社の適用対象金額等の計算に関する明細書
+version：1.0
+Date：2018年06月28日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOE535-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOE535-1-0group">
+<xsd:sequence>
+<xsd:element name="HOE535">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGA00000" type="NGA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGB00000" type="NGB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00000" type="NGC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用対象金額及び課税対象金額等の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGD00000" type="NGD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"欠損金額の内訳"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="NGE00000" type="NGE00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOE535-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="NGA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="NGA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度又は連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGA00020" type="NGA00020-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGA00030" type="NGA00030-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NGA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGA00050" type="NGA00050-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGA00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名(連結子法人)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="NGB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="NGB00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国関係会社の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGB00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGB00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="NGC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="NGC00010" type="NGC00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得計算上の適用法令"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00020" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期の利益若しくは欠損の額又は所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"加算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGC00040" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金の額に算入した法人所得税の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00050" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"加算余白　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGC00060" type="NGC00060-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00070" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NGC00080" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NGC00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"減算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGC00100" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"益金の額に算入した法人所得税の還付額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00110" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"子会社から受ける配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00120" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定部分対象外国関係会社株式等の特定譲渡に係る譲渡利益額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00130" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除対象配当等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00140" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"減算余白　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGC00150" type="NGC00150-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00160" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NGC00170" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NGC00180" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"基準所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00190" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"繰越欠損金の当期控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00200" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中に納付することとなる法人所得税の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00210" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期中に還付を受けることとなる法人所得税の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00220" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用対象金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00230" type="NGC00230-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"請求権等勘案合算割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税対象金額又は個別課税対象金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGC00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（）書き"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGC00260" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="NGD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="NGD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細1"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGD00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGD00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGD00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NGD00050" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGD00060" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NGD00070" minOccurs="0" maxOccurs="6">
+<xsd:annotation>
+<xsd:appinfo>"明細2　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGD00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGD00090" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGD00100" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NGD00110" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGD00120" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGD00130" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"翌期繰越額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NGD00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGD00150" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGD00160" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGD00170" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"翌期繰越額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NGD00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="NGD00190" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除未済欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="NGD00200" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"翌期繰越額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="NGD00210" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="NGC00010-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="NGC00060-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="NGC00150-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="NGC00230-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="NGE00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="NGA00020-1-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="NGA00020-1-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="NGA00020-1-0Rtype">
+            <xsd:attribute name="IDREF" type="NGA00020-1-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="NGA00020-1-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_FROM"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_FROM"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="NGA00030-1-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="NGA00030-1-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="NGA00030-1-0Rtype">
+            <xsd:attribute name="IDREF" type="NGA00030-1-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="NGA00030-1-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_TO"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_TO"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="NGA00050-1-0IDREFtype">
+    <xsd:attribute name="IDREF" use="required">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:IDREF">
+                <xsd:enumeration value="NOZEISHA_NM"/>
+                <xsd:enumeration value="OYA_HOJIN_NM"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+</xsd:complexType>
+
+<xsd:complexType name="NGC00230-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="NGC00230-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：相次相続控除額の計算書(第7表)(平成21年4月分以降用)
+version：1.0
+Date：2019年03月27日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE070-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE070-1-0group">
+<xsd:sequence>
+<xsd:element name="KSE070">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="FRA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="FRB00000" type="FRB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１　相次相続控除額の総額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRC00000" type="FRC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２　各相続人の相次相続控除額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE070-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FRB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FRB00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前の相続に係る被相続人の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00020" type="FRB00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前の相続に係る被相続人と今回の相続に係る被相続人との続柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00030" type="FRB00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前の相続に係る相続税の申告書の提出先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前の相続の年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00050" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"今回の相続の年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00060" type="FRB00060-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前の相続から今回の相続までの期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00070" type="FRB00070-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"10年－[3]の年数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人が前の相続の時に取得した純資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"前の相続の際の被相続人の相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"([5]－[6])の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"今回の相続、遺贈や相続時精算課税に係る贈与によって財産を取得した全ての人の純資産価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相次相続控除額の総額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FRB00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"([6]の相続税額)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"([8]の金額)(分子)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"([7]の金額)(分母)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00160" type="FRB00160-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"([4]の年数)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FRC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FRC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)一般の場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FRC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相次相続控除額の総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続人以外の人も含めた純資産価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRC00040" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FRC00050" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"今回の相続の被相続人から財産を取得した相続人の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各相続人の純資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRC00070" type="FRC00070-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の[10]／[B]の割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の相次相続控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FRC00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)相続人のうちに農業相続人がいる場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FRC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相次相続控除額の総額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続人以外の人も含めた純資産価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRC00120" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FRC00130" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"今回の相続の被相続人から財産を取得した相続人の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRC00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各相続人の純資産価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRC00150" type="FRC00150-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の[15]／[C]の割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FRC00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の相次相続控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="FRB00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="35"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FRB00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="6"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FRB00060-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FRB00070-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FRB00160-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FRC00070-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FRC00150-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="FRB00060-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="FRB00060-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FRB00070-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="FRB00070-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FRB00160-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="FRB00160-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FRC00070-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="FRC00070-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="FRC00150-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="FRC00150-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

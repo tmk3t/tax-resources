@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：連結事業年度分の適用額明細書
+version：7.1
+Date：2022年06月22日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOR990-7-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="7.0"/><xsd:enumeration value="7.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOR990-7-1group">
+<xsd:sequence>
+<xsd:element name="HOR990">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MBA00000" type="MBA00000-7-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBB00000" type="MBB00000-7-1type" minOccurs="0" maxOccurs="20">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOR990-7-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="MBA00000-7-1type">
+<xsd:sequence>
+
+<xsd:element name="MBA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MBA00020" type="gen:RENKETSU_JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00030" type="gen:RENKETSU_JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MBA00040" type="MBA00040-7-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00050" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00060" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00070" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00080" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（フリガナ）連結親法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MBA00100" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00110" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結親法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MBA00115" type="gen:NOZEISHA_BANGOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00120" type="gen:SHIHON_KINref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末現在の資本金の額又は出資金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結所得金額又は連結欠損金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出枚数"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MBA00150" type="MBA00150-7-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00160" type="MBA00160-7-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"うち＿枚目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MBA00170" type="gen:JIGYO_NAIYOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業種目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBA00180" type="MBA00180-7-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"業種番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="MBB00000-7-1type">
+<xsd:sequence>
+
+<xsd:element name="MBB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"租税特別措置法の条項"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="MBB00015" type="MBB00015-7-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧条項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBB00020" type="MBB00020-7-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第68条の＿"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBB00030" type="MBB00030-7-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第＿項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBB00040" type="MBB00040-7-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第＿号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBB00050" type="MBB00050-7-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"号＿"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="MBB00060" type="MBB00060-7-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="MBB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="MBA00040-7-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="MBA00150-7-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MBA00160-7-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MBA00180-7-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="2"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MBB00015-7-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="80"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MBB00020-7-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MBB00030-7-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MBB00040-7-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MBB00050-7-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="2"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="MBB00060-7-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="5"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="MBA00150-7-1type">
+<xsd:simpleContent>
+<xsd:extension base="MBA00150-7-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="MBA00160-7-1type">
+<xsd:simpleContent>
+<xsd:extension base="MBA00160-7-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

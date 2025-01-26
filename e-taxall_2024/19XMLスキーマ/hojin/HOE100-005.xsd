@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十四(二)　寄附金の損金算入に関する明細書
+version：5.0
+Date：2007年04月27日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOE100-5-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="5.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOE100-5-0group">
+<xsd:sequence>
+<xsd:element name="HOE100">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDA00000" type="EDA00000-5-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00000" type="EDB00000-5-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公益法人等以外の法人の場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00000" type="EDC00000-5-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"公益法人等の場合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDD00000" type="EDD00000-5-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"指定寄附金等に関する明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDE00000" type="EDE00000-5-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益増進法人、認定特定非営利活動法人若しくは特定地域雇用会社若しくは特定地域雇用等促進法人に対する寄附金又は認定特定公益信託に対する支出金の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDF00000" type="EDF00000-5-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の寄附金のうち特定公益信託（認定特定公益信託を除く。）に対する支出金の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="EDG00000" type="EDG00000-5-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOE100-5-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="EDA00000-5-0type">
+<xsd:sequence>
+
+<xsd:element name="EDA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EDA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EDB00000-5-0type">
+<xsd:sequence>
+
+<xsd:element name="EDB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金算入限度額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支出した寄附金の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"指定寄附金等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益増進法人、認定特定非営利活動法人等に対する寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00063" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結法人間の寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00066" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EDB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得金額仮計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金支出前所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の2.5／100相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末の資本金等の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の月数換算額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDB00150" type="gen:mm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"月数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EDB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の2.5／1,000相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金算入限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EDB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益増進法人、認定特定非営利活動法人等に対する寄附金の損金算入額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"指定寄附金等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外関連者に対する寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（4）の寄附金額のうち同上の寄附金以外の寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00230" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金不算入額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDB00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上のうち損金の額に算入されない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外関連者に対する寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00255" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"連結法人間の寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDB00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EDC00000-5-0type">
+<xsd:sequence>
+
+<xsd:element name="EDC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金算入限度額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDC00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支出した寄附金の額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"指定寄附金等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"長期給付事業への繰入利子額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他の寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EDC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所得金額仮計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金支出前所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の20又は50／100相当額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDC00100" type="EDC00100-5-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"20又は50の区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EDC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（23）と融資額の年5.5%相当額のうち少ない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（29）-（27）*20／100相当額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金算入限度額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EDC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"指定寄附金等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外関連者に対する寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（25）の寄附金額のうち同上の寄附金以外の寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"損金不算入額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDC00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上のうち損金の額に算入されない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外関連者に対する寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDC00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EDD00000-5-0type">
+<xsd:sequence>
+
+<xsd:element name="EDD00010" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDD00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附した日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDD00030" type="EDD00030-5-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDD00040" type="EDD00040-5-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"告示番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDD00050" type="EDD00050-5-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金の使途"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDD00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EDD00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDD00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EDE00000-5-0type">
+<xsd:sequence>
+
+<xsd:element name="EDE00010" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDE00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附した日又は支出した日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDE00030" type="EDE00030-5-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附先又は受託者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDE00040" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDE00050" type="EDE00050-5-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金の使途又は認定特定公益信託の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDE00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金額又は支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EDE00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDE00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"寄附金額又は支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EDF00000-5-0type">
+<xsd:sequence>
+
+<xsd:element name="EDF00010" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EDF00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支出した日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDF00030" type="EDF00030-5-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受託者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDF00040" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDF00050" type="EDF00050-5-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定公益信託の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EDF00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支出金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="EDC00100-5-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="EDD00030-5-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EDD00040-5-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EDD00050-5-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EDE00030-5-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EDE00050-5-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EDF00030-5-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EDF00050-5-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EDG00000-5-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

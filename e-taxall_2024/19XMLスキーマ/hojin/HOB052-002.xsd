@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表六(五の二)　外国孫会社に係る外国法人税額に関する明細書
+version：2.0
+Date：2004年12月22日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOB052-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOB052-2-0group">
+<xsd:sequence>
+<xsd:element name="HOB052">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDA00000" type="BDA00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDB00000" type="BDB00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国孫会社に係る外国法人税額の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDC00000" type="BDC00000-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配当等の金額のうち配当事業年度の所得金額以下の部分に係る金額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDD00000" type="BDD00000-2-0type" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"配当等の金額のうち配当事業年度の所得金額を超える部分に係る金額の計算　明細繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOB052-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="BDA00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="BDA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度又は連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDA00035" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDA00045" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名（連結子法人）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BDB00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="BDB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国孫会社の名称等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDB00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDB00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDB00040" type="BDB00040-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDB00050" type="BDB00050-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"地名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDB00055" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国子会社の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDB00060" type="BDB00060-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国子会社の外国孫会社に係る持分割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDB00070" type="BDB00070-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国孫会社に係る間接保有の持分割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDB00075" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国子会社の配当等受領日等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDB00080" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国子会社の配当等受領日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDB00090" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国孫会社が同上の配当等に係る事業年度の所得に対して外国法人税が課された日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDB00100" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国子会社の配当等受領金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDB00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国子会社の配当等受領日の属する事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDB00130" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDB00140" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BDC00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="BDC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配当事業年度等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDC00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDC00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDC00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の所得金額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDC00060" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配当等算出基礎所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDC00090" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整後の課税所得金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDC00120" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(12)と(13)のうち多い金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDC00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配当等に充てられる所得金額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDC00160" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(14)のうち配当等に充てられない部分の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDC00190" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(14)のうち配当等に充てられる部分の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDC00220" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(16)のうち受取配当等に係る部分の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDC00250" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各事業年度に係る受取配当等の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDC00280" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)と(18)のうち少ない金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDC00300" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国孫会社の外国法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDC00320" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国孫会社の外国法人税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDC00350" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増額又は減額前の事業年度又は連結事業年度の(20)の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDC00370" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(20)のうち外国子会社の所得に対して課されたものとみなされる外国法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDC00390" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(20)のうち外国子会社の所得に対して課されたものとみなされる外国法人税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDC00420" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増額又は減額前の事業年度又は連結事業年度の(22)の金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="BDD00000-2-0type">
+<xsd:sequence>
+
+<xsd:element name="BDD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配当事業年度等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDD00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDD00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDD00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上の所得金額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDD00060" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配当等算出基礎所得金額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDD00090" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"調整後の課税所得金額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDD00120" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(12)と(13)のうち多い金額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDD00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配当等に充てられる所得金額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDD00160" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(14)のうち配当等に充てられない部分の金額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDD00190" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(14)のうち配当等に充てられる部分の金額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDD00220" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(16)のうち受取配当等に係る部分の金額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDD00250" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各事業年度に係る受取配当等の金額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDD00280" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)と(18)のうち少ない金額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDD00300" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国孫会社の外国法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDD00320" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国孫会社の外国法人税額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDD00350" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増額又は減額前の事業年度又は連結事業年度の(20)の金額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BDD00370" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(20)のうち外国子会社の所得に対して課されたものとみなされる外国法人税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BDD00390" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(20)のうち外国子会社の所得に対して課されたものとみなされる外国法人税額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BDD00420" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"増額又は減額前の事業年度又は連結事業年度の(22)の金額"</xsd:appinfo>
+<xsd:appinfo>horizontal</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="BDB00040-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BDB00050-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BDB00060-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BDB00070-2-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="BDB00060-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BDB00060-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BDB00070-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="BDB00070-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

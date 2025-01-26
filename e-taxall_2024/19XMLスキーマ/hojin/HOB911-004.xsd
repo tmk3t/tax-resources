@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十四(四)　新株予約権に関する明細書
+version：4.0
+Date：2023年06月26日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOB911-4-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="4.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOB911-4-0group">
+<xsd:sequence>
+<xsd:element name="HOB911">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FGA00000" type="FGA00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00000" type="FGB00000-4-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"新株予約権に関する明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="FGC00000" type="FGC00000-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOB911-4-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+<xsd:attribute name="csvFileNM" type="gen:str"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FGA00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="FGA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FGA00020" type="gen:JIGYO_NENDO_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGA00030" type="gen:JIGYO_NENDO_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FGA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FGA00050" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="FGB00000-4-0type">
+<xsd:sequence>
+
+<xsd:element name="FGB00010" minOccurs="0" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FGB00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00030" type="FGB00030-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付対象者の区分及び人数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00040" type="FGB00040-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"新株予約権交付数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"権利行使期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FGB00060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"権利確定日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00070" type="FGB00070-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"権利行使期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FGB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"権利行使価格"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"交付の時等の単価"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"新株予約権の変動状況の明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FGB00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"権利確定前"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FGB00120" type="FGB00120-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首権利未確定数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00130" type="FGB00130-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期交付数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00140" type="FGB00140-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期権利不確定による失効数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00150" type="FGB00150-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期権利確定数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00160" type="FGB00160-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末権利未確定数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FGB00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"権利確定後"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FGB00180" type="FGB00180-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首権利確定後未行使数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00190" type="FGB00190-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期権利確定数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00200" type="FGB00200-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期権利行使数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00210" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(14)のうち"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FGB00220" type="FGB00220-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"給与等課税事由が生じたもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00230" type="FGB00230-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"給与等課税事由が生じないもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FGB00240" type="FGB00240-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期権利不行使による失効数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00250" type="FGB00250-4-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末権利確定後未行使数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FGB00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首費用計上累積額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期費用計上額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期権利行使に係る金額のうち損金算入額の基礎となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期権利行使に係る金額のうち損金不算入となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期権利不行使による失効に伴い益金不算入となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末費用計上累積額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FGB00320" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FGB00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期首費用計上累積額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期費用計上額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期権利行使に係る金額のうち損金算入額の基礎となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期権利行使に係る金額のうち損金不算入となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"当期権利不行使による失効に伴い益金不算入となる金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FGB00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期末費用計上累積額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="FGB00030-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="50"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00040-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00070-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00120-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00130-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00140-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00150-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00160-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00180-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00190-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00200-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00220-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00230-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00240-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGB00250-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FGC00000-4-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

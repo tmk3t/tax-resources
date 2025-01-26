@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：税額算出表
+version：3.0
+Date：2023年12月21日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="LIA110-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="LIA110-3-0group">
+<xsd:sequence>
+<xsd:element name="LIA110">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="EHA00000" type="EHA00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00000" type="EHB00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"頁数及び総頁数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHC00000" type="EHC00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00000" type="EHD00000-3-0type" minOccurs="0" maxOccurs="18">
+<xsd:annotation>
+<xsd:appinfo>"明細  繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="LIA110-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="EHA00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="EHA00010" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税年月"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHA00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EHB00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="EHB00010" type="EHB00010-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"頁数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHB00020" type="EHB00020-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"総頁数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EHC00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="EHC00010" type="gen:SEIZOJO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造場名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="EHD00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="EHD00010" type="EHD00010-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00020" type="EHD00020-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"酒類コード"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00030" type="EHD00030-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"酒類の品目別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00040" type="EHD00040-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"アルコール分別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00050" type="EHD00050-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)総移出数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00060" type="EHD00060-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)未納税移出数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00070" type="EHD00070-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)輸出免税数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00080" type="EHD00080-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)課税標準数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)軽減後税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00120" type="EHD00120-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(8)控除税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(9)算出税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="EHD00150" type="EHD00150-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="EHB00010-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="999"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EHB00020-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="999"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="EHD00010-3-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="0"/><xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="8"/><xsd:enumeration value="9"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="EHD00020-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EHD00030-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EHD00040-3-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:pattern value="[-]?\d?\d?"/><xsd:pattern value="[-]?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EHD00050-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="999999999999"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EHD00060-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="999999999999"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EHD00070-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="999999999999"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EHD00080-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="999999999999"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EHD00120-3-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="999999999999"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="EHD00150-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="12"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="EHB00010-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="EHB00010-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EHB00020-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="EHB00020-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EHD00040-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="EHD00040-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EHD00050-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="EHD00050-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EHD00060-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="EHD00060-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EHD00070-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="EHD00070-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EHD00080-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="EHD00080-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="EHD00120-3-0type">
+<xsd:simpleContent>
+<xsd:extension base="EHD00120-3-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

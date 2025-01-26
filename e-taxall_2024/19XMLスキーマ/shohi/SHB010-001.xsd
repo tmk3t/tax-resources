@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shohi"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：付表1　旧・新税率別、消費税額計算表兼地方消費税の課税標準となる消費税額計算表【経過措置対象課税資産の譲渡等を含む課税期間用】
+version：1.2
+Date：2006年08月03日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SHB010-1-2VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/><xsd:enumeration value="1.1"/><xsd:enumeration value="1.2"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SHB010-1-2group">
+<xsd:sequence>
+<xsd:element name="SHB010">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACA00000" type="ACA00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00000" type="ACB00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税標準額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACC00000" type="ACC00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"消費税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACD00000" type="ACD00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除過大調整税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACE00000" type="ACE00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACF00000" type="ACF00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除不足還付税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACG00000" type="ACG00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACH00000" type="ACH00000-1-2type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計差引税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SHB010-1-2VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="ACA00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="ACA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACA00020" type="gen:KAZEI_KIKAN_FROMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACA00030" type="gen:KAZEI_KIKAN_TOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ACB00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="ACB00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分(地方消費税の課税標準となる消費税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACB00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分(地方消費税の課税標準となる消費税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ACC00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="ACC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACC00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分(地方消費税の課税標準となる消費税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACC00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACC00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACC00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分(地方消費税の課税標準となる消費税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACC00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ACD00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="ACD00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACD00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分(地方消費税の課税標準となる消費税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACD00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ACE00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="ACE00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除対象仕入税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACE00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分(地方消費税の課税標準となる消費税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACE00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"返還等対価に係る税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACE00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分(地方消費税の課税標準となる消費税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACE00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACE00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸倒れに係る税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACE00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACE00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分(地方消費税の課税標準となる消費税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACE00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ACE00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除税額小計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ACE00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACE00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分(地方消費税の課税標準となる消費税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACE00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ACF00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="ACF00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACF00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分(地方消費税の課税標準となる消費税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACF00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ACG00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="ACG00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"旧税率適用分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACG00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率４％適用分(地方消費税の課税標準となる消費税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ACG00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="ACH00000-1-2type">
+<xsd:sequence>
+
+<xsd:element name="ACH00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計(消費税の税額）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+
+
+</xsd:schema>

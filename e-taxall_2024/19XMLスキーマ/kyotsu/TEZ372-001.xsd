@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：更正請求書次葉(その__)(令和4年12月31日以後終了課税期間分)
+version：1.0
+Date：2022年09月01日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="TEZ372-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="TEZ372-1-0group">
+<xsd:sequence>
+<xsd:element name="TEZ372">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RVA00000" type="RVA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00000" type="RVB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="TEZ372-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="RVA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RVA00010" type="RVA00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（その＿）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVA00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税期間"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RVA00030" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVA00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月日分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RVB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RVB00010" minOccurs="0" maxOccurs="8">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RVB00020" type="RVB00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00030" type="RVB00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"号別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00040" type="RVB00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"正当とする額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RVB00060" type="RVB00060-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税標準"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RVB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額の合計額　正当とする額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除（還付）本税相当額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RVB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"返還（戻入れ）によるもの　正当とする額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入によるもの　正当とする額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害被害によるもの　正当とする額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（＿）の内容"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RVB00140" type="RVB00140-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（＿）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"正当とする額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RVB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計　正当とする額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RVB00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RVB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付金相当本税額　正当とする額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき本税額　正当とする額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RVB00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正前の税額等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RVB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付金相当本税額　正当とする額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RVB00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき本税額　正当とする額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="RVA00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="2"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RVB00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RVB00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="5"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RVB00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RVB00060-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RVB00140-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="RVB00060-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="RVB00060-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

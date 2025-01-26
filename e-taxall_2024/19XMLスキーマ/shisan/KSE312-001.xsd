@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：小規模宅地等についての課税価格の計算明細(第11･11の2表の付表1(修正申告用))(平成27年分以降用)
+version：1.0
+Date：2020年08月31日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE312-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE312-1-0group">
+<xsd:sequence>
+<xsd:element name="KSE312">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="GCA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="GCB00000" type="GCB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１　小規模宅地等の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCC00000" type="GCC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２　「限度面積要件」の判定"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00000" type="GCD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"３　「(5)　課税価格の計算に当たって減額される金額」の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE312-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="GCB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GCB00010" minOccurs="0" maxOccurs="5">
+<xsd:annotation>
+<xsd:appinfo>"選択した小規模宅地等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCB00020" type="GCB00020-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"宅地等の番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCB00030" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地番"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCB00040" type="GCB00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)　取得者の持分に応ずる面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)　取得者の持分に応ずる宅地等の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCB00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)　特例の適用を受ける取得者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCB00070" type="GCB00070-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)　(1)のうち特例の対象として選択した宅地等の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)　課税価格の計算に当たって減額される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)　宅地等について課税価格に算入する価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GCC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GCC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ａ　下記３の(9)の小規模宅地等の面積の合計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCC00020" type="GCC00020-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[1]特定居住用宅地等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCC00030" type="GCC00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[2]特定事業用宅地等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCC00040" type="GCC00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[3]特定同族会社事業用宅地等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCC00050" type="GCC00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[4]貸付事業用宅地等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCC00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Ｂ　限度面積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCC00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"イ　小規模宅地等のうちに[4]貸付事業用宅地等がない場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCC00080" type="GCC00080-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[1]のＡの面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCC00090" type="GCC00090-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[2]のＡ及び[3]のＡの面積の合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCC00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"ロ　小規模宅地等のうちに[4]貸付事業用宅地等がある場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCC00110" type="GCC00110-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[1]のＡの面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCC00120" type="GCC00120-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[2]のＡ及び[3]のＡの面積の合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCC00130" type="GCC00130-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[4]のＡの面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GCD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GCD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人等の事業用宅地等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCD00020" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"(13)　特定事業用宅地等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCD00030" type="GCD00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"宅地等の番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00040" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)　特例の適用を受ける取得者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00050" type="GCD00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(8)　その宅地等における相続開始の直前の事業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00060" type="GCD00060-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(9)　小規模宅地等の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(10)　小規模宅地等の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(12)　小規模宅地等について減額される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCD00090" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"(14)　特定同族会社事業用宅地等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCD00100" type="GCD00100-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"宅地等の番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00110" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)　特例の適用を受ける取得者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00120" type="GCD00120-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(8)　その宅地等における相続開始の直前の事業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00130" type="GCD00130-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(9)　小規模宅地等の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(10)　小規模宅地等の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(12)　小規模宅地等について減額される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCD00160" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"(15)　貸付事業用宅地等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCD00170" type="GCD00170-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"宅地等の番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00180" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)　特例の適用を受ける取得者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00190" type="GCD00190-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(8)　その宅地等における相続開始の直前の事業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00200" type="GCD00200-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(9)　小規模宅地等の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(10)　小規模宅地等の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(12)　小規模宅地等について減額される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GCD00230" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人等の居住用宅地等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCD00240" minOccurs="0" maxOccurs="2">
+<xsd:annotation>
+<xsd:appinfo>"(16)　特定居住用宅地等　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GCD00250" type="GCD00250-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"宅地等の番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00260" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(7)　特例の適用を受ける取得者の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00270" type="GCD00270-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(9)　小規模宅地等の面積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(10)　小規模宅地等の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GCD00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(12)　小規模宅地等について減額される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="GCB00020-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCB00040-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?[.]\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCB00070-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCC00020-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCC00030-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCC00040-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCC00050-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCC00080-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="330"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCC00090-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="400"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCC00110-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="330"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCC00120-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="400"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCC00130-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="200"/><xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCD00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCD00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCD00060-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCD00100-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCD00120-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCD00130-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCD00170-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCD00190-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCD00200-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCD00250-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GCD00270-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="GCB00020-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCB00020-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCB00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCB00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCB00070-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCB00070-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCC00020-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCC00020-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCC00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCC00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCC00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCC00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCC00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCC00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCC00080-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCC00080-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCC00090-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCC00090-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCC00110-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCC00110-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCC00120-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCC00120-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCC00130-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCC00130-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCD00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCD00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCD00060-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCD00060-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCD00100-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCD00100-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCD00130-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCD00130-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCD00170-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCD00170-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCD00200-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCD00200-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCD00250-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCD00250-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GCD00270-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="GCD00270-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

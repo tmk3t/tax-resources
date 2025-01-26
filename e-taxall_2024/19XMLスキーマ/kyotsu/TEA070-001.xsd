@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：添付書類送付書
+version：1.0
+Date：2003年09月30日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="TEA070-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="TEA070-1-0group">
+<xsd:sequence>
+<xsd:element name="SOFUSHO">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UMB00000" type="UMB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="fid" type="xsd:string" use="required" fixed="TEA070"/>
+<xsd:attribute name="VR"
+type="TEA070-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="UMB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="UMB00010" type="gen:zeimusho" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UMB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受付日時"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="UMB00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>""</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UMB00040" type="xsd:time" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>""</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="UMB00050" type="gen:str" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受付番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UMB00060" type="gen:nozeisha-id" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利用者識別番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UMB00070" type="gen:str" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"手続名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UMB00080" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所（所在地）又は納税地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UMB00090" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="UMB00100" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者等氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+</xsd:schema>

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：酒税更正請求書次葉(その__)(令和4年12月31日以後課税期間終了分)
+version：1.0
+Date：2022年09月01日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="TEZ074-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="TEZ074-1-0group">
+<xsd:sequence>
+<xsd:element name="TEZ074">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="RQA00000" type="RQA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"次葉区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="RQB00000" type="RQB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQC00000" type="RQC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１　更正の請求の内訳"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQD00000" type="RQD00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"２　税額の計算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="TEZ074-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="RQB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RQB00010" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税年月"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQB00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RQC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RQC00010" minOccurs="0" maxOccurs="8">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RQC00020" type="RQC00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"酒類の品目別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQC00030" type="RQC00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"アルコール分別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQC00040" type="RQC00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発泡性の有無"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税率"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQC00060" type="RQC00060-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（1）課税標準"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（2）税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RQC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（2）の合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="RQD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="RQD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正前申告に係る金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RQD00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQD00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除（還付）本税相当額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RQD00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"戻入れによるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQD00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入によるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQD00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害被害によるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQD00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RQD00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RQD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付金相当本税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQD00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき本税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RQD00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"更正の請求に係る金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RQD00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQD00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除（還付）本税相当額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RQD00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"戻入れによるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQD00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入によるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQD00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害被害によるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQD00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="RQD00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="RQD00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付金相当本税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="RQD00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき本税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="RQA00000-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RQC00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="18"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RQC00030-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?"/><xsd:pattern value="[-]?\d?\d?[.]\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RQC00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="RQC00060-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="RQA00000-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="RQA00000-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="RQC00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="RQC00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="RQC00060-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="RQC00060-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

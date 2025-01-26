@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：別表十七(四)　国外関連者に関する明細書(令和2年4月1日以後開始事業年度又は連結事業年度分)
+version：1.0
+Date：2020年07月01日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOE605-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOE605-1-0group">
+<xsd:sequence>
+<xsd:element name="HOE605">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNA00000" type="QNA00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="QNB00000" type="QNB00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外関連者との取引状況等　区分名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="QNC00000" type="QNC00000-1-0type" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="QND00000" type="QND00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適用事業年度等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOE605-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+<xsd:attribute name="csvFileNM" type="gen:str"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="QNA00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="QNA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度又は連結事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNA00020" type="QNA00020-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNA00030" type="QNA00030-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNA00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNA00050" type="QNA00050-1-0IDREFtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNA00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名(連結子法人)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="QNC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="QNC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外関連者の名称等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"本店又は主たる事務所の所在"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00040" type="QNC00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国名又は地域名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00050" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00060" type="QNC00060-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"主たる事業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00070" type="QNC00070-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"従業員の数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00080" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"資本金の額又は出資金の額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00090" type="QNC00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特殊の関係の区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"株式等の保有割合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保有"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00120" type="QNC00120-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(内＿％)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00130" type="QNC00130-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保有割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被保有"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00150" type="QNC00150-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(内＿％)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00160" type="QNC00160-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被保有割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同一の者による国外関連者の株式等の保有"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00180" type="QNC00180-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(内＿％)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00190" type="QNC00190-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保有割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"直近事業年度の営業収益等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00210" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業年度"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00220" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"自"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00230" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"至"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"営業収益又は売上高"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00250" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外貨"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"円換算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00270" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"営業費用"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00280" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"原価"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00290" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外貨"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"円換算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00310" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"販売費及び一般管理費"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00320" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外貨"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"円換算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00340" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"営業利益"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00350" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外貨"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"円換算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00370" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税引前当期利益"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00380" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外貨"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00390" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"円換算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00400" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利益剰余金"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00410" type="gen:gaika" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外貨"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00420" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"円換算"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00430" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"国外関連者との取引状況等"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00440" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"棚卸資産の売買の対価"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00460" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00470" type="QNC00470-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算定方法"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00480" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役務提供の対価"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00510" type="QNC00510-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算定方法"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00520" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"有形固定資産の使用料"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00530" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00540" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00550" type="QNC00550-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算定方法"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00560" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"無形資産の譲渡の対価"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00570" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00580" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00590" type="QNC00590-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算定方法"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00600" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"無形資産の使用料"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00610" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00620" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00630" type="QNC00630-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算定方法"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00640" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"貸付金の利息又は借入金の利息"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00650" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00660" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00670" type="QNC00670-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算定方法"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00680" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"区分名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="QNC00690" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受取"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00700" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="QNC00710" type="QNC00710-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算定方法"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="QNC00720" type="QNC00720-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事前確認の有無"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="QNB00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00060-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00070-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00090-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="13"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00120-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00130-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00150-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00160-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00180-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00190-1-0Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?\d?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00470-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00510-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00550-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00590-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00630-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00670-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="QNC00710-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="QNC00720-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="QND00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="QNA00020-1-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="QNA00020-1-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="QNA00020-1-0Rtype">
+            <xsd:attribute name="IDREF" type="QNA00020-1-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="QNA00020-1-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_FROM"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_FROM"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="QNA00030-1-0Rtype">
+    <xsd:sequence minOccurs="0">
+        <xsd:group ref="gen:yyGroup"/>
+        <xsd:group ref="gen:mmGroup"/>
+        <xsd:group ref="gen:ddGroup"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="QNA00030-1-0IDREFtype">
+    <xsd:complexContent>
+        <xsd:extension base="QNA00030-1-0Rtype">
+            <xsd:attribute name="IDREF" type="QNA00030-1-0-0IDREFtype" use="optional"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+<xsd:simpleType name="QNA00030-1-0-0IDREFtype">
+    <xsd:restriction base="xsd:IDREF">
+        <xsd:enumeration value="JIGYO_NENDO_TO"/>
+        <xsd:enumeration value="RENKETSU_JIGYO_NENDO_TO"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="QNA00050-1-0IDREFtype">
+    <xsd:attribute name="IDREF" use="required">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:IDREF">
+                <xsd:enumeration value="NOZEISHA_NM"/>
+                <xsd:enumeration value="OYA_HOJIN_NM"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+</xsd:complexType>
+
+<xsd:complexType name="QNC00070-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="QNC00070-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="QNC00120-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="QNC00120-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="QNC00130-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="QNC00130-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="QNC00150-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="QNC00150-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="QNC00160-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="QNC00160-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="QNC00180-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="QNC00180-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="QNC00190-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="QNC00190-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：国際観光旅客税の計算書(次葉)
+version：1.0
+Date：2018年09月11日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="INY131-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="INY131-1-0group">
+<xsd:sequence>
+<xsd:element name="INY131">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="IGA00000" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年月分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IGB00000" type="IGB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"＿枚目"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="IGC00000" type="IGC00000-1-0type" minOccurs="0" maxOccurs="18">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="INY131-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="IGC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="IGC00010" type="IGC00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"出入国港コード"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IGC00020" type="IGC00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"出入国港の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IGC00030" type="IGC00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"出入国港区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IGC00040" type="IGC00040-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)旅客の人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IGC00050" type="IGC00050-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2)国際観光旅客等に該当しない人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IGC00060" type="IGC00060-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3)非課税対象人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IGC00070" type="IGC00070-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4)免税対象人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IGC00080" type="IGC00080-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)その他課税しない人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IGC00090" type="IGC00090-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(6)課税対象人員"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="IGB00000-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IGC00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="3"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IGC00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IGC00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IGC00040-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IGC00050-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IGC00060-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IGC00070-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IGC00080-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IGC00090-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="IGB00000-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="IGB00000-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="IGC00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="IGC00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="IGC00040-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="IGC00040-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="IGC00050-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="IGC00050-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="IGC00060-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="IGC00060-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="IGC00070-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="IGC00070-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="IGC00080-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="IGC00080-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="IGC00090-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="IGC00090-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general"
+elementFormDefault="qualified" attributeFormDefault="unqualified"
+version="1.0" > 
+
+<xsd:annotation>
+<xsd:documentation>
+XBRL
+version:1.0/2.0/3.0
+Date:2007年06月20日
+</xsd:documentation>
+</xsd:annotation>
+
+<!-- Import -->
+	<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="XBRLVRtype">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value="1.0"/><xsd:enumeration value="2.0"/><xsd:enumeration value="3.0"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<!-- FORM -->
+<xsd:simpleType name="XBRLFORMtype">
+	<xsd:restriction base="xsd:string">
+		<xsd:enumeration value="HOF010"/>
+		<xsd:enumeration value="HOG010"/>
+		<xsd:enumeration value="HOH010"/>
+		<xsd:enumeration value="HOJ010"/>
+		<xsd:enumeration value="HOJ020"/>
+		<xsd:enumeration value="HON010"/>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<!-- XBRL Element Definition -->
+<xsd:complexType name="XBRLtype">
+	<xsd:sequence>
+		<xsd:element name="XBRL_INSTANCE" type="XBRL_INSTANCEtype">
+			<xsd:annotation>
+				<xsd:appinfo>"インスタンス文書"</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+		<xsd:element name="XBRL_TAXONOMY" type="XBRL_TAXONOMYtype" minOccurs="0" maxOccurs="unbounded">
+			<xsd:annotation>
+				<xsd:appinfo>"タクソノミー"</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+		<xsd:element name="XBRL_LINKBASE" type="XBRL_LINKBASEtype" minOccurs="0" maxOccurs="unbounded">
+			<xsd:annotation>
+				<xsd:appinfo>"リンクベース"</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+	</xsd:sequence>
+</xsd:complexType>
+
+<!-- XBRL_INSTANCE -->
+<xsd:complexType name="XBRL_INSTANCEtype">
+<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+<xsd:any namespace="http://www.xbrl.org/2001/instance" processContents="lax"/>
+</xsd:sequence>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+<xsd:attribute name="VR" type="XBRLVRtype" use="required"/>
+<xsd:attribute name="FORM" type="XBRLFORMtype" use="required"/>
+</xsd:complexType>
+
+<!-- XBRL_TAXONOMY -->
+<xsd:complexType name="XBRL_TAXONOMYtype">
+<xsd:sequence maxOccurs="unbounded">
+<xsd:any processContents="lax"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID" use="required"/>
+</xsd:complexType>
+
+<!-- XBRL_LINKBASE -->
+<xsd:complexType name="XBRL_LINKBASEtype">
+<xsd:sequence maxOccurs="unbounded">
+<xsd:any processContents="lax"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:ID" use="required"/>
+</xsd:complexType>
+</xsd:schema>

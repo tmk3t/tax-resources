@@ -1,0 +1,3101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/saiken"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/saiken"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：森林計画伐採立木に係る相続税の延納の明細書
+version：2.1
+Date：2009年08月27日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="CRZ340-2-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/><xsd:enumeration value="2.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="CRZ340-2-1group">
+<xsd:sequence>
+<xsd:element name="CRZ340">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CRZ340-1" type="CRZ340-1-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"１面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CRZ340-2" type="CRZ340-2-2-1type" minOccurs="0" maxOccurs="unbounded">
+<xsd:annotation>
+<xsd:appinfo>"２面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="CRZ340-2-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CRZ340-1-2-1type">
+<xsd:sequence>
+
+<xsd:element name="BHA00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHA00010" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHB00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"1　延納申請税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHB00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHB00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（1）のうち物納申請税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHB00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（1）のうち納税猶予をする税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（4）のうち現金で納付する税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納申請税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHC00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"2　計画伐採立木等の場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"割合の判定"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHC00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税相続財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHC00040" type="BHC00040-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHC00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"立木（（7）を含む。）の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税相続財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHC00070" type="BHC00070-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHC00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等（（7）、（8）を含む。）の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHC00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税相続財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHC00100" type="BHC00100-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHC00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"全体の課税相続財産の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税相続財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHC00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"割合の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHC00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税相続財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHC00160" type="BHC00160-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHC00170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"立木（（7）を含む。）の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHC00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税相続財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHC00190" type="BHC00190-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHC00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等（（7）、（8）を含む。）の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHC00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税相続財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHC00220" type="BHC00220-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHC00230" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"全体の課税相続財産の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHC00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税相続財産の価額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHD00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"3　延納申請税額の内訳、4　延納申請年数、5　利子税の割合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等の割合が75％以上の場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHD00040" type="BHD00040-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納申請年数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHD00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等に係る延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHD00070" type="BHD00070-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納申請年数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHD00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等に係る延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHD00100" type="BHD00100-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納申請年数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHD00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等の割合が50％以上75％未満の場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHD00140" type="BHD00140-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納申請年数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHD00150" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等に係る延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHD00170" type="BHD00170-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納申請年数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHD00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等に係る延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHD00200" type="BHD00200-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納申請年数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHD00210" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等の割合が50％未満の場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHD00240" type="BHD00240-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納申請年数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHD00250" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"立木に係る延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHD00270" type="BHD00270-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納申請年数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHD00280" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その他財産に係る延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHD00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHD00300" type="BHD00300-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納申請年数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="CRZ340-2-2-1type">
+<xsd:sequence>
+
+<xsd:element name="BHE00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"6　分納税額、分納期限及び分納税額の計算の明細"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第1回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00020" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等又はその他の財産に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00090" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00100" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00110" type="BHE00110-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00120" type="BHE00120-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00130" type="BHE00130-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第2回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00150" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等又はその他の財産に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00210" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00220" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00230" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00240" type="BHE00240-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00250" type="BHE00250-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00260" type="BHE00260-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00270" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第3回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00280" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等又はその他の財産に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00340" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00350" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00360" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00370" type="BHE00370-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00380" type="BHE00380-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00390" type="BHE00390-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00400" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第4回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00410" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00420" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00430" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等又はその他の財産に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00460" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00470" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00480" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00490" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00500" type="BHE00500-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00510" type="BHE00510-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00520" type="BHE00520-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00530" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第5回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00540" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00550" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00560" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00570" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00580" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等又はその他の財産に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00590" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00600" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00610" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00620" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00630" type="BHE00630-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00640" type="BHE00640-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00650" type="BHE00650-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00660" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第6回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00670" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00680" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00690" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00700" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00710" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等又はその他の財産に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00720" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00730" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00740" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00750" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00760" type="BHE00760-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00770" type="BHE00770-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00780" type="BHE00780-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00790" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第7回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00800" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00810" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00820" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00830" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00840" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等又はその他の財産に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00850" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00860" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00870" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00880" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00890" type="BHE00890-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00900" type="BHE00900-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00910" type="BHE00910-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00920" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第8回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00930" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00940" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE00950" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00960" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00970" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等又はその他の財産に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE00980" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE00990" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01000" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01020" type="BHE01020-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01030" type="BHE01030-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01040" type="BHE01040-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第9回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01060" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等又はその他の財産に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01130" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01140" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01150" type="BHE01150-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01160" type="BHE01160-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01170" type="BHE01170-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第10回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01190" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等又はその他の財産に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01250" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01260" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01270" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01280" type="BHE01280-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01290" type="BHE01290-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01300" type="BHE01300-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01310" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第11回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01320" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01370" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01380" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01390" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01400" type="BHE01400-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01410" type="BHE01410-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01420" type="BHE01420-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01430" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第12回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01440" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01450" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01460" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01480" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01490" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01500" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01510" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01520" type="BHE01520-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01530" type="BHE01530-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01540" type="BHE01540-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01550" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第13回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01560" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01570" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01580" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01590" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01600" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01610" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01620" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01630" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01640" type="BHE01640-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01650" type="BHE01650-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01660" type="BHE01660-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01670" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第14回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01680" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01690" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01700" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01710" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01720" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01730" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01740" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01750" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01760" type="BHE01760-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01770" type="BHE01770-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01780" type="BHE01780-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01790" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第15回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01800" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01810" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01820" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01830" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01840" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01850" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01860" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01870" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01880" type="BHE01880-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01890" type="BHE01890-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01900" type="BHE01900-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01910" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第16回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01920" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01930" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01940" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01950" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE01960" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE01970" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01980" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE01990" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02000" type="BHE02000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02010" type="BHE02010-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02020" type="BHE02020-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第17回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02100" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02110" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02120" type="BHE02120-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02130" type="BHE02130-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02140" type="BHE02140-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02150" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第18回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02160" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02170" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02210" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02220" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02230" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02240" type="BHE02240-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02250" type="BHE02250-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02260" type="BHE02260-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02270" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第19回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02280" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02290" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02330" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02340" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02350" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02360" type="BHE02360-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02370" type="BHE02370-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02380" type="BHE02380-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02390" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期間　第20回"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02400" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02410" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02420" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02430" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02450" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"（30）の各期間内に計画伐採する立木の伐採時期及び材積"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02460" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02470" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伐採時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02480" type="BHE02480-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02490" type="BHE02490-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02500" type="BHE02500-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"構成割合"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02510" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02520" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"延納相続税額の分納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="BHE02530" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計画伐採立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02540" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"不動産等又は立木に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02550" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"動産等又はその他の財産に係る税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="BHE02560" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"分納税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="BHE02570" type="BHE02570-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"材積合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+
+<xsd:simpleType name="BHC00040-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHC00070-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHC00100-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHC00160-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHC00190-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHC00220-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHD00040-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHD00070-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHD00100-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHD00140-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHD00170-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHD00200-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHD00240-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHD00270-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHD00300-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00110-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00120-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00130-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00240-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00250-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00260-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00370-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00380-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00390-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00500-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00510-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00520-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00630-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00640-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00650-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00760-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00770-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00780-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00890-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00900-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE00910-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01020-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01030-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01040-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01150-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01160-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01170-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01280-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01290-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01300-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01400-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01410-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01420-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01520-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01530-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01540-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01640-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01650-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01660-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01760-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01770-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01780-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01880-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01890-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE01900-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02000-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02010-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02020-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02120-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02130-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02140-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02240-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02250-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02260-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02360-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02370-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02380-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02480-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02490-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02500-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="BHE02570-2-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d"/><xsd:pattern value="[-]?\d?\d?\d?\d?\d?\d?\d?\d?[.]\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="BHC00040-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHC00040-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHC00070-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHC00070-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHC00100-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHC00100-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHC00160-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHC00160-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHC00190-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHC00190-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHC00220-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHC00220-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHD00040-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHD00040-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHD00070-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHD00070-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHD00100-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHD00100-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHD00140-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHD00140-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHD00170-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHD00170-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHD00200-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHD00200-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHD00240-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHD00240-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHD00270-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHD00270-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHD00300-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHD00300-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00110-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00110-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00120-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00120-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00130-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00130-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00240-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00240-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00250-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00250-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00260-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00260-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00370-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00370-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00380-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00380-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00390-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00390-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00500-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00500-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00510-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00510-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00520-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00520-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00630-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00630-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00640-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00640-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00650-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00650-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00760-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00760-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00770-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00770-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00780-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00780-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00890-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00890-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00900-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00900-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE00910-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE00910-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01020-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01020-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01030-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01030-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01040-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01040-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01150-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01150-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01160-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01160-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01170-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01170-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01280-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01280-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01290-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01290-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01300-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01300-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01400-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01400-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01410-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01410-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01420-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01420-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01520-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01520-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01530-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01530-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01540-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01540-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01640-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01640-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01650-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01650-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01660-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01660-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01760-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01760-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01770-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01770-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01780-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01780-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01880-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01880-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01890-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01890-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE01900-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE01900-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02000-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02000-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02010-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02010-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02020-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02020-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02120-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02120-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02130-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02130-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02140-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02140-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02240-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02240-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02250-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02250-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02260-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02260-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02360-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02360-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02370-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02370-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02380-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02380-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02480-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02480-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02490-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02490-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02500-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02500-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="BHE02570-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="BHE02570-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/somu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：税理士登録通知書
+version：1.0
+Date：2004年12月16日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="SOZ460-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="SOZ460-1-0group">
+<xsd:sequence>
+<xsd:element name="SOZ460">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="SOZ460-1" type="SOZ460-1-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知書一面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SOZ460-2" type="SOZ460-2-1-0type" minOccurs="0" maxOccurs="unbounded">
+<xsd:annotation>
+<xsd:appinfo>"通知書ニ面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="SOZ460-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="SOZ460-1-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ALA00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知書"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALA00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発遣番号"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALA00020" type="ALA00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"発遣番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALA00030" type="ALA00030-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"第＿号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ALA00040" type="ALA00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"登録番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALA00050" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALA00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"日本税理士会連合会会長名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="SOZ460-2-1-0type">
+<xsd:sequence>
+
+<xsd:element name="ALB00000" minOccurs="0" maxOccurs="18">
+<xsd:annotation>
+<xsd:appinfo>"次葉"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ALB00010" type="ALB00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"経由税理士会"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALB00020" type="ALB00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"登録番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALB00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALB00040" type="ALB00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士となった資格"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="ALB00050" type="ALB00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士証票番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+<xsd:simpleType name="ALA00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="4"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ALA00030-1-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ALA00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ALB00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="6"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ALB00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ALB00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="ALB00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:complexType name="ALA00030-1-0type">
+<xsd:simpleContent>
+<xsd:extension base="ALA00030-1-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

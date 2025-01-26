@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：石油ガス税納税申告書
+version：2.1
+Date：2023年01月17日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="IND010-2-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/><xsd:enumeration value="2.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="IND010-2-1group">
+<xsd:sequence>
+<xsd:element name="IND010">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="HAA00000" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告年月分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="HAB00000" type="HAB00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="HAC00000" type="HAC00000-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告提出区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="HAD00000" type="HAD00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"石油ガス税の明細"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="HAE00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告書作成者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="HAF00000" type="HAF00000-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士法上の書面提出の有無"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="HAG00000" type="HAG00000-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知希望区分(加算税)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAH00000" type="HAH00000-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知希望区分(還付金振込)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="IND010-2-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="HAB00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="HAB00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"石油ガスの充てん場の所在地及び名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HAB00040" type="gen:SEIZOJO_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00050" type="gen:SEIZOJO_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00060" type="gen:SEIZOJO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00070" type="gen:SEIZOJO_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HAB00080" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HAB00090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HAB00100" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00110" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00120" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HAB00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称及び代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HAB00140" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00150" type="gen:DAIHYO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"代表者氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HAB00160" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"同上代理人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HAB00170" type="gen:KANPU_KINYUKIKANref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付を受けようとする金融機関"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAB00180" type="gen:DAIRI_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士署名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="HAD00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="HAD00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この申告書による税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HAD00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"石油ガス税額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除(還付)を受けようとする金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HAD00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"戻入れによるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入によるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"領収不能によるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"災害被害によるもの"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HAD00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付を受ける金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00102" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"この申告書が修正申告である場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HAD00104" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告前の確定額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00106" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="HAD00220" type="HAD00220-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00230" type="HAD00230-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"期限後申告・修正申告をする理由・事情"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"添付書類"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HAD00250" type="HAD00250-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未納税・免税物品等亡失証明書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00260" type="HAD00260-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"石油ガス税特定用途免税課税石油ガス移入明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00270" type="HAD00270-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"石油ガス税特定用途免税課税石油ガス移出明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00280" type="HAD00280-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"石油ガス税戻入れ・移入控除(還付)税額計算書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00290" type="HAD00290-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"石油ガス税課税済証明書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00300" type="HAD00300-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"石油ガス税災害控除(還付)明細書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00310" type="HAD00310-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"石油ガス税課税物件被災確認書"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAD00320" type="HAD00320-2-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被災課税石油ガスについて損失補償を受けた事実を証する書類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="HAF00000-2-1type">
+<xsd:sequence>
+
+<xsd:element name="HAF00010" type="HAF00010-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士法第30条の書面提出有"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HAF00020" type="HAF00020-2-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士法第33条の２の書面提出有"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="HAC00000-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="4"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="HAD00220-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="126"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAD00230-2-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="126"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAD00250-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAD00260-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAD00270-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAD00280-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAD00290-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAD00300-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAD00310-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="HAD00320-2-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="HAF00010-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HAF00020-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HAG00000-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="HAH00000-2-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+
+
+<xsd:complexType name="HAD00250-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="HAD00250-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HAD00260-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="HAD00260-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HAD00270-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="HAD00270-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HAD00280-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="HAD00280-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HAD00290-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="HAD00290-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HAD00300-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="HAD00300-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HAD00310-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="HAD00310-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="HAD00320-2-1type">
+<xsd:simpleContent>
+<xsd:extension base="HAD00320-2-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

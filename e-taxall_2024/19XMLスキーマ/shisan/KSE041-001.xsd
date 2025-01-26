@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：暦年課税分の贈与税額控除額の計算書(第4表の2)(平成31年1月分以降用)
+version：1.0
+Date：2019年06月27日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE041-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE041-1-0group">
+<xsd:sequence>
+<xsd:element name="KSE041">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="FFA00000" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFC00000" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前年分（＿年分）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFD00000" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前々年分（＿年分）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFE00000" type="gen:yy" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前々々年分（＿年分）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="FFB00000" type="FFB00000-1-0type" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE041-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="FFB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="FFB00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除を受ける人の氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前年分（＿年分）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FFB00030" type="FFB00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与税の申告書の提出先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前年中に暦年課税に係る贈与によって取得した特例贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1)のうち被相続人から暦年課税に係る贈与によって取得した特例贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その年分の暦年課税分の贈与税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除を受ける贈与税額（特例贈与財産分）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前年中に暦年課税に係る贈与によって取得した一般贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5)のうち被相続人から暦年課税に係る贈与によって取得した一般贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00100" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その年分の暦年課税分の贈与税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除を受ける贈与税額（一般贈与財産分）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FFB00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前々年分（＿年分）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FFB00130" type="FFB00130-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与税の申告書の提出先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00140" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前々年中に暦年課税に係る贈与によって取得した特例贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(9)のうち被相続人から暦年課税に係る贈与によって取得した特例贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その年分の暦年課税分の贈与税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除を受ける贈与税額（特例贈与財産分）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前々年中に暦年課税に係る贈与によって取得した一般贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(13)のうち被相続人から暦年課税に係る贈与によって取得した一般贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その年分の暦年課税分の贈与税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除を受ける贈与税額（一般贈与財産分）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FFB00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前々々年分（＿年分）"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FFB00230" type="FFB00230-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"贈与税の申告書の提出先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前々々年中に暦年課税に係る贈与によって取得した特例贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(17)のうち相続開始の日から遡って3年前の日以後に被相続人から暦年課税に係る贈与によって取得した特例贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その年分の暦年課税分の贈与税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除を受ける贈与税額（特例贈与財産分）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00280" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始の年の前々々年中に暦年課税に係る贈与によって取得した一般贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(21)のうち相続開始の日から遡って3年前の日以後に被相続人から暦年課税に係る贈与によって取得した一般贈与財産の価額の合計額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"その年分の暦年課税分の贈与税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="FFB00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除を受ける贈与税額（一般贈与財産分）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="FFB00320" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"暦年課税分の贈与税額控除額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="FFB00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="6"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FFB00130-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="6"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="FFB00230-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="6"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

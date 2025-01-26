@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/gensen"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/gensen"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：振替国債等の利子等課税の特例に関する異動申告書
+version：1.0
+Date：2024年01月23日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="GEZ860-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="GEZ860-1-0group">
+<xsd:sequence>
+<xsd:element name="GEZ860">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="CMA00000" type="gen:yyyymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"日付"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMB00000" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税務署名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="CMC00000" type="CMC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出者"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMD00000" type="CMD00000-1-0type">
+<xsd:annotation>
+<xsd:appinfo>"申告内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="GEZ860-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CMC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CMC00010" type="CMC00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出する者の種類"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMC00020" type="CMC00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出する者の氏名又は名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMC00030" type="gen:bango" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個人番号又は法人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMC00040" type="CMC00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出する者の住所等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMC00050" type="CMC00050-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出する者の種類により記載すべき事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CMD00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CMD00010" maxOccurs="4">
+<xsd:annotation>
+<xsd:appinfo>"異動事項　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CMD00020" type="CMD00020-1-0Rtype">
+<xsd:annotation>
+<xsd:appinfo>"異動事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMD00030" type="CMD00030-1-0Rtype">
+<xsd:annotation>
+<xsd:appinfo>"異動前"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMD00040" type="CMD00040-1-0Rtype">
+<xsd:annotation>
+<xsd:appinfo>"異動後"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CMD00050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格外国仲介事業者等の所在地及び名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CMD00060" type="CMD00060-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMD00070" type="CMD00070-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CMD00080" type="gen:yyyymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"適格外国仲介業者の特定国外営業所等（の長）の受理日付"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMD00090" type="gen:yyyymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"非課税適用申告書の提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMD00100" type="CMD00100-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定国外営業所等が確認した確認書類の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMD00110" type="CMD00110-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"摘要"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMD00120" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"特定振替機関等の所在地及び名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CMD00130" type="CMD00130-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CMD00140" type="CMD00140-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CMD00150" type="gen:yyyymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"受理日付"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="CMC00010-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="4"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CMC00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="210"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CMC00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="180"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CMC00050-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="390"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CMD00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="90"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CMD00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="290"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CMD00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="290"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CMD00060-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="60"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CMD00070-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CMD00100-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="120"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CMD00110-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="660"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CMD00130-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="60"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CMD00140-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

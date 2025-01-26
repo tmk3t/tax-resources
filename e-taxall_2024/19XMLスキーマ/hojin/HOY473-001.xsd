@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hojin"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：帳簿組織の状況(第3表付表3)
+version：1.0
+Date：2004年03月25日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HOY473-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HOY473-1-0group">
+<xsd:sequence>
+<xsd:element name="HOY473">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="GBA00000" type="GBA00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合併前の法人名及び対象となる事業年度又は年"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="GBB00000" type="GBB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GBC00000" type="GBC00000-1-0type" minOccurs="0" maxOccurs="9">
+<xsd:annotation>
+<xsd:appinfo>"帳簿組織の内容　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HOY473-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="GBB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GBB00010" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法人名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GBC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="GBC00010" type="GBC00010-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"伝票又は帳簿名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GBC00020" type="GBC00020-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左の帳簿等の形態"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GBC00030" type="GBC00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"記帳の時期"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GBC00040" type="GBC00040-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"保存期間"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="GBA00000-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GBC00010-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="100"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GBC00020-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="65"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GBC00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GBC00040-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="10"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+</xsd:schema>

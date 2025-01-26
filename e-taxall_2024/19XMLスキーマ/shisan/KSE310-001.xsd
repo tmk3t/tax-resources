@@ -1,0 +1,1843 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shisan"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：相続税の修正申告書(第1表)(平成31年1月分以降用)
+version：1.1
+Date：2021年09月03日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KSE310-1-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/><xsd:enumeration value="1.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KSE310-1-1group">
+<xsd:sequence>
+<xsd:element name="KSE310">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAA00000" type="GAA00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告書見出し部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAB00000" type="GAB00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00000" type="GAC00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00000" type="GAD00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"財産を取得した人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00000" type="GAE00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"作成税理士の事務所所在地・署名押印・電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KSE310-1-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="GAA00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="GAA00010" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出先税務署"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAA00020" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAA00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続開始年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GAB00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="GAB00010" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAB00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAB00030" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"生年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAB00040" type="GAB00040-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年齢"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAB00050" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAB00060" type="gen:shokugyo" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"職業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GAC00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="GAC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得財産の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00050" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続時精算課税適用財産の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債務及び葬式費用の金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00180" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額に加算される暦年課税分の贈与財産価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00200" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00220" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00240" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00260" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の算出税額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00270" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法定相続人の数及び遺産に係る基礎控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00280" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00290" type="GAC00290-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法定相続人の数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"遺産に係る基礎控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00310" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00320" type="GAC00320-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法定相続人の数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"遺産に係る基礎控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00340" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00350" type="GAC00350-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"法定相続人の数"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00360" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"遺産に係る基礎控除額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00370" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続税の総額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00390" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00400" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00410" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一般の場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00420" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算出税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00430" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00440" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00450" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00460" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農地等納税猶予の適用を受ける場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00470" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算出税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00480" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00500" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00510" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続税額の２割加算が行われる場合の加算金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00520" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00530" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00540" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00550" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の納付・還付税額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00560" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額控除"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00570" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"暦年課税分の贈与税額控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00580" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00590" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00600" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00610" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配偶者の税額軽減額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00620" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00630" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00640" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00650" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未成年者控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00660" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00670" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00680" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00690" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00700" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00710" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00720" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00730" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相次相続控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00740" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00750" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00760" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00770" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国税額控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00780" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00790" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00800" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00810" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00820" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00830" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00840" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00850" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00860" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00870" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00880" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00890" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続時精算課税分の贈与税額控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00900" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00910" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00920" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00930" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"医療法人持分税額控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00940" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00950" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00960" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC00970" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC00980" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC00990" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC01000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC01010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税猶予税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC01020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC01030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC01040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC01050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC01060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告期限までに納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC01070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC01080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC01090" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAC01100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付される税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAC01110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC01120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAC01130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GAD00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="GAD00010" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00030" type="gen:bango" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"個人番号又は法人番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00040" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"生年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00050" type="GAD00050-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年齢"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00060" type="gen:zipcode" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00070" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00080" type="gen:tel-number" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00090" type="GAD00090-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"被相続人との続柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00100" type="gen:shokugyo" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"職業"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00110" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得原因"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00120" type="GAD00120-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00130" type="GAD00130-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"遺贈"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00140" type="GAD00140-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続時精算課税に係る贈与"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00150" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00160" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"取得財産の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00180" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00190" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続時精算課税適用財産の価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00210" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00220" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00230" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00240" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"債務及び葬式費用の金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00250" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00260" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00270" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00280" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00290" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00300" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00310" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00320" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"純資産価額に加算される暦年課税分の贈与財産価額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00330" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00340" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00350" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00360" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"課税価格"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00370" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00380" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00390" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00400" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の算出税額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00410" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一般の場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00420" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"あん分割合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00430" type="GAD00430-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00440" type="GAD00440-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00450" type="GAD00450-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00460" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算出税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00470" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00480" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00490" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00500" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"農地等納税猶予の適用を受ける場合"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00510" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"算出税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00520" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00530" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00540" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00550" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続税額の２割加算が行われる場合の加算金額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00560" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00570" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00580" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00590" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"各人の納付・還付税額の計算"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00600" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額控除"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00610" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"暦年課税分の贈与税額控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00620" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00630" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00640" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00650" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"配偶者の税額軽減額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00660" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00670" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00680" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00690" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"未成年者控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00700" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00710" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00720" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00730" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"障害者控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00740" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00750" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00760" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00770" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相次相続控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00780" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00790" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00800" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00810" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"外国税額控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00820" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00830" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00840" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00850" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00860" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00870" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00880" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00890" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00900" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00910" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00920" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00930" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"相続時精算課税分の贈与税額控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00940" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00950" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00960" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD00970" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"医療法人持分税額控除額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD00980" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD00990" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD01000" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD01010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"小計"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD01020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD01030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD01040" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD01050" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税猶予税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD01060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD01070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD01080" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD01090" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告納税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD01100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告期限までに納付すべき税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD01110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD01120" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD01130" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD01140" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"還付される税額"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GAD01150" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正前の課税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD01160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正申告額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD01170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"修正する額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GAD01175" type="GAD01175-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"通知希望区分（加算税）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAD01180" type="gen:nozeisha-id" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"利用者識別番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GAE00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="GAE00010" type="gen:DAIRI_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事務所所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00020" type="gen:DAIRI_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00030" type="gen:DAIRI_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00040" type="GAE00040-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士法第30条の書面提出有"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GAE00050" type="GAE00050-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税理士法第33条の２の書面提出有"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="GAB00040-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAC00290-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAC00320-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAC00350-1-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?\d?"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAD00050-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="GAD00090-1-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun2">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun2_CD">
+                            <xsd:enumeration value="01"/><xsd:enumeration value="11"/><xsd:enumeration value="21"/><xsd:enumeration value="12"/><xsd:enumeration value="22"/><xsd:enumeration value="13"/><xsd:enumeration value="23"/><xsd:enumeration value="14"/><xsd:enumeration value="24"/><xsd:enumeration value="15"/><xsd:enumeration value="25"/><xsd:enumeration value="16"/><xsd:enumeration value="26"/><xsd:enumeration value="17"/><xsd:enumeration value="27"/><xsd:enumeration value="18"/><xsd:enumeration value="28"/><xsd:enumeration value="19"/><xsd:enumeration value="29"/><xsd:enumeration value="90"/><xsd:enumeration value="30"/><xsd:enumeration value="41"/><xsd:enumeration value="42"/><xsd:enumeration value="51"/><xsd:enumeration value="52"/><xsd:enumeration value="61"/><xsd:enumeration value="63"/><xsd:enumeration value="62"/><xsd:enumeration value="64"/><xsd:enumeration value="10"/><xsd:enumeration value="99"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="GAD00120-1-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="GAD00130-1-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="GAD00140-1-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="GAD00430-1-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="1"/><xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAD00440-1-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:minInclusive value="0"/><xsd:maxInclusive value="1"/><xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GAD00450-1-1Rtype">
+    <xsd:restriction base="gen:decimalType">
+        <xsd:pattern value="[-]?\d?"/><xsd:pattern value="[-]?\d?[.]\d"/><xsd:pattern value="[-]?\d?[.]\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d"/><xsd:pattern value="[-]?\d?[.]\d\d\d\d\d\d\d\d\d\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="GAD01175-1-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="GAE00040-1-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:complexType name="GAE00050-1-1Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+
+
+<xsd:complexType name="GAB00040-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GAB00040-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAC00290-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GAC00290-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAC00320-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GAC00320-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAC00350-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GAC00350-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAD00050-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GAD00050-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAD00430-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GAD00430-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAD00440-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GAD00440-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GAD00450-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GAD00450-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

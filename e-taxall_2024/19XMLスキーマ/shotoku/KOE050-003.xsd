@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shotoku"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：平成  年分　医療費に係る領収書等の記載事項
+version：3.0
+Date：2012年10月01日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="KOE050-3-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="3.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="KOE050-3-0group">
+<xsd:sequence>
+<xsd:element name="KOE050">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="IEA00000" type="gen:NENBUNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"年分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEB00000" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="IEC00000" type="IEC00000-3-0type" minOccurs="0" maxOccurs="15">
+<xsd:annotation>
+<xsd:appinfo>"医療費の内訳　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IED00000" type="IED00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"次葉合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEE00000" type="IEE00000-3-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"合計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEF00000" type="IEF00000-3-0type" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"支払ったおむつに係る費用などが医療費控除の対象となるための証明書（おむつ使用証明書など）　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="KOE050-3-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="IEC00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="IEC00010" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"医療を受けた人"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEC00020" type="gen:zokugara" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"続柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEC00030" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"病院・薬局などの所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEC00040" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"病院・薬局などの名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEC00050" type="IEC00050-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"治療内容・医療品名など"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEC00060" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払った医療費"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEC00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち生命保険や社会保険などで補填される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="IED00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="IED00010" type="IED00010-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"項目名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IED00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払った医療費"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IED00030" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち生命保険や社会保険などで補填される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="IEE00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="IEE00010" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"支払った医療費"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEE00020" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"左のうち生命保険や社会保険などで補填される金額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="IEF00000-3-0type">
+<xsd:sequence>
+
+<xsd:element name="IEF00010" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"証明年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEF00020" type="IEF00020-3-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"証明書の名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="IEF00030" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"証明者の名称（医療機関名等）"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="IEC00050-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IED00010-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="4"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="IEF00020-3-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>

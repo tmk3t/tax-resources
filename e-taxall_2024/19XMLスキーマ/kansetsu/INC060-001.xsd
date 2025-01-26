@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/kansetsu"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：揮発油税戻入れ(移入)控除(還付)税額計算書(バイオエタノール等揮発油に係る課税標準の特例適用者用)
+version：1.1
+Date：2021年08月13日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="INC060-1-1VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/><xsd:enumeration value="1.1"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="INC060-1-1group">
+<xsd:sequence>
+<xsd:element name="INC060">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="GFA00000" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"一般申告用年月分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFB00000" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"都度申告用年月日分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="GFC00000" type="GFC00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造場の所在地及び名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFD00000" type="GFD00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"戻入れ揮発油"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFE00000" type="GFE00000-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入揮発油"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+<xsd:element name="GFF00000" type="GFF00000-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"参考事項"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="INC060-1-1VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="GFC00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="GFC00010" type="gen:SEIZOJO_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFC00020" type="gen:SEIZOJO_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"所在地"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFC00030" type="gen:SEIZOJO_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GFD00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="GFD00010" minOccurs="0" maxOccurs="7">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GFD00020" type="GFD00020-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"品名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFD00030" type="GFD00030-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"戻入れ数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFD00040" type="GFD00040-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[A]のうち、エタノールの数量に相当する数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFD00050" type="GFD00050-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFD00060" type="GFD00060-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFD00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GFD00080" type="GFD00080-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"戻入れ数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFD00090" type="GFD00090-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFD00100" type="GFD00100-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFD00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="GFE00000-1-1type">
+<xsd:sequence>
+
+<xsd:element name="GFE00010" minOccurs="0" maxOccurs="7">
+<xsd:annotation>
+<xsd:appinfo>"明細　繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="GFE00020" type="GFE00020-1-1Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"品名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFE00030" type="GFE00030-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFE00040" type="GFE00040-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"[F]のうち、エタノールの数量に相当する数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFE00050" type="GFE00050-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFE00060" type="GFE00060-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引数量"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFE00070" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="GFE00080" type="GFE00080-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"移入数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFE00090" type="GFE00090-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"控除数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFE00100" type="GFE00100-1-1type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"差引数量計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="GFE00110" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"税額計"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:simpleType name="GFD00020-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFD00030-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFD00040-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFD00050-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFD00060-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFD00080-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFD00090-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFD00100-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFE00020-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFE00030-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFE00040-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFE00050-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFE00060-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFE00080-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFE00090-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFE00100-1-1Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="GFF00000-1-1Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="80"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="GFD00030-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFD00030-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFD00040-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFD00040-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFD00050-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFD00050-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFD00060-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFD00060-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFD00080-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFD00080-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFD00090-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFD00090-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFD00100-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFD00100-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFE00030-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFE00030-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFE00040-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFE00040-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFE00050-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFE00050-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFE00060-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFE00060-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFE00080-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFE00080-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFE00090-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFE00090-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="GFE00100-1-1type">
+<xsd:simpleContent>
+<xsd:extension base="GFE00100-1-1Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

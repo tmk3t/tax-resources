@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/hoteishiryo"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：源泉徴収票不交付の届出書(英語版)
+version：2.0
+Date：2018年01月11日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="HSZ081-2-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="2.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="HSZ081-2-0group">
+<xsd:sequence>
+<xsd:element name="HSZ081">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="HSZ081-1" type="HSZ081-1-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出書一面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="HSZ081-2" type="HSZ081-2-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"届出書二面"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="HSZ081-2-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="HSZ081-1-2-0type">
+<xsd:sequence>
+
+<xsd:element name="AZA00000" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Tax Office"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Presentation Date"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00020" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Applicant"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZA00030" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Domicile or residence"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00040" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Full name"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00050" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Telephone Number"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AZA00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Employer"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZA00070" type="gen:address" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Domicile (Residence or location)"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00080" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Full name"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00090" type="gen:tel-number" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Telephone Number"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Number of employees"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZA00115" type="gen:yymm" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"As of Year,Month"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00120" type="AZA00120-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Total Number of employees"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00130" type="AZA00130-2-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Number of foreigners out of the total"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AZA00140" minOccurs="0" maxOccurs="3">
+<xsd:annotation>
+<xsd:appinfo>"Details, such as the income amount of money  繰り返し"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZA00150" type="AZA00150-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Year"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00160" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Total employment receipt"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00170" type="gen:kingaku" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Withholding income tax amount"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00180" type="AZA00180-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Do you keep relevant payment slip?"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AZA00190" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Summary of consultation with the employer"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZA00200" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Term of employment"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZA00215" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Start"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZA00225" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"End"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AZA00230" type="AZA00230-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Summary"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AZC00000" type="AZC00000-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Is it acceptable for you that tax authority would disclose your name to the employer as a person who made this notice?"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType><xsd:complexType name="HSZ081-2-2-0type">
+<xsd:sequence>
+
+<xsd:element name="AZB00000" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"1.Fill out the following items"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZB00015" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1) The date of original entry into Japan"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZB00020" type="AZB00020-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2) Your visa status in Japan"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZB00030" type="AZB00030-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(3) The period you are permitted to stay in Japan"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZB00040" type="AZB00040-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(4) Your nationality"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZB00050" type="AZB00050-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(5) Your number of alien registration"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AZB00060" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"2.The period of each type of resident status"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(1) The period of Resident Taxpayer"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZB00085" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Start"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZB00095" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"End"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AZB00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"(2) The period of Nonresident Taxpayer"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZB00115" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Start"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZB00125" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"End"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AZB00130" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"3.Have you ever left from Japan since you become a resident taxpayer?"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZB00140" type="AZB00140-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Yes or No"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZB00150" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"The period which left a country from Japan"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="AZB00165" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Start"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="AZB00175" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"End"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AZB00190" type="AZB00190-2-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"Other information that may be helpful"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="page" type="xsd:positiveInteger"/>
+</xsd:complexType>
+
+
+<xsd:simpleType name="AZA00120-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AZA00130-2-0Rtype">
+    <xsd:restriction base="gen:nonNegativeType">
+        <xsd:pattern value="\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d?\d"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AZA00150-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="4"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="AZA00180-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="AZA00230-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="400"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="AZC00000-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="AZB00020-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="30"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AZB00030-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AZB00040-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="AZB00050-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="15"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="AZB00140-2-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="AZB00190-2-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="600"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+<xsd:complexType name="AZA00120-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="AZA00120-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+<xsd:complexType name="AZA00130-2-0type">
+<xsd:simpleContent>
+<xsd:extension base="AZA00130-2-0Rtype">
+<xsd:attribute name="AutoCalc" type="xsd:string"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>

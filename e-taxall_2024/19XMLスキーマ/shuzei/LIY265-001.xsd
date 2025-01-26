@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema targetNamespace="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns="http://xml.e-tax.nta.go.jp/XSD/shuzei"
+xmlns:gen="http://xml.e-tax.nta.go.jp/XSD/general" xmlns:kyo="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" > 
+<xsd:annotation> 
+<xsd:documentation> 
+様式名：【酒類・酒母・もろみ】【製造業・販売業】事業譲渡申告書
+version：1.0
+Date：2020年11月11日
+</xsd:documentation> 
+</xsd:annotation> 
+
+<!-- import -->
+<xsd:import namespace="http://xml.e-tax.nta.go.jp/XSD/general" schemaLocation="../general/General.xsd"/>
+
+<!-- version -->
+<xsd:simpleType name="LIY265-1-0VRtype"><xsd:restriction base="xsd:string"><xsd:enumeration value="1.0"/></xsd:restriction></xsd:simpleType>
+
+<xsd:group name="LIY265-1-0group">
+<xsd:sequence>
+<xsd:element name="LIY265">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element name="CJA00000" type="CJA00000-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告区分"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element><xsd:element name="CJB00000" type="CJB00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"納税者等部"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJC00000" type="CJC00000-1-0type" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告内容"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+
+</xsd:sequence>
+<xsd:attribute name="VR"
+type="LIY265-1-0VRtype"
+use="required"/>
+<xsd:attributeGroup ref="gen:FormAttribute"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:group>
+
+<xsd:complexType name="CJB00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CJB00010" type="gen:TEISYUTSU_DAYref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"提出年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJB00020" type="gen:ZEIMUSHOref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告先"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJB00030" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告者"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CJB00040" type="gen:NOZEISHA_ZIPref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"郵便番号"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJB00050" type="gen:NOZEISHA_ADRref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住所"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJB00060" type="gen:NOZEISHA_TELref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"電話"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJB00070" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名(フリガナ)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CJB00080" type="gen:NOZEISHA_NM_KNref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJB00090" type="gen:NOZEISHA_NMref" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType><xsd:complexType name="CJC00000-1-0type">
+<xsd:sequence>
+
+<xsd:element name="CJC00010" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡者の氏名及び申告者との続柄"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CJC00020" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJC00030" type="CJC00030-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"続柄"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CJC00040" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"申告販売場の酒類販売管理者(の選任予定)"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CJC00050" type="gen:n-kana" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"フリガナ"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJC00060" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"氏名"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJC00070" type="CJC00070-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"役職等、申告者との関係、生年月日等"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CJC00080" type="CJC00080-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲受者において、引き続き製造若しくは販売しようとする酒類の品目又は酒母、もろみの別"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJC00090" type="CJC00090-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"譲渡者の免許に付けられていた条件又は期限"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJC00100" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"製造場又は販売場の所在地及び名称"</xsd:appinfo>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="CJC00110" type="CJC00110-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"地番"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJC00120" type="CJC00120-1-0Rtype" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"住居表示"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="CJC00130" type="gen:name" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"名称"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="CJC00140" type="gen:yymmdd" minOccurs="0">
+<xsd:annotation>
+<xsd:appinfo>"事業譲渡年月日"</xsd:appinfo>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+
+
+<xsd:complexType name="CJA00000-1-0Rtype">
+    <xsd:complexContent>
+        <xsd:restriction base="gen:kubun">
+            <xsd:sequence>
+                <xsd:element name="kubun_CD">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_CD">
+                            <xsd:enumeration value="1"/><xsd:enumeration value="2"/><xsd:enumeration value="3"/><xsd:enumeration value="4"/><xsd:enumeration value="5"/><xsd:enumeration value="6"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="kubun_NM" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="gen:kubun_NM">
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:restriction>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CJC00030-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="40"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CJC00070-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="20"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CJC00080-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="344"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CJC00090-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="172"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CJC00110-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="172"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CJC00120-1-0Rtype">
+    <xsd:restriction base="gen:str">
+        <xsd:maxLength value="258"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+
+
+</xsd:schema>
